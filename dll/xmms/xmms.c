@@ -1,17 +1,5 @@
 #if !defined(WINNT) && !defined(EMX)
-/*
- * xmms.c: This file handles all the XMMS routines, in BitchX
- *
- * Written by André Camargo
- * based on the code of Tom Zickel a.k.a. IceBreak on the IRC
- * and Peter Alm, Mikael Alm, Olle Hallnas, Thomas Nilsson and 
- * 4Front Technologies
- *
- * Copyleft (1999) "CASSIUS IN THE HOUSE!" :)
- *
- * BitchX plugin v0.01 by DavidW2
- * BitchX plugin v1.00 by caf
- */
+
 
 #include "irc.h"
 #include "struct.h"

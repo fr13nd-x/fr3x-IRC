@@ -6,7 +6,7 @@
 %Ghint%n: Set %RAUTO_NSLOOKUP%n to find the user's host on every join.
 %Ghint%n: Set number of beeps if someone /MSGs you by %RBEEP_WHEN_AWAY%n
 %Ghint%n: Set %RBOT_LOG%n to log your BOT commands. (like autoop)
-%Ghint%n: Set %RBITCH%n if you don't want un-authorized person to have ops.
+%Ghint%n: Set %Rfr3%n if you don't want un-authorized person to have ops.
 %Ghint%n: If you don't like that '/' is for your command, set %RCMDCHARS%n for new
 %Ghint%n: Set %RDCC_AUTOGET%n to specify wether you wan't to AUTOGET the packages.
 %Ghint%n: Set %RCTCP_FLOOD_PROTECTION%n to change CTCP protection ON/OFF

@@ -1,9 +1,9 @@
-Process Signals Relevant to the Operation of BitchX                       
+Process Signals Relevant to the Operation of fr3X                       
 
-BitchX's behavior can be controlled (to an extent) from the Unix command line
+fr3X's behavior can be controlled (to an extent) from the Unix command line
 via signals.  The following signals have notable affects on the client:
 
-   SIGSEGV   cause the client to dump core, if compiled with BITCHX_DEBUG
+   SIGSEGV   cause the client to dump core, if compiled with fr3X_DEBUG
    SIGTERM   cause the client to immediately, but gracefully, exit
    SIGKILL   cause the client to die immediately, no cleanup
    SIGUSR1   cause the client to close all DCC connections and any EXEC'd

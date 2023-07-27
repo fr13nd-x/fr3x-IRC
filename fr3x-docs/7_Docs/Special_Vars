@@ -1,7 +1,7 @@
 Special Variables and Expandos                                              
 
 In addition to normal variables created with ASSIGN, and the builtin SET
-variables, BitchX also supports a number of reserved, dynamic variables,
+variables, fr3X also supports a number of reserved, dynamic variables,
 sometimes referred to as expandos.  They are special in that the client is
 constantly updating their values automatically.  There are also numerous
 variable modifiers available.

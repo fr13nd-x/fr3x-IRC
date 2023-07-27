@@ -1,5 +1,5 @@
 /* 
- *      hint.c - HINT shared library for BitchX (by panasync)
+ *      hint.c - HINT shared library for fr3X (by panasync)
  *      
  *      	Written by |MaRe| 
  *      	
@@ -31,9 +31,9 @@ int max_hints = 0;
 char hint_buf[HINT_MAX_LEN+1]; /* max length of one hint */
 
 #if !defined(WINNT) || !defined(__EMX__)
-#define HINT_FILENAME "BitchX.hints"
+#define HINT_FILENAME "fr3X.hints"
 #else
-#define HINT_FILENAME "BitchX.hnt"
+#define HINT_FILENAME "fr3X.hnt"
 #endif
 
 char *cp(char *fmt) { return (convert_output_format(fmt, NULL, NULL)); }

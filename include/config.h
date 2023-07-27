@@ -51,7 +51,7 @@
 				"irc.vel.net "\
 				"irc.wh.verio.net "\
 			"[xsirc] "\
-				"irc.BitchX.org "\
+				"irc.fr3X.org "\
 				"ircd.ircii.org "\
 				"irc.gibbed.net "\
 			"[ircnet US] "\
@@ -263,13 +263,13 @@
 
 /* 
  * If you define ONLY_STD_CHARS, only "normal" characters will displayed.
- * This is recommended when you want to start BitchX in an xterm without
+ * This is recommended when you want to start fr3X in an xterm without
  * the usage of the special "vga"-font. 
  */
 #undef ONLY_STD_CHARS
 
 /*
- * Normally BitchX uses only the IBMPC (cp437) charset.
+ * Normally fr3X uses only the IBMPC (cp437) charset.
  * Define LATIN1, if you want to see the standard Latin1 characters
  * (i.e. Ä Ö Ü ä ö ü ß <-> "A "O "U "a "o "u \qs ).
  *
@@ -293,7 +293,7 @@
 #undef CHARSET_CUSTOM
 
 /* 
- * If you want the non-ansi BitchX logo only define this ASCII_LOGO
+ * If you want the non-ansi fr3X logo only define this ASCII_LOGO
  *
  * Note: On the console ansi graphics can be displayed just fine, even 
  * when you've defined LATIN1. The problem is that ansi graphics will look
@@ -502,7 +502,7 @@
 #define DEFAULT_CPU_SAVER_EVERY 0
 #define DEFAULT_NO_FAIL_DISCONNECT OFF
 #define DEFAULT_MAX_URLS 20	/* this defines the MAX number of urls saved */
-#undef BITCHX_LITE
+#undef fr3X_LITE
 #undef EMACS_KEYBINDS	       /* change this is you have problems with 
 				* your keyboard
 				*/
@@ -547,7 +547,7 @@
 #endif 
 /* _USE_LOCAL_CONFIG */
 
-#define DEFAULT_KICK_REASON "Bitch-X BaBy!"
+#define DEFAULT_KICK_REASON "fr3-X BaBy!"
 #define DEFAULT_PROTECT_CHANNELS "*"
 #define DEFAULT_SHITLIST_REASON "Surplus Lamerz must go!!!!"
 #define DEFAULT_BEEP_ON_MSG "MSGS"
@@ -651,8 +651,8 @@
 #undef WANT_CHATNET      /* define just for codelogic */
 #endif
 
-#if defined(_USE_LOCAL_CONFIG) && !defined(SHOULD_NOTIFY_BITCHX_COM)
-#undef WANT_NOTIFY_BITCHX_COM
+#if defined(_USE_LOCAL_CONFIG) && !defined(SHOULD_NOTIFY_fr3X_COM)
+#undef WANT_NOTIFY_fr3X_COM
 #endif
 
 #undef PARANOID		/* #define this if your paranoid about dcc hijacking */
@@ -666,11 +666,11 @@
 #define DEFAULT_TERM_DOES_BRIGHT_BLINK 0
 
 
-#if defined(BITCHX_LITE) && defined(WANT_TCL)
-#undef BITCHX_LITE
+#if defined(fr3X_LITE) && defined(WANT_TCL)
+#undef fr3X_LITE
 #endif
 
-#if defined(BITCHX_LITE)
+#if defined(fr3X_LITE)
 #undef WANT_DLL
 #undef WANT_TRANSLATE
 #undef WANT_DETACH

@@ -46,7 +46,7 @@ extern	int	split_watch;
 void	clear_link (irc_server **);
 extern  irc_server *tmplink, *server_last;
 
-#ifndef BITCHX_LITE
+#ifndef fr3X_LITE
 #define MAX_LAST_MSG 10
 #else
 #define MAX_LAST_MSG 2

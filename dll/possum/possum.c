@@ -85,7 +85,7 @@ int Possum_Init(IrcCommandDll **intp, Function_ptr *global_table) {
 
   if (tmp) strncpy(MBOX.filename, tmp, MAX_FNAME_LENGTH);
 
-  put_it("%s Possom Mail %s for BitchX has been excited.", cparse(PM_PROMPT, NULL, NULL), PM_VERSION);
+  put_it("%s Possom Mail %s for fr3X has been excited.", cparse(PM_PROMPT, NULL, NULL), PM_VERSION);
   put_it("%s %s", cparse(PM_PROMPT, NULL, NULL), "Type /PMHELP for help.");
   if (tmp) {
     put_it("%s Using %s for default mail box.", cparse(PM_PROMPT, NULL, NULL), MBOX.filename);

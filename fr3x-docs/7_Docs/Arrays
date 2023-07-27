@@ -1,13 +1,13 @@
 Karll's Array Suite                                                         
 
-BitchX and EPIC supports a large number of different data types.  Among the 
+fr3X and EPIC supports a large number of different data types.  Among the 
 least used, and least understood, are Karll's arrays.  This is mostly due to 
 the lack of publicized documentation for them.  No more.
 
 IrcII has long supported an array type.  These are best identified as hash
 arrays (or associative arrays, for Perl hackers).  However, Karll's arrays
 are different, more in line with the traditional notion of an array.  Due to
-how BitchX stores information, these arrays are not like normal variables or
+how fr3X stores information, these arrays are not like normal variables or
 hashes, and require special function to access and manipulate them.
 
 Arrays are indexed sequentially, starting with 0 (zero).  An array is

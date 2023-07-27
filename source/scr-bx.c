@@ -554,7 +554,7 @@ void init_socketpath(void)
 struct stat st;
 extern char socket_path[], attach_ttyname[];
 
-	sprintf(socket_path, "%s/.BitchX/screens", getenv("HOME"));
+	sprintf(socket_path, "%s/.fr3X/screens", getenv("HOME"));
 	if (access(socket_path, F_OK))
 		return;
 	if (stat(socket_path, &st) != -1)

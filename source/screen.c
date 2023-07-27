@@ -1772,7 +1772,7 @@ void BX_kill_screen(Screen *screen)
 		}
 
 		if (!list->next)
-			irc_exit(1, "BitchX: No windows left!", NULL);
+			irc_exit(1, "fr3X: No windows left!", NULL);
 	   }
 	}
 #ifndef GUI
@@ -1867,8 +1867,8 @@ void do_screens (fd_set *rd)
 				}
 				else
 				{
-					bitchsay("BitchX exiting on EOF from stdin");
-					irc_exit(1, "BitchX - EOF from stdin", NULL);
+					fr3say("fr3X exiting on EOF from stdin");
+					irc_exit(1, "fr3X - EOF from stdin", NULL);
 				}
 			}
 			else

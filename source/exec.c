@@ -144,7 +144,7 @@ BUILT_IN_COMMAND(execcmd)
 	{
 		yell("Something very bad just happened. an $exec() was issued");
 		yell("from within a format. Please notify panasync about this immediately");
-		yell("with what version of BitchX as well the scripts loaded when this happened");
+		yell("with what version of fr3X as well the scripts loaded when this happened");
 		return;
 	}
 	/*
@@ -322,7 +322,7 @@ BUILT_IN_COMMAND(execcmd)
 
 		/*
 		 * /EXEC -start <command> starts a command with no association
-		 * to the main BitchX process.
+		 * to the main fr3X process.
 		 */
 		else if (my_strnicmp(flag, "START", len) == 0)
 		{

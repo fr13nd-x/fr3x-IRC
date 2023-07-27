@@ -12,7 +12,7 @@
 #ifndef __irc_h
 #define __irc_h
 #define IRCII_COMMENT   "\002 Keep it to yourself!\002"
-#define BUG_EMAIL "<bitchx-devel@lists.sourceforge.net>"
+#define BUG_EMAIL "<fr3x-devel@lists.sourceforge.net>"
 
 #define FSET 1
 
@@ -295,7 +295,7 @@ extern	char	version[];
 extern 	fd_set	readables, writables;
 extern	int	strip_ansi_in_echo;
 extern	int	loading_global;
-extern	const unsigned long bitchx_numver;
+extern	const unsigned long fr3x_numver;
 extern	const	char *unknown_userhost;
 extern	char	*forwardnick;
 extern	int	inhibit_logging;

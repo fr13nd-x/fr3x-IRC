@@ -56,17 +56,17 @@ CVS_REVISION(irc_c)
 #endif
 
 #ifndef VERSION
-	const char irc_version[] = "BitchX-1.3-git";
+	const char irc_version[] = "fr3X-1.3-git";
 #else
 	const char irc_version[] = VERSION;
 #endif
 
-/* Format of bitchx_numver: MMmmpp
+/* Format of fr3x_numver: MMmmpp
  * MM = major version (eg 10 = 1.0)
  * mm = minor version
  * pp = patchlevel (00 = development, 01 = release)
  */
-const unsigned long bitchx_numver = 120200;
+const unsigned long fr3x_numver = 120200;
 
 /*
  * INTERNAL_VERSION is the number that the special alias $V returns.
@@ -169,7 +169,7 @@ char	*invite_channel = NULL,		/* last channel of an INVITE */
 	*args_str = NULL,		/* list of command line args */
 	*last_notify_nick = NULL,	/* last detected nickname */
 	*auto_str = NULL,		/* auto response str */
-	*new_script = NULL,		/* rephacement for .bitchxrc and .ircrc */
+	*new_script = NULL,		/* rephacement for .fr3xrc and .ircrc */
 	*cut_buffer = NULL;		/* global cut_buffer */
 
 	int quick_startup = 0;		/* set if we ignore .ircrc */
@@ -210,7 +210,7 @@ static	volatile int	cntl_c_hit = 0;
 	char	version[] = _VERSION_;
 	
 static		char	*switch_help[] = {
-"Usage: BitchX [switches] [nickname] [server list] \n",
+"Usage: fr3X [switches] [nickname] [server list] \n",
 "  The [nickname] can be at most 15 characters long\n",
 "  The [server list] is a whitespace separate list of server name\n",
 "  The [switches] may be any or all of the following\n",
@@ -223,14 +223,14 @@ static		char	*switch_help[] = {
 #if defined(WINNT) || defined(__EMX__)
 "   -b\t\tload bx-rc or irc-rc after connecting to a server\n",
 #else
-"   -b\t\tload .bitchxrc  or .ircrc after connecting to a server\n",
+"   -b\t\tload .fr3xrc  or .ircrc after connecting to a server\n",
 #endif
 "   -p <port>\tdefault server connection port (usually 6667)\n",
 #ifndef WINNT
-"   -f\t\tyour terminal uses flow controls (^S/^Q), so BitchX shouldn't\n",
+"   -f\t\tyour terminal uses flow controls (^S/^Q), so fr3X shouldn't\n",
 "   -F\t\tyour terminal doesn't use flow control (default)\n",
 #endif
-	"   -d\t\truns BitchX in \"dumb\" terminal mode\n",
+	"   -d\t\truns fr3X in \"dumb\" terminal mode\n",
 #if defined(WINNT) || defined(__EMX__)
 "   -q\t\tdoes not load ~/irc-rc\n",
 #else
@@ -239,7 +239,7 @@ static		char	*switch_help[] = {
 "   -r file\tload file as list of servers\n",
 "   -n nickname\tnickname to use\n",
 "   -a\t\tadds default servers and command line servers to server list\n",
-"   -x\t\truns BitchX in \"debug\" mode\n",
+"   -x\t\truns fr3X in \"debug\" mode\n",
 "   -Z\t\tuse NAT address when doing dcc.\n",
 "   -P\t\ttoggle check pid.nickname for running program.\n",
 "   -v\t\ttells you about the client's version\n",
@@ -255,7 +255,7 @@ static		char	*switch_help[] = {
    -L <file>\tloads <file> in place of your .ircrc and expands $ expandos\n",
 #endif
 #if !defined(WINNT) && !defined(__EMX__)
-"   -B\t\tforce BitchX to fork and return you to shell. pid check on.\n",
+"   -B\t\tforce fr3X to fork and return you to shell. pid check on.\n",
 #endif
 NULL };
 
@@ -535,7 +535,7 @@ extern char *sys_siglist[];
 	printf("with as much detail as possible about what you were doing when it happened.\n\r");
 	printf("Please include the version of IRCII (%s) and type of system in the report.\n\r", irc_version);
 	fflush(stdout);
-	irc_exit(1, "Hmmmm... BitchX error!!!! unusual :)", NULL);
+	irc_exit(1, "Hmmmm... fr3X error!!!! unusual :)", NULL);
 }
 #endif
 
@@ -580,7 +580,7 @@ SIGNAL_HANDLER(cntl_c)
 
 SIGNAL_HANDLER(sig_user1)
 {
-	bitchsay("Got SIGUSR1, closing DCC connections and EXECed processes");
+	fr3say("Got SIGUSR1, closing DCC connections and EXECed processes");
 	close_all_dcc();
 	clean_up_processes();
 }
@@ -602,7 +602,7 @@ void set_detach_on_hup(Window *dummy, char *unused, int value)
 /* shows the version of irc */
 static	void versionreply(void)
 {
-	printf("BitchX version %s (%s)\n\r", irc_version, internal_version);
+	printf("fr3X version %s (%s)\n\r", irc_version, internal_version);
 	exit (0);
 }
 
@@ -610,7 +610,7 @@ static	void versionreply(void)
 #define RAND_MAX 2147483647
 #endif
 
-void display_bitchx(int j) 
+void display_fr3x(int j) 
 {
 
 int i = 0;
@@ -1149,7 +1149,7 @@ static	char	*parse_args (char *argv[], int argc, char **envp)
 	convert_unix(my_path);
 #endif
 	if (!*realname)
-		strmcpy(realname, "* I'm too lame to read BitchX.doc *", REALNAME_LEN);
+		strmcpy(realname, "* I'm too lame to read fr3X.doc *", REALNAME_LEN);
 
 	if (!LocalHostName && ((ptr = getenv("IRC_HOST")) || (ptr = getenv("IRCHOST"))))
 		LocalHostName = m_strdup(ptr);
@@ -1192,7 +1192,7 @@ static	char	*parse_args (char *argv[], int argc, char **envp)
 #if defined(WINNT) || defined(__EMX__)
 		malloc_sprintf(&bircrc_file, "%s/bx-rc", my_path);
 #else
-		malloc_sprintf(&bircrc_file, "%s/.bitchxrc", my_path);
+		malloc_sprintf(&bircrc_file, "%s/.fr3xrc", my_path);
 #endif
 
 	if ((ptr = getenv("IRCPORT")))
@@ -1449,7 +1449,7 @@ FILE *t;
 		kill(i, SIGCHLD);
 		if (errno != ESRCH)
 		{
-			fprintf(stderr, "Bitchx already running as %s\n", nickname);
+			fprintf(stderr, "fr3x already running as %s\n", nickname);
 			exit(1);
 		}
 	}
@@ -1544,7 +1544,7 @@ int main(int argc, char *argv[], char *envp[])
 
 #if !defined(GUI) 
 
-	printf("BitchX - Based on EPIC Software Labs epic ircII (1998).\r\n");
+	printf("fr3X - Based on EPIC Software Labs epic ircII (1998).\r\n");
 	printf("Version (%s) -- Date (%s).\r\n", irc_version, internal_version);
 	printf("Process [%d]", getpid());
 	if ((isatty(0) && !background) || (!isatty(0) && background))
@@ -1703,7 +1703,7 @@ int main(int argc, char *argv[], char *envp[])
 	 */
 	run_level = 1;
 
-	display_bitchx(-1);
+	display_fr3x(-1);
 	if (bflag)
 		load_scripts();
 

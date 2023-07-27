@@ -1,6 +1,6 @@
 
-#ifndef WIN_BitchX_h
-#define WIN_BitchX_h
+#ifndef WIN_fr3X_h
+#define WIN_fr3X_h
 
 #include <windows.h>
 

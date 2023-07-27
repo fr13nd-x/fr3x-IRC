@@ -210,7 +210,7 @@ IrcCommand irc_command[] =
 	{ "4OP",	NULL,		do_4op,			SERVERREQ,	"%Y<%Cnick%Y>%n\n- Sets mode +oooo on %Y<%Cnick%Y>%n"},
 	{ ":",		NULL,		comment, 		0,	NULL },
         { "ABORT",      NULL,           abortcmd,               0,	"- Saves IRCII settings then exits IRC" },
-	{ "ABOUT",	NULL,		about,			0,	"- Shows yet another ansi screen with greets to people who have contributed to the %PBitchX%n project"},
+	{ "ABOUT",	NULL,		about,			0,	"- Shows yet another ansi screen with greets to people who have contributed to the %Pfr3X%n project"},
 	{ "ADDFORWARD",	"AddForward", 	do_forward,		0,	"%Y<%Bchannel%G|%Cnick%Y>%n\n - Forward all messages to %Y<%Bchannel%G|%Cnick%Y>%n" },
 	{ "ADDIDLE",	"AddIdle",	addidle,		0,	"%Y<%Bchannel%Y>%n %R[%nseconds%R]%n\n- Adds %Y<%Bchannel%Y>%n as idle channel with %R[%nseconds%R]%n" },
 	{ "ADDLAMENICK","AddLameNick",	add_bad_nick,		0,	"%Y<%Cnick%G|%Cnick%C nick nick%Y>%n\n - Adds %Y<%Cnick%Y>%n to your lame nicklist, bans nick!*@*"},
@@ -236,7 +236,7 @@ IrcCommand irc_command[] =
 	{ "BANWORDS",	NULL,		add_ban_word,		0,	"%Y<%nchannel|*%Y>%n word(s)\n- Adds word or words to the banned words list for %Y<%nchannel%Y>" },
 	{ "BEEP",	NULL,		beepcmd,		0,	"- Creates a beep noise" },
 #ifdef WANT_CHELP
-	{ "BHELP",	"BHELP",	chelp,			0,	"%Y<%nhelp%W|%nindex%W|%nother%Y>%n\n - BitchX help command" },
+	{ "BHELP",	"BHELP",	chelp,			0,	"%Y<%nhelp%W|%nindex%W|%nother%Y>%n\n - fr3X help command" },
 #endif
 	{ "BIND",	NULL,		bindcmd,		0,	"- Command to bind a key to a function" },
 	{ "BK",		NULL,		kickban,		SERVERREQ,	"%Y<%Cnick%Y>%n %R[%nreason%R]%n\n- Deops, bans and kicks %Y<%Cnick%Y>%n for %R[%nreason%R]%n" },
@@ -246,7 +246,7 @@ IrcCommand irc_command[] =
 	{ "BYE",	"QUIT",		e_quit,			0,	"- Quit Irc"},
 	{ "C",		"MODE",		send_mode,		0,	"%Y<%nnick|channel%Y> <%nmode%Y>%n\n- Sets a mode for a channel or nick"},
 	{ "CALL",	NULL,		e_call,			0,	scripting_command },
-#ifndef BITCHX_LITE
+#ifndef fr3X_LITE
 	{ "CBOOT",	"Cboot",	cboot,			0,	"%Y<%nnick%Y>%n %R[%nreason%R]%n\n- Kicks a %Y<%nnick%Y>%n off the TwilightZone with %R[%nreason%R]" },
 #endif
 	{ "CD",		NULL,		cd,			0,	"%Y<%ndir%Y>%n\n - Changes current directory to %Y<%ndir%Y>%n or prints current directory" },
@@ -282,7 +282,7 @@ IrcCommand irc_command[] =
 	{ "CLEARAUTO",	"CLEARAUTO",	clear_tab,		0,	"- Clears all the nicks in the auto-response list" },
 	{ "CLEARLOCK",	"ClearLock",	mode_lock,		0,	"%Y<%Cchannel%G|%Y*>%n\n- Unlocks the mode lock for %Y<%Cchannel%G|%Y*>%n" },
 	{ "CLEARTAB",	NULL,		clear_tab,		0,	"- Clears the nicks in the tabkey list" },
-#ifndef BITCHX_LITE
+#ifndef fr3X_LITE
 	{ "CLINK",	"Clink",	clink,			0,	"%Y<%Cnick%Y>%n %Y<%ntext%Y>%n" },
 	{ "CLONES",	"Clones",	check_clones,		SERVERREQ,	NULL },
 	{ "CMSG",	"Cmsg",		cmsg,			0,	"%Y<%Cnick%Y>%n %Y<%ntext%Y>%n\n- While in the TwilightZone, a private message will be sent to %Y<%Cnick%Y>%n with %Y<%ntext%Y>%n" },
@@ -294,12 +294,12 @@ IrcCommand irc_command[] =
 #endif
 	{ "CONNECT",	"CONNECT",	send_comm,		0,	"%Y<%nserver1%Y>%n %Y<%nport%Y>%n %R[%nserver2%R]%n\n%Y*%n Requires irc operator status" },
 	{ "CONTINUE",	NULL,		continuecmd,		0,	NULL },
-#ifndef BITCHX_LITE
+#ifndef fr3X_LITE
 	{ "CSAY",	"Csay",		csay,			0,	"%Y<%ntext%Y>%n" },
 #endif
 	{ "CSET",	"Cset",		cset_variable,		0,	"%R[%n*|channel|chan*%R]%n\n- changes variables that affect a channel or displays them" },
 	{ "CTCP",	NULL,		ctcp,			SERVERREQ,	"%Y<%Cnick%Y>%n %Y<%nrequest%Y>%n\n- CTCP sends %Y<%Cnick%Y>%n with %Y<%nrequest%Y>%n" },
-#ifndef BITCHX_LITE
+#ifndef fr3X_LITE
 	{ "CTOGGLE",	NULL,		toggle_xlink,		0,	NULL },
 	{ "CWHO",	"Cwho",		cwho,			0,	"- Lists the clients and bots connected to the TwilightZone" },
 	{ "CWHOM",	"Cwhom",	cwho,			0,	"- Lists the clients and bots connected to the TwilightZone" },
@@ -529,7 +529,7 @@ IrcCommand irc_command[] =
 	{ "QME",	"qme",		me,			0,	"- Sends a action to a query" },
 	{ "QUERY",	NULL,		query,			0,	"%Y<%n-cmd cmdname%Y> <%Cnick%Y>%n\n- Starts a query to %Y<%Cnick%Y>%n" },
 	{ "QUEUE",      NULL,           queuecmd,               0,	scripting_command },
-	{ "QUIT",	"QUIT",		e_quit,			0,	"- Quit BitchX" },
+	{ "QUIT",	"QUIT",		e_quit,			0,	"- Quit fr3X" },
 	{ "QUOTE",	"QUOTE",	quotecmd,		0,	"%Y<%ntext%Y>%n\n- Sends text directly to the server" },
 	{ "RANDOMNICK",	NULL,		randomnick,		0,	"%Y<%Cnick%Y>%n\n- Changes your nick to a random nick. If nick is specified is is used as a prefix" },
 	{ "RBIND",	NULL,		rbindcmd,		0,	"- Removes a key binding" },
@@ -556,7 +556,7 @@ IrcCommand irc_command[] =
 	{ "RELN",	"RelN",		do_dirlasttype,		0,	relay_help  },
 	{ "RELNT",	"RelNT",	do_dirlasttype,		0,	relay_help  },
 
-	{ "RELOAD",	NULL,		reload_save,		0,	"- Reloads BitchX.sav" },
+	{ "RELOAD",	NULL,		reload_save,		0,	"- Reloads fr3X.sav" },
 
 	{ "RELS",	"RelS",		do_dirlasttype,		0,	relay_help  },
 	{ "RELSD",	"RelSd",	do_dirlasttype,		0,	relay_help  },
@@ -588,9 +588,9 @@ IrcCommand irc_command[] =
 	/* nuxx requested this command */
 	{ "RMAP",	"MAP",		send_2comm,		0,	"- Sends out a /map command to the server%n" },
 	{ "RPING",	"RPING",	send_comm,		0,	NULL },
-	{ "SAVE",	"SaveAll",	savelists,		0,	"- Saves ~/.BitchX/BitchX.sav" },
-	{ "SAVEIRC",	NULL,		save_settings,		0,	"- Saves ~/.bitchxrc" },
-	{ "SAVELIST",	NULL, 		savelists,		0,	"- Saves ~/.BitchX/BitchX.sav" },
+	{ "SAVE",	"SaveAll",	savelists,		0,	"- Saves ~/.fr3X/fr3X.sav" },
+	{ "SAVEIRC",	NULL,		save_settings,		0,	"- Saves ~/.fr3xrc" },
+	{ "SAVELIST",	NULL, 		savelists,		0,	"- Saves ~/.fr3X/fr3X.sav" },
 	{ "SAY",	empty_string,	do_send_text,		0,	"-%Y<%ntype%Y>%n Says whatever you write" },
 	{ "SC",		"NAMES",	do_mynames,		0,	NULL },
 	{ "SCAN",	"scan",		do_scan,		0,	"%R[%Bchannel%R]%n\n- Scans %R[%Bchannel%R]%n or current channel for all nicks" },
@@ -750,7 +750,7 @@ BuddahX, Hob, Lifendel, JondalaR, JVaughn, suicide, NovaLogic,\n\
 Jordy, BigHead,Ananda, Hybrid, Reefa, BlackJac, GenX, MHacker,\n\
 PSiLiCON, hop, Sheik, psykotyk, oweff, icetrey, Power, sideshow,\n\
 Raistlin, Mustang, [Nuke], Rosmo, Sellfone, Drago and bark0de!\n\n\
-Mailing list is at <bitchx-devel@lists.sourceforge.net>\n";
+Mailing list is at <fr3x-devel@lists.sourceforge.net>\n";
        gui_about_box(about_text);
        return;
 #else
@@ -790,8 +790,8 @@ Mailing list is at <bitchx-devel@lists.sourceforge.net>\n";
 	put_it("[0;30;47m          Ananda, Hybrid, Reefa, BlackJac, GenX, MHacker, PSiLiCON,         [0m");
 	put_it("[0;30;47m          hop, Sheik, psykotyk, oweff, icetrey, Power, sideshow, Raistlin,  [0m");   
 	put_it("[0;30;47m          [Nuke], Rosmo and Bark0de!                                        [0m");
-	put_it("[0;30;47m A special thanks to ccm.net for co-locating BitchX.com                     [0m");
-	put_it("[0;30;47m Mailing list is at <bitchx-devel@lists.sourceforge.net>                    [0m");
+	put_it("[0;30;47m A special thanks to ccm.net for co-locating fr3X.com                     [0m");
+	put_it("[0;30;47m Mailing list is at <fr3x-devel@lists.sourceforge.net>                    [0m");
 	put_it(empty_string);
 #else
 	put_it("[35m    ‹‹‹‹€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ﬂ€€[1;45m∞±≤[0;35;40m  [1;45m≤±[0;35;40mﬂ[1;32m‹[42m±≤[40m‹[0;35;40m [1;45m≤[40mﬁ[0m");
@@ -813,7 +813,7 @@ Mailing list is at <bitchx-devel@lists.sourceforge.net>\n";
 	put_it("[1;47m∞[0;30;47m          Ananda, Hybrid, Reefa, BlackJac, GenX, MHacker, PSiLiCON,         [1m≤[0m");
 	put_it("[1;47m∞[0;30;47m          hop, Sheik, psykotyk, oweff, icetrey, Power, sideshow, Raistlin,  [1m≤[0m");
 	put_it("[1;47m∞[0;30;47m          Mustang, [Nuke], Rosmo, Sellfone, Drago and bark0de!              [1m≤[0m");
-	put_it("[1;47m∞[0;30;47m Mailing list is at <bitchx-devel@lists.sourceforge.net>                    [1m≤[0m");
+	put_it("[1;47m∞[0;30;47m Mailing list is at <fr3x-devel@lists.sourceforge.net>                    [1m≤[0m");
 	put_it("ﬂ[1;30m≤ﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂﬂ[0m");
 	put_it(empty_string);
 #endif
@@ -837,7 +837,7 @@ void handle_dcc_chat(UserhostItem *stuff, char *nick, char *args)
 {
 	if (!stuff || !stuff->nick || !nick || !strcmp(stuff->user, "<UNKNOWN>") || !strcmp(stuff->host, "<UNKNOWN>"))
 	{
-		bitchsay("No such nick %s", nick);
+		fr3say("No such nick %s", nick);
 		return;
 	}
 	dcc_chat(NULL, args);
@@ -1038,7 +1038,7 @@ BUILT_IN_COMMAND(do_forward)
 	{
 		if (forwardnick)
 		{
-			bitchsay("No longer forwarding messages to %s", forwardnick);
+			fr3say("No longer forwarding messages to %s", forwardnick);
 		        send_to_server("NOTICE %s :%s is no longer forwarding to you",
 				forwardnick, get_server_nickname(from_server));
 		} 
@@ -1053,7 +1053,7 @@ BUILT_IN_COMMAND(do_forward)
 			*q = 0;
 		send_to_server("NOTICE %s :%s is now forwarding messages to you",
 			forwardnick, get_server_nickname(from_server));
-		bitchsay("Now forwarding messages to %s", forwardnick);
+		fr3say("Now forwarding messages to %s", forwardnick);
 	}
 	return;
 }
@@ -1091,7 +1091,7 @@ BUILT_IN_COMMAND(reconnect_cmd)
 		
 	if (from_server == -1)
 	{
-		bitchsay("Try connecting to a server first.");
+		fr3say("Try connecting to a server first.");
 		return;
 	}
 	if (do_hook(DISCONNECT_LIST, "Reconnecting to server"))
@@ -1629,7 +1629,7 @@ BUILT_IN_COMMAND(my_whois)
 
 		if (!nick)
 		{
-			bitchsay("You have no friends");
+			fr3say("You have no friends");
 			return;
 		}
 	}
@@ -1813,7 +1813,7 @@ BUILT_IN_COMMAND(funny_stuff)
 	stuff = empty_string;
 	if (!args || !*args)
 	{
-		bitchsay("Doing this is not a good idea. Add -YES if you really mean it");
+		fr3say("Doing this is not a good idea. Add -YES if you really mean it");
 		return;
 	}
 	while ((arg = next_arg(args, &args)) != NULL)
@@ -2024,20 +2024,20 @@ BUILT_IN_COMMAND(redirect)
 		return;
 	if (!strcmp(who, "*") && !(who = get_current_channel_by_refnum(0)))
 	{
-		bitchsay("Must be on a channel to redirect to '*'");
+		fr3say("Must be on a channel to redirect to '*'");
 		return;
 	}
 
 	if (!my_stricmp(who, get_server_nickname(from_server)))
 	{
-		bitchsay("You may not redirect output to yourself");
+		fr3say("You may not redirect output to yourself");
 		return;
 	}
 
 
 	if ((*who == '=') && !dcc_activechat(who + 1))
 	{
-		bitchsay("No active DCC CHAT:chat connection for %s", who+1);
+		fr3say("No active DCC CHAT:chat connection for %s", who+1);
 		return;
 	} 
 
@@ -2374,10 +2374,10 @@ void really_save(char *ircrc_file, int flags, int save_all, int save_append)
 		if (flags & SFLAG_SERVER)
 			save_servers(fp);
 		fclose(fp);
-		bitchsay("IRCII settings saved to %s", ircrc_file);
+		fr3say("IRCII settings saved to %s", ircrc_file);
 	}
 	else
-		bitchsay("Error opening %s: %s", ircrc_file, strerror(errno));
+		fr3say("Error opening %s: %s", ircrc_file, strerror(errno));
 }
 #endif
 
@@ -2386,7 +2386,7 @@ void really_save(char *ircrc_file, int flags, int save_all, int save_append)
 BUILT_IN_COMMAND(abortcmd)
 {
 #ifdef PUBLIC_ACCESS
-	bitchsay("This command has been disabled on a public access system");
+	fr3say("This command has been disabled on a public access system");
 	return;
 #else
         char    *filename = next_arg(args, &args);
@@ -2403,7 +2403,7 @@ BUILT_IN_COMMAND(abortcmd)
 BUILT_IN_COMMAND(save_settings)
 {
 #ifdef PUBLIC_ACCESS
-	bitchsay("This command has been disabled on a public access system");
+	fr3say("This command has been disabled on a public access system");
 	return;
 #else
 	char	*arg = NULL;
@@ -2444,7 +2444,7 @@ BUILT_IN_COMMAND(save_settings)
 		else if (!strncmp("FILE", arg, 1))
 			fn = next_arg(args, &args);
 		else
-			bitchsay("Unrecognised option");
+			fr3say("Unrecognised option");
 	}
 
 	if (!save_flags)
@@ -2452,7 +2452,7 @@ BUILT_IN_COMMAND(save_settings)
 
 	if (!(arg = expand_twiddle((fn && *fn) ? fn : bircrc_file)))
 	{
-		bitchsay("Unknown user");
+		fr3say("Unknown user");
 		return;
 	}
 
@@ -2548,7 +2548,7 @@ extern int run_level, do_ignore_ajoin;
 		{
 			if (new->ajoin_list)
 			{
-				bitchsay("Removing Auto-Join channel %s", new->name);
+				fr3say("Removing Auto-Join channel %s", new->name);
 				new_free(&new->name);
 				new_free(&new->key);
 				new_free((char **)&new);
@@ -2562,7 +2562,7 @@ extern int run_level, do_ignore_ajoin;
 		return;
 	if (is_server_connected(from_server)/* && get_server_channels(from_server)*/)
 	{
-		bitchsay("Auto-Joining %s%s%s", new->name, new->key?space:empty_string, new->key?new->key:empty_string);
+		fr3say("Auto-Joining %s%s%s", new->name, new->key?space:empty_string, new->key?new->key:empty_string);
 		if(!new->group || is_server_valid(new->group, from_server))
 		{
 			if(get_int_var(JOIN_NEW_WINDOW_VAR) && (current_window->current_channel || current_window->query_nick))
@@ -2591,7 +2591,7 @@ BUILT_IN_COMMAND(e_channel)
 			if (invite_channel)
 				send_to_server("%s %s %s", command, invite_channel, args);
 			else
-				bitchsay("You have not been invited to a channel!");
+				fr3say("You have not been invited to a channel!");
 		}
 		else
 		{
@@ -2609,13 +2609,13 @@ BUILT_IN_COMMAND(e_channel)
 				 */
 				if (is_bound_anywhere(buffer) &&
 				    !(is_bound_to_window(current_window, buffer)))
-					bitchsay("Channel %s is bound to another window", buffer);
+					fr3say("Channel %s is bound to another window", buffer);
 
 				else
 				{
 					is_current_channel(buffer, from_server, 1);
 					if (do_hook(CHANNEL_SWITCH_LIST, "%s", set_current_channel_by_refnum(0, buffer)))
-						bitchsay("You are now talking to channel %s", set_current_channel_by_refnum(0, buffer));
+						fr3say("You are now talking to channel %s", set_current_channel_by_refnum(0, buffer));
 					update_all_windows();
         				set_input_prompt(current_window, get_string_var(INPUT_PROMPT_VAR), 0);
 					update_input(UPDATE_ALL);
@@ -2654,7 +2654,7 @@ BUILT_IN_COMMAND(e_nick)
 	
 	if (!(nick = next_arg(args, &args)))
 	{
-		bitchsay("Your nickname is %s", get_server_nickname(get_window_server(0)));
+		fr3say("Your nickname is %s", get_server_nickname(get_window_server(0)));
 		if (get_pending_nickname(get_window_server(0)))
 			say("A nickname change to %s is pending.", get_pending_nickname(get_window_server(0)));
 
@@ -2662,7 +2662,7 @@ BUILT_IN_COMMAND(e_nick)
 	}
 	if (!(nick = check_nickname(nick)))
 	{
-		bitchsay("Nickname specified is illegal.");
+		fr3say("Nickname specified is illegal.");
 		return;
 	}
 	nick_command_is_pending(from_server, 1);
@@ -2680,7 +2680,7 @@ BUILT_IN_COMMAND(version1)
 		send_to_server("%s %s", command, host);
 	else
 	{ 
-		bitchsay("Client: %s (internal version %s)", irc_version, internal_version);
+		fr3say("Client: %s (internal version %s)", irc_version, internal_version);
 		send_to_server("%s", command);
 	}
 }
@@ -2992,7 +2992,7 @@ BUILT_IN_COMMAND(e_hostname)
             memcpy((void *)&LocalHostAddr.sf_addr, hp->h_addr, sizeof(struct in_addr));
 #endif
 
-        bitchsay("Local host name is now [%s]", LocalHostName);
+        fr3say("Local host name is now [%s]", LocalHostName);
         new_free(&newhost);
 
 		if (reconn)
@@ -3000,19 +3000,19 @@ BUILT_IN_COMMAND(e_hostname)
     }
 }
 
-extern void display_bitchx (int);
+extern void display_fr3x (int);
 
 BUILT_IN_COMMAND(info)
 {
 	
 	if (!args || !*args)
 	{
-		display_bitchx(-1);
+		display_fr3x(-1);
 		return;
 	} 
 	else if (isdigit((unsigned char)*args))
 	{
-		display_bitchx(my_atol(args));
+		display_fr3x(my_atol(args));
 		return;
 	}
 	send_to_server("%s %s", command, args);
@@ -3109,7 +3109,7 @@ int silent = 0;
 
 		if (get_int_var(SEND_AWAY_MSG_VAR) && !silent)
 		{
-			bitchsay("You were /away for %i hours %i minutes and %i seconds. [\002BX\002-MsgLog %s]",
+			fr3say("You were /away for %i hours %i minutes and %i seconds. [\002BX\002-MsgLog %s]",
 				hours, minutes, seconds,
 				on_off(get_int_var(MSGLOG_VAR)));
 			{
@@ -3167,12 +3167,12 @@ BUILT_IN_COMMAND(away)
 		if (args && *args)
 		{
 			malloc_strcpy(&awaymsg, args);
-			bitchsay("Your auto-away msg has been set to \"%s\"", awaymsg);
+			fr3say("Your auto-away msg has been set to \"%s\"", awaymsg);
 		}
 		else
 		{
 			new_free(&awaymsg);
-			bitchsay("Your auto-away msg has been unset");
+			fr3say("Your auto-away msg has been unset");
 		}
 		return;
 	}
@@ -3233,7 +3233,7 @@ static void real_quit (char *dummy, char *ptr)
 			irc_exit(1, dummy, "%s", convert_output_format(fget_string_var(FORMAT_SIGNOFF_FSET), "%s %s %s %s", update_clock(GET_TIME), get_server_nickname(get_window_server(0)), m_sprintf("%s@%s", username, hostname), dummy));
 		}
 	}
-	bitchsay("Excelllaaant!!");
+	fr3say("Excelllaaant!!");
 }
 
 /* e_quit: The /QUIT, /EXIT, etc command */
@@ -3267,9 +3267,9 @@ BUILT_IN_COMMAND(flush)
 	
 	if (get_int_var(HOLD_MODE_VAR))
 		flush_everything_being_held(NULL);
-	bitchsay("Standby, Flushing server output...");
+	fr3say("Standby, Flushing server output...");
 	flush_server();
-	bitchsay("Done");
+	fr3say("Done");
 }
 
 /* e_wall: used for WALLOPS */
@@ -3301,7 +3301,7 @@ BUILT_IN_COMMAND(e_privmsg)
 		{
 			if (!(nick = get_server_sent_nick(from_server)))
 			{
-				bitchsay("You have not sent a message to anyone yet");
+				fr3say("You have not sent a message to anyone yet");
 				return;
 			}
 		}
@@ -3309,7 +3309,7 @@ BUILT_IN_COMMAND(e_privmsg)
 		{
 			if (!(nick = get_server_recv_nick(from_server)))
 			{
-				bitchsay("You have not received a message from anyone yet");
+				fr3say("You have not received a message from anyone yet");
 				return;
 			}
 		}
@@ -3449,11 +3449,11 @@ char *flags = NULL, *serv = NULL;
 			serv = next_arg(args, &args);
 	}
 	if (get_server_trace_flag(from_server) & TRACE_OPER)
-		bitchsay("Tracing server %s%sfor Operators", serv?serv:empty_string,serv?space:empty_string);
+		fr3say("Tracing server %s%sfor Operators", serv?serv:empty_string,serv?space:empty_string);
 	if (get_server_trace_flag(from_server) & TRACE_USER)
-		bitchsay("Tracing server %s%sfor Users", serv?serv:empty_string,serv?space:empty_string);
+		fr3say("Tracing server %s%sfor Users", serv?serv:empty_string,serv?space:empty_string);
 	if (get_server_trace_flag(from_server) & TRACE_SERVER)
-		bitchsay("Tracing server %s%sfor servers", serv?serv:empty_string,serv?space:empty_string);
+		fr3say("Tracing server %s%sfor servers", serv?serv:empty_string,serv?space:empty_string);
 	send_to_server("%s%s%s", command, serv?space:empty_string, serv?serv:empty_string);
 }
 
@@ -3582,9 +3582,9 @@ BUILT_IN_COMMAND(do_mtopic)
 			count++;
 		}
 		if (!count)
-			bitchsay("You're not an op on any channels");
+			fr3say("You're not an op on any channels");
 	} else
-		bitchsay("No server for this window");
+		fr3say("No server for this window");
 }
 
 BUILT_IN_COMMAND(send_2comm)
@@ -3628,9 +3628,9 @@ BUILT_IN_COMMAND(send_kill)
 #endif
 
 #if defined(WINNT)
-	r_file = m_sprintf("%s/BitchX.kil",get_string_var(CTOOLZ_DIR_VAR));
+	r_file = m_sprintf("%s/fr3X.kil",get_string_var(CTOOLZ_DIR_VAR));
 #else
-	r_file = m_sprintf("%s/BitchX.kill",get_string_var(CTOOLZ_DIR_VAR));
+	r_file = m_sprintf("%s/fr3X.kill",get_string_var(CTOOLZ_DIR_VAR));
 #endif
 
 	if ((reason = strchr(args, ' ')) != NULL)
@@ -4080,7 +4080,7 @@ BUILT_IN_COMMAND(do_send_text)
 			e_wall("SWALLOPS", text, NULL, NULL);
 		else if(!my_strnicmp(cmd, "WALLC", 5))
 			ChanWallOp(NULL, text, NULL, NULL);
-#ifndef BITCHX_LITE
+#ifndef fr3X_LITE
 		else if (!my_stricmp(cmd, "CSAY"))
 			csay(NULL, text, NULL, NULL);
 		else if (!my_stricmp(cmd, "CMSG"))
@@ -4114,7 +4114,7 @@ BUILT_IN_COMMAND(do_msay)
 		new_free(&channels);
 		from_server = old_from_server;
 	} else
-		bitchsay("No server for this window");
+		fr3say("No server for this window");
 }
 
 /*
@@ -4237,7 +4237,7 @@ void command_completion(char unused, char *not_used)
 					for (i = 0; i < cmd_cnt; i++)
 					{
 						if (i == 0)
-							bitchsay("Commands:");
+							fr3say("Commands:");
 						strmcat(buffer, command[i].name, BIG_BUFFER_SIZE);
 						strmcat(buffer, space, BIG_BUFFER_SIZE);
 						if (++c == 4)
@@ -4251,7 +4251,7 @@ void command_completion(char unused, char *not_used)
 						put_it("%s", convert_output_format("$G $[15]0 $[15]1 $[15]2 $[15]3", "%s", buffer));
 #ifdef WANT_DLL
 					if (dll_commands)
-						bitchsay("Plugin Commands:");
+						fr3say("Plugin Commands:");
 					*buffer = 0;
 					c = 0;
 					for (dll = dll_commands; dll; dll = dll->next)
@@ -4278,7 +4278,7 @@ void command_completion(char unused, char *not_used)
 					for (i = 0; i < alias_cnt; i++)
 					{
 						if (i == 0)
-							bitchsay("Aliases:");
+							fr3say("Aliases:");
 						strmcat(buffer, aliases[i], BIG_BUFFER_SIZE);
 						strmcat(buffer, space, BIG_BUFFER_SIZE);
 						if (++c == 4)
@@ -4300,7 +4300,7 @@ void command_completion(char unused, char *not_used)
 					for (i = 0; i < function_cnt; i++)
 					{
 						if (i == 0)
-							bitchsay("Functions:");
+							fr3say("Functions:");
 						strmcat(buffer, functions[i], BIG_BUFFER_SIZE);
 						strmcat(buffer, space, BIG_BUFFER_SIZE);
 						if (++c == 4)
@@ -4646,7 +4646,7 @@ static	unsigned int	 level = 0;
 							put_it("%s", dll->result);
 					}
 					else
-						bitchsay("%s: command disabled", dll->name);
+						fr3say("%s: command disabled", dll->name);
 					*cx_function = 0;
 				}
 				else 
@@ -4662,11 +4662,11 @@ static	unsigned int	 level = 0;
 							chelp(NULL, cline, NULL, NULL);
 #endif
 					} else if ((command->flags & SERVERREQ) && (connected_to_server == 0))
-						bitchsay("%s: You are not connected to a server. Use /SERVER to connect.", com);
+						fr3say("%s: You are not connected to a server. Use /SERVER to connect.", com);
 					else if (command->func)
 						command->func(command->server_func, rest, sub_args, command->help);
 					else
-						bitchsay("%s: command disabled", command->name);
+						fr3say("%s: command disabled", command->name);
 				}
 				else if ((alias_cnt == 1 && cmd_cnt == 1 && (!strcmp(alias_name, command->name))) ||
 					    (alias_cnt == 1 && cmd_cnt == 0))
@@ -4689,37 +4689,37 @@ static	unsigned int	 level = 0;
 						if (err == TCL_OK)
 						{
 							if (tcl_interp->result && *tcl_interp->result)
-								bitchsay("%s %s", *tcl_interp->result?empty_string:unknown, *tcl_interp->result?tcl_interp->result:empty_string);
+								fr3say("%s %s", *tcl_interp->result?empty_string:unknown, *tcl_interp->result?tcl_interp->result:empty_string);
 						}
 						else
 						{
 							if (alias_cnt + cmd_cnt > 1)
-								bitchsay("Ambiguous command: %s", cline);
+								fr3say("Ambiguous command: %s", cline);
 							else if (get_int_var(DISPATCH_UNKNOWN_COMMANDS_VAR))
 								send_to_server("%s %s", cline, rest);
 							else if (tcl_interp->result && *tcl_interp->result)
 							{
 								if (check_help_bind(cline))
-									bitchsay("%s", tcl_interp->result);
+									fr3say("%s", tcl_interp->result);
 							}
 							else
-								bitchsay("%s %s", unknown, cline);
+								fr3say("%s %s", unknown, cline);
 								
 						}
 					} else if (get_int_var(DISPATCH_UNKNOWN_COMMANDS_VAR))
 						send_to_server("%s %s", cline, rest);
 					else if (alias_cnt + cmd_cnt > 1)
-						bitchsay("Ambiguous command: %s", cline);
+						fr3say("Ambiguous command: %s", cline);
 					else
-						bitchsay("%s %s", unknown, cline);
+						fr3say("%s %s", unknown, cline);
 				}
 #else
 				else if (get_int_var(DISPATCH_UNKNOWN_COMMANDS_VAR))
 					send_to_server("%s %s", cline, rest);
 				else if (alias_cnt + cmd_cnt > 1)
-					bitchsay("Ambiguous command: %s", cline);
+					fr3say("Ambiguous command: %s", cline);
 				else
-					bitchsay("%s %s", unknown, cline);
+					fr3say("%s %s", unknown, cline);
 #endif
 			}
 			if (alias)
@@ -4802,7 +4802,7 @@ BUILT_IN_COMMAND(BX_load)
 #ifdef PUBLIC_ACCESS
 	if (!never_connected)
 	{
-		bitchsay("This command is disabled for public access systems");
+		fr3say("This command is disabled for public access systems");
 		return;
 	}
 #else
@@ -4823,7 +4823,7 @@ BUILT_IN_COMMAND(BX_load)
 	
 	if (!(irc_path = get_string_var(LOAD_PATH_VAR)))
 	{
-		bitchsay("LOAD_PATH has not been set");
+		fr3say("LOAD_PATH has not been set");
 		return;
 	}
 
@@ -4831,7 +4831,7 @@ BUILT_IN_COMMAND(BX_load)
 	{
 		load_depth--;
 		dump_load_stack(0);
-		bitchsay("No more than %d levels of LOADs allowed", MAX_LOAD_DEPTH);
+		fr3say("No more than %d levels of LOADs allowed", MAX_LOAD_DEPTH);
 		return;
 	}
 
@@ -4886,7 +4886,7 @@ BUILT_IN_COMMAND(BX_load)
 			}
 #endif
 			if (connected_to_server && !load_depth)
-				bitchsay("Unable to open file %s", filename);
+				fr3say("Unable to open file %s", filename);
 			new_free(&expanded);
 			window_display = owc;
 			continue;
@@ -5182,7 +5182,7 @@ BUILT_IN_COMMAND(cd)
 		{
 			if (chdir(expand))
 			{
-				bitchsay("CD: %s %s", arg, strerror(errno));
+				fr3say("CD: %s %s", arg, strerror(errno));
 				new_free(&expand);
 				return;
 			}
@@ -5190,14 +5190,14 @@ BUILT_IN_COMMAND(cd)
 		}
 		else
 		{
-			bitchsay("CD: %s No such directory", arg);
+			fr3say("CD: %s No such directory", arg);
 			return;
 		}
 	}
 	if (getcwd(buffer, BIG_BUFFER_SIZE))
-		bitchsay("Current directory: %s", buffer);
+		fr3say("Current directory: %s", buffer);
 	else
-		bitchsay("CD: %s", strerror(errno));
+		fr3say("CD: %s", strerror(errno));
 }
 
 BUILT_IN_COMMAND(exec_cmd)
@@ -5407,7 +5407,7 @@ BUILT_IN_COMMAND(xtypecmd)
 					input_add_character(*args, empty_string);
 			}
 			else
-				bitchsay ("Unknown flag -%s to XTYPE", arg);
+				fr3say ("Unknown flag -%s to XTYPE", arg);
 			return;
 		}
 		input_add_character(saved, empty_string);
@@ -5530,7 +5530,7 @@ struct timeval start;
 char tcl_versionstr[] = "";
 BUILT_IN_COMMAND(tcl_command)
 {
-	bitchsay("This Client is not compiled with tcl support.");
+	fr3say("This Client is not compiled with tcl support.");
 }
 
 BUILT_IN_COMMAND(tcl_load)
@@ -5617,7 +5617,7 @@ char *comm = NULL;
 		if (!cmd)
 #endif
 		{
-			bitchsay("No such command [%s]", comm);
+			fr3say("No such command [%s]", comm);
 			return;
 		}
 		if (cmd == irc_command)

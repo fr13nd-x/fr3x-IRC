@@ -1,18 +1,18 @@
-  ircII 2.8 + BitchX Documentation
-  Patrick J. Edwards, ppjjee112200@@ccss..uussaasskk..ccaa
+  ircII 2.8 + fr3X Documentation
+  ppjjee112200@@ccss..uussaasskk..ccaa
   Tue Feb 13 13:50:47 GMT 1996
 
 
   11..  IInnttrroodduuccttiioonn
 
-  BitchX is a new and exciting IRC client being written by Colten
+  fr3X is a new and exciting IRC client being written by Colten
   Edwards <hhttttpp::////mmaaiillttoo::eeddwwaacc@@ssaasskknneett..sskk..ccaa>. It includes many new
   features that IRCists have been asking for. The sources are based on
   ircii-Plutotium and ircii-EPiC to create a new and distictive IRC
-  client. Heres a small list of the cool features you get with BitchX:
+  client. Heres a small list of the cool features you get with fr3X:
 
 
-  +o  When run under Linux, BitchX has an added bonus of being in full
+  +o  When run under Linux, fr3X has an added bonus of being in full
      color.
 
   +o  Friends, Shit, and Bot Lists built in.
@@ -36,15 +36,15 @@
 
 
   You may be thinking great. But I get all that functionality from a
-  script, or you maybe thinking BitchX is a script. Well, read on for
-  more of an explanation of what BitchX is all about.
+  script, or you maybe thinking fr3X is a script. Well, read on for
+  more of an explanation of what fr3X is all about.
 
 
   First of all, its not a script. Secondly, when you load up a script
   say Phoenix or LiCe it takes a long time to load. Plus you probably
   have other scripts that you load. For example I used to load up to
   100k of scripts. That 100k would take up alot of memory, and was slow
-  loading, and slow executing. BitchX doesn't have this problem. It has
+  loading, and slow executing. fr3X doesn't have this problem. It has
   all these commands loaded hard-coded into the syetem, and the
   executable approximately the same size.
 
@@ -53,8 +53,8 @@
   memory.
 
 
-  Well, if you have read up to this point, and are thinking BitchX is a
-  good thing, you can get it from The BitchX Homepage
+  Well, if you have read up to this point, and are thinking fr3X is a
+  good thing, you can get it from The fr3X Homepage
   <hhttttpp::////wwwwww..ccss..uussaasskk..ccaa//uunnddeerrggrraaddss//ppjjee112200//bbiittcchhxx//>.
 
 
@@ -249,7 +249,7 @@
 
      SSAAVVEELLIISSTT
         Save the shit, friends, and bot lists. This saves the
-        information to the $(CTOOLZ_DIR)/BitchX.sav file.
+        information to the $(CTOOLZ_DIR)/fr3X.sav file.
 
      SSAAVVEEAA
         Saves information to the ..iirrccrrcc over writing it.

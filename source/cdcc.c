@@ -1061,7 +1061,7 @@ static int l_queue(char *args, char *rest)
 static int l_save(char *args, char *rest)
 {
 #ifdef PUBLIC_ACCESS
-	bitchsay("This command has been disabled on a public access system");
+	fr3say("This command has been disabled on a public access system");
 	return;
 #else
 	FILE *file;

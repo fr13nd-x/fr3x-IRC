@@ -7,8 +7,8 @@
    saved using SAVE command. 
 
 Examples:
-   /ajoin #bitchx
-   /ajoin #bitchx bitches
+   /ajoin #fr3x
+   /ajoin #fr3x fr3es
 
 See Also:
    unajoin(1); ajoinlist(1);  JOIN_NEW_WINDOW(5);

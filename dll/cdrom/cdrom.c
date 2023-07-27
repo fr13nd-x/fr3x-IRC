@@ -1,13 +1,4 @@
-/*
- * cdrom.c: This file handles all the CDROM routines, in BitchX
- *
- * Written by Tom Zickel
- * a.k.a. IceBreak on the irc
- *
- * Copyright(c) 1996
- * Modified Colten Edwards aka panasync.
- *
- */
+
 #ifdef __linux__
 #define CDROM_VERSION "0.02"
 

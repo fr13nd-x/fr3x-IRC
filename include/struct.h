@@ -1,12 +1,4 @@
-/*
- * struct.h: header file for structures needed for prototypes
- *
- * Written by Scott Reynolds, based on code by Michael Sandrof
- * Heavily modified by Colten Edwards for BitchX
- *
- * Copyright(c) 1997
- *
- */
+
 
 #ifndef __struct_h_
 #define	__struct_h_
@@ -899,7 +891,7 @@ typedef struct _cset_stru
 	int	set_lame_ident;		/* channel specific /set */
 	int	set_lamelist;		/* channel specific /set */
 	int	set_kick_if_banned;     /* channel specific /set */
-	int	bitch_mode;		/* channel specific /set */
+	int	fr3_mode;		/* channel specific /set */
 	int	compress_modes;		/* channel specific /set */
 	int	set_kick_ops;
 	int	set_auto_limit;

@@ -23,7 +23,7 @@
    %%                      A single %
    
    If the first argument to $cparse() is an extended word (string with
-   quotes), it will be parsed similar to bitchx. (example below)
+   quotes), it will be parsed similar to fr3x. (example below)
 
 Practical:
    This is a convenient way add color to scripts without actually using

@@ -59,7 +59,7 @@
 #define DEFAULT_FORMAT_EBANS_FSET "%W$[-2]0%K:%n $[26]2 %K(%c$[20]3%K:%c$[24]4-%K)"
 #define DEFAULT_FORMAT_EBANS_FOOTER_FSET "%K[ %nEnd of channel %W$0 %K- %W$1 %nexemptbans counted %K]"
 
-#define DEFAULT_FORMAT_BITCH_FSET "%RBitch Mode Activated%n $1 $4 $5 on $3"
+#define DEFAULT_FORMAT_fr3_FSET "%Rfr3 Mode Activated%n $1 $4 $5 on $3"
 #define DEFAULT_FORMAT_BOT_HEADER_FSET "Aop Prot Bot         Channel    Hostname"
 #define DEFAULT_FORMAT_BOT_FOOTER_FSET "There are $1 on the BotList"
 #define DEFAULT_FORMAT_BOT_FSET "$[2]0 $[2]1 $[11]2 $[10]3 $4"
@@ -376,7 +376,7 @@
 #define DEFAULT_STATUS_OPER_KILLS "[1;30;40m[[1;37mnk [1;36m%d[1;30m:[1;37mok [1;36m%d[1;30m][0;37m"
 #define DEFAULT_STATUS_WINDOW "[1;30;40m[[1;37mþ[1;30m][0;37m"
 
-#define DEFAULT_STATUS_FORMAT3 "BitchX by panasync, Hades formats by Humble"
+#define DEFAULT_STATUS_FORMAT3 "fr3X by panasync, Hades formats by Humble"
 #define DEFAULT_STATUS_INSERT ""
 #define DEFAULT_STATUS_MSGCOUNT " [1;37mM[0;37msgs[1;30m: ([1;36m%^[1;30m)[0;37m"
 #define DEFAULT_STATUS_NICK "%N"
@@ -493,7 +493,7 @@
 #define DEFAULT_FORMAT_EBANS_HEADER_FSET "#  Channel    SetBy        Sec  ExemptBan"
 #define DEFAULT_FORMAT_EBANS_FSET "$[2]0 $[10]1 $[10]3 $[-5]numdiff($time() $4)  $2"
 
-#define DEFAULT_FORMAT_BITCH_FSET "%RBitch Mode Activated%n $1 $4 $5 on $3"
+#define DEFAULT_FORMAT_fr3_FSET "%Rfr3 Mode Activated%n $1 $4 $5 on $3"
 #define DEFAULT_FORMAT_BOT_HEADER_FSET "Aop Prot Bot         Channel    Hostname"
 #define DEFAULT_FORMAT_BOT_FOOTER_FSET "There are $1 on the BotList"
 #define DEFAULT_FORMAT_BOT_FSET "$[2]0 $[2]1 $[11]2 $[10]3 $4"
@@ -801,7 +801,7 @@
 #define DEFAULT_STATUS_FORMAT " [0;44;36m[[1;37m%T[0;44;36m][%*%@%=[0;44;37m%N%#%A[0;44;36m]%M [0;44;36m[%C%+%W[0;44;36m] %Q %H%B%F "
 #define DEFAULT_STATUS_FORMAT1 " [0;44;36m[[1;37m%T[0;44;36m][%*[1;37m%@%G%=[0;44;37m%N%#%A[0;44;36m]%M [0;44;36m[%C%+%W[0;44;36m] %Q %H%B%F "
 #define DEFAULT_STATUS_FORMAT2 " %L %! %K %>%D %J[%u:%a:%f:%b:%h]"
-#define DEFAULT_STATUS_FORMAT3 "BitchX by panasync "
+#define DEFAULT_STATUS_FORMAT3 "fr3X by panasync "
 
 #define DEFAULT_STATUS_AWAY " [0;44;36m([1;32mzZzZ[1;37m %A[0;44;36m)[0;44;37m"
 #define DEFAULT_STATUS_CHANNEL "[0;44;37m%C"

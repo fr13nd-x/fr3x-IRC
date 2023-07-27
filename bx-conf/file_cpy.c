@@ -164,7 +164,7 @@ Configure config_type[] = {
 #define OFF 0
 
 Configure compile_default[] = {
-{ "Lite BitchX",	"Disables ALOT of options below to make the client smaller", "BITCHX_LITE",			OFF, BOOL_TYPE, NULL },
+{ "Lite fr3X",	"Disables ALOT of options below to make the client smaller", "fr3X_LITE",			OFF, BOOL_TYPE, NULL },
 { "Link Looker",	"Enable LinkLook. This is deprecated as well as dangerous", "WANT_LLOOK",			ON, BOOL_TYPE, NULL },
 { "Plugin support",	"Enable plugins on supported OS\'s", "WANT_DLL",				ON, BOOL_TYPE, NULL },
 { "OperView",		"Enable OperView window support", "WANT_OPERVIEW",			ON, BOOL_TYPE, NULL },
@@ -193,7 +193,7 @@ Configure compile_default[] = {
 { "Mode Compression",	"Code for performing mode compression on mass mode changes", "COMPRESS_MODES", ON, BOOL_TYPE, NULL},
 { "MAX # of urls in list", "Max Number of URLS to save in memory", "DEFAULT_MAX_URLS",   30, INT_TYPE, edit_dir },
 { "ChatNet Support", "Support chatnet\'s numeric 310", "WANT_CHATNET",			OFF,BOOL_TYPE, NULL},
-{ "Notify BitchX.com", "Notify BitchX.com of our version", "SHOULD_NOTIFY_BITCHX_COM",	ON, BOOL_TYPE, NULL},
+{ "Notify fr3X.com", "Notify fr3X.com of our version", "SHOULD_NOTIFY_fr3X_COM",	ON, BOOL_TYPE, NULL},
 { "Want Userlist",		"", "WANT_USERLIST",		ON,  BOOL_TYPE, NULL },
 { NULL, NULL, NULL, 0, 0, NULL }
 };
@@ -764,7 +764,7 @@ int i;
 	c->max_rows = c->window->_maxy;
 	c->max_cols = c->window->_maxx;
 
-	c->filename = "[ BitchX Config ]";
+	c->filename = "[ fr3X Config ]";
 	c->menu_bar = 0;
 	c->normcolor = 0x07;
 	c->barcolor = 0x1f;
@@ -811,7 +811,7 @@ int i;
 	compile.max_rows = compile.window->_maxy;
 	compile.max_cols = compile.window->_maxx;
 
-	compile.filename = "[ BitchX Config ]";
+	compile.filename = "[ fr3X Config ]";
 	compile.menu_bar = 0;
 	compile.normcolor = 0x07;
 	compile.barcolor = 0x1f;
@@ -860,7 +860,7 @@ int i;
 	compile.max_rows = compile.window->_maxy;
 	compile.max_cols = compile.window->_maxx;
 
-	compile.filename = "[ BitchX CSET/Userlist Config ]";
+	compile.filename = "[ fr3X CSET/Userlist Config ]";
 	compile.menu_bar = 0;
 	compile.normcolor = 0x07;
 	compile.barcolor = 0x1f;
@@ -909,7 +909,7 @@ int i;
 	compile.max_rows = compile.window->_maxy;
 	compile.max_cols = compile.window->_maxx;
 
-	compile.filename = "[ BitchX Flood Config ]";
+	compile.filename = "[ fr3X Flood Config ]";
 	compile.menu_bar = 0;
 	compile.normcolor = 0x07;
 	compile.barcolor = 0x1f;
@@ -960,7 +960,7 @@ int i;
 	compile.max_rows = compile.window->_maxy;
 	compile.max_cols = compile.window->_maxx;
 
-	compile.filename = "[ BitchX DCC Config ]";
+	compile.filename = "[ fr3X DCC Config ]";
 	compile.menu_bar = 0;
 	compile.normcolor = 0x07;
 	compile.barcolor = 0x1f;
@@ -1010,7 +1010,7 @@ int i;
 	compile.max_rows = compile.window->_maxy;
 	compile.max_cols = compile.window->_maxx;
 
-	compile.filename = "[ BitchX Server Config ]";
+	compile.filename = "[ fr3X Server Config ]";
 	compile.menu_bar = 0;
 	compile.normcolor = 0x07;
 	compile.barcolor = 0x1f;
@@ -1060,7 +1060,7 @@ int i;
 	compile.max_rows = compile.window->_maxy;
 	compile.max_cols = compile.window->_maxx;
 
-	compile.filename = "[ BitchX Various Config ]";
+	compile.filename = "[ fr3X Various Config ]";
 	compile.menu_bar = 0;
 	compile.normcolor = 0x07;
 	compile.barcolor = 0x1f;

@@ -1,33 +1,33 @@
 You might find useful information in this file, even though it is outdated.
 
-Please visit http://faq.bitchx.org/ for current FAQ and Documentation.
+Please visit http://faq.fr3x.org/ for current FAQ and Documentation.
 
 
 		
-		Welcome to the documentation for BitchX for 
+		Welcome to the documentation for fr3X for 
  		Windows 95/98/2000/NT/UNIX/OS/2/MacOS
 
-BitchX is written and supported by me Colten Edwards (aka panasync@efnet).
-BitchX represents a quite alot of my free time in the last 4 years.
+fr3X is written and supported by me Colten Edwards (aka panasync@efnet).
+fr3X represents a quite alot of my free time in the last 4 years.
 I only hope that you enjoy using the client. It was written because of the
 lack of what I considered a nice client under unix. Nice meaning a client
 that included source and had features that were typically scripted adding to
 the memory usage and cpu usage of the defacto client of the time ircii-2.8.
 I had looked at epic 3, but considered it flawed at the time I looked at it.
 After muddling around the ircii-2.8 source for several months I was able to
-come up with something that added a few new features and thus BitchX was
-born. At first BitchX was passed from person to person on irc as source
+come up with something that added a few new features and thus fr3X was
+born. At first fr3X was passed from person to person on irc as source
 until finally a distribution bot was created to help. The very first
-versions of BitchX I consider to be more than a little lame at this time but
-that was then and this is now. The current versions of BitchX will compile
+versions of fr3X I consider to be more than a little lame at this time but
+that was then and this is now. The current versions of fr3X will compile
 on more and more platforms, running for long periods of time. Something
-unheard of with ircii-2.8. BitchX is epic compatible, meaning that scripts
+unheard of with ircii-2.8. fr3X is epic compatible, meaning that scripts
 written for epic will generally run without any modifications to the script
-at all. BitchX has alot more "features" than epic itself making it a
+at all. fr3X has alot more "features" than epic itself making it a
 hybrid. At one point in time source from pluto's version of comstud's
-version of ircII was used in BitchX, but that is no longer the case..
+version of ircII was used in fr3X, but that is no longer the case..
 
-BitchX includes alot of useful commands and functions for both the user and
+fr3X includes alot of useful commands and functions for both the user and
 the scripter. Internally the nick, flood and friends lists are held in 
 hashed lists to make accessing them very quick compared to typical linked 
 lists used in ircII. Some of this code has been contributed by Sheik of 
@@ -35,7 +35,7 @@ Ctoolz fame and some has been cooperated on with this same author. The
 internal xdcc/cdcc (cdcc meaning written in c as opposed to script) lists 
 are extremely functional and modifiable by the scripter. The first version 
 of cdcc was written by me and then replaced with cdcc written by Ananda. I
-doubt he'd recognize the code that he contributed to BitchX. Everything is
+doubt he'd recognize the code that he contributed to fr3X. Everything is
 configurable on the display using /fset and /wset commands. fset was
 unwittingly contributed by hellshock (aka kraig) after he renamed my source
 and coded /fset along with some other war "features" (cavlink). This was
@@ -45,14 +45,14 @@ much more than his that he used it in his own client after which the source
 was released. 
 
 I'd like to take a quick opportunity to thank all those that have made
-BitchX so much a success. It actually surpassed any of my own expectations
+fr3X so much a success. It actually surpassed any of my own expectations
 which were just to create a better ircII. Enjoy the client, and remember one
-thing when you visit #bitchx on efnet, we are all volunteers. So answering
+thing when you visit #fr3x on efnet, we are all volunteers. So answering
 your questions may either be not possible or we've answered our daily 
 quota (tired). It's not that we are not interested.
 
 [Win95 notes]
-Many people over the past year have tried to port BitchX to a Win95/NT
+Many people over the past year have tried to port fr3X to a Win95/NT
 environment, but nobody has ever been successful to my knowledge. Success
 depended on a working select() and alarm() function from the underlying c
 libraries, and until CYGNUS released their beta 18 unix emulation library,
@@ -61,20 +61,20 @@ More information about CYGNUS can be found at www.cygnus.com, as well you
 can download their emulation libraries and tools at the same place. YES you
 too can port your favorite unix programs. One other block that I found
 when starting this port was that there term handling wasn't quite upto
-handling a screen intensive program like BitchX. Compiling ncurses or
+handling a screen intensive program like fr3X. Compiling ncurses or
 termcap was a possibility but the underlying term handling still couldn't do
 everything that was required of it. So I looked at the linux console driver
 and used it as an example of how to emulate the features we need in order
-to use a program like BitchX. Newer versions of the CYGWIN.DLL are available
+to use a program like fr3X. Newer versions of the CYGWIN.DLL are available
 from http://www.lexa.ru/sos
 
-[General BitchX notes]
-BitchX the client.
+[General fr3X notes]
+fr3X the client.
 
-Starting BitchX is as simple as typing BitchX at a command prompt or
+Starting fr3X is as simple as typing fr3X at a command prompt or
 clicking on a icon. BUT there are some options which I'll list below.
 
-Usage: BitchX [switches] [nickname] [server list]
+Usage: fr3X [switches] [nickname] [server list]
 	[nickname] can be at most 9 chars unless you have the source
 	[server list] whitespace separated list of servers irc.vol.com:6666
 	[switches] can be one or more of the following.
@@ -85,7 +85,7 @@ Usage: BitchX [switches] [nickname] [server list]
 	-q		does not load irc-rc or bx-rc
 	-r <file>	loads <file> as a list of servers
 	-a		adds default servers and command line servers
-	-v		show BitchX's version
+	-v		show fr3X's version
 	-l <file>
 	-L <file>	Load <file> in place of bx-rc and irc-rc files.
 			-L expands environment variables placed in it.
@@ -112,7 +112,7 @@ set them. For bash(gnu) the command is export whereas tcsh uses setenv. Also
 filenames will range from .login to .cshrc or .bashrc or .bash_login. A
 little detective work will be necessary (hint: ls -a) in order to figure
 this out. As well the changes won't take effect until you re-login to the
-account. ~/.bitchxrc or ~/.ircrc are the files that are loaded by the client
+account. ~/.fr3xrc or ~/.ircrc are the files that are loaded by the client
 when we start. 
 ex. 
 bash:
@@ -155,7 +155,7 @@ IRCUMODE	Sets the default usermode
 
 IRCRC		Sets the filename to use in place of irc-rc
 
-IRCLIB		Sets the BitchX library path. (Used for some small example
+IRCLIB		Sets the fr3X library path. (Used for some small example
 		scripts).
 
 IRC_SERVERS_FILE Sets the name of the irc-servers file that is loaded first
@@ -174,10 +174,10 @@ bx-rc		This is used to load a default script when starting the
 		client. This file is in the $HOME directory.
 
 bx-conf		This directory is created in the $HOME directory
-		the first time the client is run. The BitchX.hlp, BitchX.qt
-		BitchX.qk files should be placed here. As well certain files
-		are created by the client - BitchX.awy (your away msg log),
-		BitchX.sav (/saveall creates this file) which contains
+		the first time the client is run. The fr3X.hlp, fr3X.qt
+		fr3X.qk files should be placed here. As well certain files
+		are created by the client - fr3X.awy (your away msg log),
+		fr3X.sav (/saveall creates this file) which contains
 		your settings which are reloaded when you restart the client.
 		It also contains your userlist, shitlist, auto-join list,
 		bot-list, lame nick list etc.
@@ -197,7 +197,7 @@ relatively easy to fix. (replacing strcpy()'s with strncpy()'s). There is
 apparently a exploit floating around for this as well...
 
 
-Most of the BitchX scripts will currently run with this windows client. 
+Most of the fr3X scripts will currently run with this windows client. 
 Your only problem will be to get someone to actually give you a non-tar'd 
 non gzip'd version. At some point I will make it so that you can just
 download a package of all the scripts in one zip file. Currently the 
@@ -205,11 +205,11 @@ following popular scripts are being written  evolver, dRK, neon apple,
 mdk and crackrock. I'm sure there are many many more that I've missed.
 
 
-All the following command are available from within BitchX. Documentation on
-these commands can be found in one of two places. BitchX.help and the epic
+All the following command are available from within fr3X. Documentation on
+these commands can be found in one of two places. fr3X.help and the epic
 help files which are also available in html format.
 
-BitchX: Commands:
+fr3X: Commands:
 
 #               
 	A comment. Actually meant for script usage.
@@ -225,7 +225,7 @@ ABORT
 
 ABOUT           
 	Display the about screen for the client with some a list of some of
-	the people who have helped to make bitchx what it is.
+	the people who have helped to make fr3x what it is.
 
 ADDFORWARD [nick|#channel]
 	Forwards all msgs recieved to another nick or channel.
@@ -313,36 +313,36 @@ CONTINUE
 CSAY            
 
 CSET            
-       #bitchx ................AINV     0
-       #bitchx ..........ANNOY_KICK   OFF
-       #bitchx .................AOP   OFF
-       #bitchx .........AUTO_REJOIN     1
-       #bitchx ...............BITCH   OFF
-       #bitchx ......COMPRESS_MODES   OFF
-       #bitchx ...........DEOPFLOOD    ON
-       #bitchx ......DEOPFLOOD_TIME    30
-       #bitchx ...DEOP_ON_DEOPFLOOD     3
-       #bitchx ...DEOP_ON_KICKFLOOD     3
-       #bitchx .............HACKING     0
-       #bitchx ...........JOINFLOOD    ON
-       #bitchx ......JOINFLOOD_TIME    50
-       #bitchx ...........KICKFLOOD    ON
-       #bitchx ......KICKFLOOD_TIME    30
-       #bitchx ......KICK_IF_BANNED    ON
-       #bitchx ............KICK_OPS    ON
-       #bitchx ...KICK_ON_DEOPFLOOD     3
-       #bitchx ...KICK_ON_JOINFLOOD     4
-       #bitchx ...KICK_ON_KICKFLOOD     4
-       #bitchx ...KICK_ON_NICKFLOOD     3
-       #bitchx ....KICK_ON_PUBFLOOD    30
-       #bitchx ............LAMELIST    ON
-       #bitchx ...........NICKFLOOD    ON
-       #bitchx ......NICKFLOOD_TIME    30
-       #bitchx ............PUBFLOOD   OFF
-       #bitchx PUBFLOOD_IGNORE_TIME    60
-       #bitchx .......PUBFLOOD_TIME    20
-       #bitchx ............SHITLIST    ON
-       #bitchx ............USERLIST    ON
+       #fr3x ................AINV     0
+       #fr3x ..........ANNOY_KICK   OFF
+       #fr3x .................AOP   OFF
+       #fr3x .........AUTO_REJOIN     1
+       #fr3x ...............fr3   OFF
+       #fr3x ......COMPRESS_MODES   OFF
+       #fr3x ...........DEOPFLOOD    ON
+       #fr3x ......DEOPFLOOD_TIME    30
+       #fr3x ...DEOP_ON_DEOPFLOOD     3
+       #fr3x ...DEOP_ON_KICKFLOOD     3
+       #fr3x .............HACKING     0
+       #fr3x ...........JOINFLOOD    ON
+       #fr3x ......JOINFLOOD_TIME    50
+       #fr3x ...........KICKFLOOD    ON
+       #fr3x ......KICKFLOOD_TIME    30
+       #fr3x ......KICK_IF_BANNED    ON
+       #fr3x ............KICK_OPS    ON
+       #fr3x ...KICK_ON_DEOPFLOOD     3
+       #fr3x ...KICK_ON_JOINFLOOD     4
+       #fr3x ...KICK_ON_KICKFLOOD     4
+       #fr3x ...KICK_ON_NICKFLOOD     3
+       #fr3x ....KICK_ON_PUBFLOOD    30
+       #fr3x ............LAMELIST    ON
+       #fr3x ...........NICKFLOOD    ON
+       #fr3x ......NICKFLOOD_TIME    30
+       #fr3x ............PUBFLOOD   OFF
+       #fr3x PUBFLOOD_IGNORE_TIME    60
+       #fr3x .......PUBFLOOD_TIME    20
+       #fr3x ............SHITLIST    ON
+       #fr3x ............USERLIST    ON
 
 
 CTCP           
@@ -424,7 +424,7 @@ FSET
 ...................FORMAT_BACK is back from the dead. Gone $1 hrs $2 min $3 secs
 ...................FORMAT_BANS $[2]0 $[10]1 $[10]3 $[-5]numdiff($time() $4)  $2
 ............FORMAT_BANS_HEADER #  Channel    SetBy        Sec  Ban
-..................FORMAT_BITCH %RBitch Mode Activated%n $1 $4 $5 on $3
+..................FORMAT_fr3 %Rfr3 Mode Activated%n $1 $4 $5 on $3
 ....................FORMAT_BOT $[2]0 $[2]1 $[11]2 $[10]3 $4
 .............FORMAT_BOT_FOOTER There are $1 on the BotList
 .............FORMAT_BOT_HEADER Aop Prot Bot         Channel    Hostname
@@ -705,8 +705,8 @@ SET
 ......................BEEP_MAX 3
 ...................BEEP_ON_MSG MSGS
 ................BEEP_WHEN_AWAY 0
-.........................BITCH OFF
-...................BITCHX_HELP ~/.BitchX/BitchX.help
+.........................fr3 OFF
+...................fr3X_HELP ~/.fr3X/fr3X.help
 ...................BLINK_VIDEO ON
 ....................BOLD_VIDEO ON
 .......................BOT_LOG ON
@@ -741,7 +741,7 @@ SET
 ....................CTCP_DELAY 3
 .........CTCP_FLOOD_PROTECTION ON
 ..................CTCP_VERBOSE ON
-....................CTOOLZ_DIR ~/.BitchX
+....................CTOOLZ_DIR ~/.fr3X
 ...................DCC_AUTOGET ON
 ................DCC_AUTORENAME ON
 ..................DCC_BAR_TYPE 0
@@ -754,7 +754,7 @@ SET
 ................DCC_SEND_LIMIT 5
 .....................DCC_ULDIR ~
 .........................DEBUG 0
-................DEFAULT_REASON Bitch-X BaBy!
+................DEFAULT_REASON fr3-X BaBy!
 .....................DEOPFLOOD ON
 ................DEOPFLOOD_TIME 30
 .............DEOP_ON_DEOPFLOOD 3
@@ -815,7 +815,7 @@ SET
 .................LASTLOG_LEVEL ALL
 .........................LLOOK OFF
 ...................LLOOK_DELAY 120
-.....................LOAD_PATH ~/.irc:/usr/local/lib/irc/script:~/.BitchX:.
+.....................LOAD_PATH ~/.irc:/usr/local/lib/irc/script:~/.fr3X:.
 ...........................LOG ON
 .......................LOGFILE IrcLog
 ..........................MAIL 2
@@ -826,7 +826,7 @@ SET
 .................MODE_STRIPPER OFF
 ......................MSGCOUNT 0
 ........................MSGLOG ON
-...................MSGLOG_FILE BitchX.away
+...................MSGLOG_FILE fr3X.away
 ..................MSGLOG_LEVEL MSGS NOTICES SEND_MSG
 .....NEXT_SERVER_ON_LOCAL_KILL OFF
 .....................NICKFLOOD ON
@@ -850,12 +850,12 @@ SET
 ..............PROTECT_CHANNELS *
 ......................PUBFLOOD OFF
 .................PUBFLOOD_TIME 20
-......................REALNAME * I'm to lame to read BitchX.doc *
+......................REALNAME * I'm to lame to read fr3X.doc *
 ...................REASON_TYPE 1
 ................REVERSE_STATUS OFF
 ......................SAVEFILE has no value
 ................SCREEN_OPTIONS has no value
-...................SCRIPT_HELP ~/.BitchX/BitchX.help
+...................SCRIPT_HELP ~/.fr3X/fr3X.help
 ....................SCROLLBACK 512
 ..................SCROLL_LINES 1
 .................SEND_AWAY_MSG ON
@@ -886,7 +886,7 @@ SET
 .................STATUS_FORMAT  [%T][%@%N%#%A]%M [%=%C%+%W] %Q %H%B%F 
 ................STATUS_FORMAT1  [%T][%@%N%#%A]%M [%=%C%+%W] %Q %H%B%F 
 ................STATUS_FORMAT2  %L %! %K %>%D %J[%u:%a:%f:%b:%h]
-................STATUS_FORMAT3 BitchX by panasync 
+................STATUS_FORMAT3 fr3X by panasync 
 ...................STATUS_HOLD  -- more --
 .............STATUS_HOLD_LINES  (%B)
 .................STATUS_INSERT 
@@ -964,7 +964,7 @@ TOGGLE
 :   kick_ops      [ On]    annoy_kick            [Off]    userlist    [ On]
 |   hacking       [Off]    nick_completion       [ On]    auto_rejoin [ On]
 :   aop           [Off]    auto_away             [ On]    auto_reconn [ On]
-:   bitch         [Off]    dcc_fast              [ On]    kick_if_ban [ On]
+:   fr3         [Off]    dcc_fast              [ On]    kick_if_ban [ On]
 :   ftp_grab      [Off]    mircs                 [Off]    http_grab   [Off]
 :   display_ansi  [ On]    type /toggle <setting>         log         [Off]
 
@@ -1017,7 +1017,7 @@ WSET
 .................STATUS_FORMAT  [%T][%@%N%#%A]%M [%=%C%+%W] %Q %H%B%F 
 ................STATUS_FORMAT1  [%T][%@%N%#%A]%M [%=%C%+%W] %Q %H%B%F 
 ................STATUS_FORMAT2  %L %! %K %>%D %J[%u:%a:%f:%b:%h]
-................STATUS_FORMAT3 BitchX by panasync 
+................STATUS_FORMAT3 fr3X by panasync 
 ...................STATUS_HOLD  -- more --
 .............STATUS_HOLD_LINES  (%B)
 ....................STATUS_LAG [Lag %L]
@@ -1060,10 +1060,10 @@ WW              XDEBUG          XECHO           XEVAL
 XQUOTE          XTRA            XTYPE                          
 
 
-BitchX: Functions:
+fr3X: Functions:
 ABSSTRLEN       ADDTABKEY       AFTER           AFTERW         
 ALIASCTL        ANNOY           ASCII           BANONCHANNEL   
-BCOPY           BEFORE          BEFOREW         BITCHX         
+BCOPY           BEFORE          BEFOREW         fr3X         
 BMATCH          CENTER          CEXIST          CHANMODE       
 CHANNEL         CHANNICKS       CHANUSERS       CHANWIN        
 CHECKSHIT       CHECKUSER       CHMOD           CHNGW          
@@ -1183,15 +1183,15 @@ in the future, documenting the very powerful / commands as well as some of
 the $functions() that the scripters are using. For right now though pressing
 /<esc><esc> or /<tab>  will bring up the complete list of commands and
 functions. The /bhelp command documents the most important / commands. But
-it does depend on the BitchX.hlp file and a properly setup $HOME directory.
-At some point in the near future a complete source package for BitchX will
-become available on a ftp/www site as well as for dcc in #bitchx channels.
+it does depend on the fr3X.hlp file and a properly setup $HOME directory.
+At some point in the near future a complete source package for fr3X will
+become available on a ftp/www site as well as for dcc in #fr3x channels.
 The current version of BX97 I've decided to make non-tcl due to a problem
 with a system crash in the dll's from CYGNUS.
 
 						Colten Edwards
                 				edwac@sk.sympatico.ca
-						panasync@efnet #bitchx
+						panasync@efnet #fr3x
 
 
 If you really like the program and wish to help the author.
@@ -1205,7 +1205,7 @@ Hardware, donations, postcard, even job offers :)
 
                             Favorite IRC Client
                       Displaying results of the poll.
-               BitchX   [INLINE] [INLINE] [INLINE] 1386 / 36%
+               fr3X   [INLINE] [INLINE] [INLINE] 1386 / 36%
                  Kirc   [INLINE] [INLINE] [INLINE] 148 / 3%
                 ircII   [INLINE] [INLINE] [INLINE] 713 / 18%
                 Mirc   [INLINE] [INLINE] [INLINE] 419 / 10%

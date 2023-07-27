@@ -119,7 +119,7 @@ register BanList *eban = NULL;
 
 void fake (void) 
 {
-	bitchsay("--- Fake Message recieved!!! ---");
+	fr3say("--- Fake Message recieved!!! ---");
 	return;
 }
 
@@ -222,7 +222,7 @@ ChannelList *chan;
 				{
 					if (!ops && (nick_isop(nick) || nick_isvoice(nick)))
 						break;
-					send_to_server("KICK %s %s :%s %s", to, from, "\002BitchX BWK\002: ", word->string);
+					send_to_server("KICK %s %s :%s %s", to, from, "\002fr3X BWK\002: ", word->string);
 					kick_em = 1;
 					break;
 				}
@@ -1194,7 +1194,7 @@ CSetList *cset = NULL;
 	}
 	return;
 got_request:
-	bitchsay("Auto-joining %s on invite", channel);
+	fr3say("Auto-joining %s on invite", channel);
 	add_to_join_list(channel, from_server, current_window->refnum);
 	send_to_server("JOIN %s", channel);
 
@@ -1234,9 +1234,9 @@ static	void p_invite(char *from, char **ArgList)
 				if (!get_int_var(AUTO_JOIN_ON_INVITE_VAR))
 				{
 					if (ArgList[2])
-						bitchsay("Press %s to join %s (%s)", s, invite_channel, ArgList[2]);
+						fr3say("Press %s to join %s (%s)", s, invite_channel, ArgList[2]);
 					else
-						bitchsay("Press %s to join %s", s, invite_channel);
+						fr3say("Press %s to join %s", s, invite_channel);
 				}
 			}
 			logmsg(LOG_INVITE, from, 0, "%s", invite_channel);
@@ -1432,7 +1432,7 @@ int found = 0;
 	return found;
 }
 
-static void check_bitch_mode(char *from, char *uh, char *channel, char *line, ChannelList *chan)
+static void check_fr3_mode(char *from, char *uh, char *channel, char *line, ChannelList *chan)
 {
 NickList *nick;
 char *new_mode = NULL;
@@ -1440,7 +1440,7 @@ char *n = NULL;
 time_t right_now;
 
 	
-	if (!from || !chan || (chan && (!get_cset_int_var(chan->csets, BITCH_CSET) || !chan->have_op)))
+	if (!from || !chan || (chan && (!get_cset_int_var(chan->csets, fr3_CSET) || !chan->have_op)))
 		return;
 	if (!get_int_var(HACK_OPS_VAR) && wild_match("%.%", from))
 		return;
@@ -1476,7 +1476,7 @@ time_t right_now;
 			} 
 		}
 		if (found)
-			put_it("%s", convert_output_format(fget_string_var(FORMAT_BITCH_FSET), "%s %s %s %s %s %s", update_clock(GET_TIME), from, uh, channel, new_mode, n));
+			put_it("%s", convert_output_format(fget_string_var(FORMAT_fr3_FSET), "%s %s %s %s %s %s", update_clock(GET_TIME), from, uh, channel, new_mode, n));
 	}
 	reset_display_target();
 }
@@ -1531,7 +1531,7 @@ static	void p_mode(char *from, char **ArgList)
 			if (my_stricmp(from, get_server_nickname(from_server))) 
 			{
 				check_mode_lock(target, line, from_server);
-				check_bitch_mode(from, FromUserHost, target, line, chan);
+				check_fr3_mode(from, FromUserHost, target, line, chan);
 			}
 
 			if (flag != IGNORED && do_hook(MODE_LIST, "%s %s %s", from, target, line))

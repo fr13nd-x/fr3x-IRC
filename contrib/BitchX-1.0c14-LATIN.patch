@@ -1,5 +1,5 @@
---- BitchX.orig/include/color.h	Mon Nov 22 00:47:16 1999
-+++ BitchX/include/color.h	Mon Dec 27 19:21:51 1999
+--- fr3X.orig/include/color.h	Mon Nov 22 00:47:16 1999
++++ fr3X/include/color.h	Mon Dec 27 19:21:51 1999
 @@ -419,13 +419,13 @@
  #define DEFAULT_FORMAT_476_FSET "$G [$1] You are not opped"
  
@@ -68,8 +68,8 @@
  #else
  #define DEFAULT_FORMAT_WHOIS_AWAY_FSET ansi?"%K| %Wa%nway     : $0 - $1-":"| away     : $0 - $1-"
  #define DEFAULT_FORMAT_WHOIS_BOT_FSET ansi?"%g| %Wb%not      : A:$0 P:$1 [$2] $3-":"| bot      : A:$0 P:$1 [$2] $3-"
---- BitchX.orig/source/vars.c	Tue Nov 16 05:58:01 1999
-+++ BitchX/source/vars.c	Mon Dec 27 19:16:46 1999
+--- fr3X.orig/source/vars.c	Tue Nov 16 05:58:01 1999
++++ fr3X/source/vars.c	Mon Dec 27 19:16:46 1999
 @@ -1392,6 +1392,9 @@
  #ifndef ONLY_STD_CHARS
  	set_string_var(SHOW_NUMERICS_STR_VAR, value ? "[1;31mù[0m[1;37mí[1;31mù[0m" : "-:-");
@@ -80,8 +80,8 @@
  #endif
  	reinit_status(win, unused, value);
  }
---- BitchX.orig/source/irc.c	Thu Dec 16 12:05:39 1999
-+++ BitchX/source/irc.c	Mon Dec 27 19:23:04 1999
+--- fr3X.orig/source/irc.c	Thu Dec 16 12:05:39 1999
++++ fr3X/source/irc.c	Mon Dec 27 19:23:04 1999
 @@ -97,7 +97,11 @@
  						 * switchs are set */
  	dead	   = 0, 

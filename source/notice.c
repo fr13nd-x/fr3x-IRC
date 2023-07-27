@@ -126,9 +126,9 @@ static	int  handle_oper_vision(const char *from, char *cline, int *up_status)
 	else if (!strncmp(line, "Nick collision on", 17) || !strncmp(line, "Nick change collision on", 24))
 	{
 #if 0
-irc.BitchX.com *** Notice -- Nick collision on nickserv(irc.distracted.net <-
+irc.fr3X.com *** Notice -- Nick collision on nickserv(irc.distracted.net <-
                irc.distracted.net[unknown@209.51.160.249])(both killed)
-[BitchX]  Nick collision llision killed on
+[fr3X]  Nick collision llision killed on
 #endif               
 		nick_collisions++;
 		if (!(flags & NICK_COLLIDE))
@@ -829,7 +829,7 @@ void load_scripts(void)
 			loading_savefile++;
 			reload_save(NULL, NULL, empty_string, NULL);
 			loading_savefile--;
-			/* read the newscript/.bitchxrc/.ircrc file */
+			/* read the newscript/.fr3xrc/.ircrc file */
 			if (new_script && !access(new_script, R_OK))
 				load("LOAD", new_script, empty_string, NULL);
 			else if (!access(bircrc_file, R_OK))
@@ -863,7 +863,7 @@ char *h;
 	else
 		h = host_to_ip(stuff->host);
 	nat_address.s_addr = inet_addr(h); 
-	bitchsay("using NAT address for DCC");
+	fr3say("using NAT address for DCC");
 }
 
 void got_initial_version_28 (char **ArgList)
@@ -969,7 +969,7 @@ Window *win = NULL;
 			{
 				tmp->log = log;
 				if (tmp->log)
-					do_log(log, "~/.BitchX/operview.log", &tmp->log_fp);
+					do_log(log, "~/.fr3X/operview.log", &tmp->log_fp);
 			}
 		}
 	}
@@ -1128,7 +1128,7 @@ int gotargs = 0;
 		}
 		strmcat(buffer, space, BIG_BUFFER_SIZE);
 		strmcat(buffer, none, BIG_BUFFER_SIZE);
-		bitchsay("You must specify from the following:");
+		fr3say("You must specify from the following:");
 		put_it("\t%s", buffer);
 		/*ALL COLLIDE KILLS MISMATCH HACK IDENTD FAKES UNAUTHS CLIENTS TRAFFIC CRAP REHASH KLINE BOTS OPER SQUIT SERVER CONNECT FLOOD USER STATS NICK ACTIVEK NONE");*/
 		return;
@@ -1207,7 +1207,7 @@ int log = 0;
  		put_it("%s", convert_output_format("$G %BOper%bView%n is already %K[%W$0%K]", "%s", on_off(get_int_var(OV_VAR))));
 		hide = old_hide;
 		{
-			char buffer[BIG_BUFFER_SIZE] = "~/.BitchX/operview.log";
+			char buffer[BIG_BUFFER_SIZE] = "~/.fr3X/operview.log";
 			Window *tmp = get_window_by_name("oper_view");
 			if (tmp)
 			{

@@ -24,7 +24,7 @@
 char *name = "aim";
 char *timer_id;
 
-#ifdef BITCHX_PATCH
+#ifdef fr3X_PATCH
 struct tab_key_struct tks;
 
 int do_aim_tabkey_overwrite(int x, char *p, int *c, char **s) {
@@ -191,7 +191,7 @@ char * amsg_complete_func(int x, char *p, int *c, char **s) {
 	FreeLL(l);
 	return (z);
 }
-#endif /* BITCHX_PATCH */
+#endif /* fr3X_PATCH */
 
 /* Window code, straight from nap module by panasync */
 
@@ -333,7 +333,7 @@ char *Aim_Version(IrcCommandDll *intp) {
 int Aim_Cleanup(IrcCommandDll **interp, Function_ptr *global_table) {
 	if ( state == STATE_ONLINE )
 		toc_signoff();
-#ifdef BITCHX_PATCH	
+#ifdef fr3X_PATCH	
 	overwrite_tabkey_comp(NULL,NULL);
 	debug_printf("Didn't remove completions, thats probably gonna cause problems");
 #endif		
@@ -383,7 +383,7 @@ int Aim_Init(IrcCommandDll **interp, Function_ptr *global_table) {
 	add_module_proc(COMMAND_PROC, name, "aquery", "aquery", 0, 0, aquery, "query user");						
 	add_module_proc(COMMAND_PROC, name, "ainfo", "ainfo", 0, 0, ainfo, "<command> <args>\n/ainfo set <your info...> Sets your info\n/ainfo get <screen name> Retreives sn's info");						
 
-#ifdef BITCHX_PATCH	
+#ifdef fr3X_PATCH	
 	add_completion_type("amsg", 2, CUSTOM_COMPLETION, &amsg_complete_func);
 	overwrite_tabkey_comp(&do_aim_tabkey_overwrite,&aim_tabkey_overwrite);
 #endif

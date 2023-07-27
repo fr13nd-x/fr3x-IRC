@@ -1,25 +1,25 @@
-.TH BitchX 1 "March 22, 2001" "" ""
+.TH fr3X 1 "March 22, 2001" "" ""
 .SH NAME
-BitchX \- The Ultimate IRC Client
+fr3X \- The Ultimate IRC Client
 .SH SYPNOSIS
-.B BitchX
+.B fr3X
 [-aAbBcdfFHilLnNpPqrvxZ]
 .SH DESCRIPTION
-.B BitchX
+.B fr3X
 is a VERY heavily modified ircII client.  It includes many things such as
 built in CDCC (XDCC) offering, built in flood protection, etc.  It is easier
 to script things in
-.B BitchX
+.B fr3X
 because unlike plain, vanilla ircII, half the script does not have to be
 devoted to changing the appearance of ircII.  It also includes many other
 new features, such as port scanning, advanced TCL, a CD player, a mail
 client, screening process, etc.
 
-.B BitchX - Based on
+.B fr3X - Based on
 .B EPIC
 Software Labs
 .B epic ircII (1998).
-Version (BitchX-1.0c18) -- Date (20010108).
+Version (fr3X-1.0c18) -- Date (20010108).
 
 .SH OPTIONS
 .TP
@@ -30,11 +30,11 @@ Adds default servers and command line servers to server list.
 Do not display the startup ansi.
 .TP
 .I -b
-Load .bitchxrc or .ircrc after connecting to a server.
+Load .fr3xrc or .ircrc after connecting to a server.
 .TP
 .I -B
 Force 
-.B BitchX
+.B fr3X
 to fork and return you to a shell. pid check on.
 .TP
 .I -c <channel>
@@ -42,12 +42,12 @@ Joins <channel> on startup.
 .TP
 .I -d
 Runs
-.B BitchX
+.B fr3X
 in "dumb" terminal mode.
 .TP
 .I -f
 Your terminal uses flow controls (^S/^Q), so
-.B BitchX
+.B fr3X
 shouldn't.
 .TP
 .I -F
@@ -78,7 +78,7 @@ Default server connection port (usually 6667).
 Toggle check pid.nickname for running program.
 .TP
 .I -q
-Does not load .ircrc or .bitchxrc.
+Does not load .ircrc or .fr3xrc.
 .TP
 .I -r <file>
 Load <file> as list of servers.
@@ -88,7 +88,7 @@ Tells you about the clients version.
 .TP
 .I -x
 Run
-.B BitchX
+.B fr3X
 in "debug" mode.
 .TP
 .I -Z
@@ -96,7 +96,7 @@ Use NAT address when doing dcc.
 
 .SH ENVIRONMENT
 .TP
-.BR BitchX
+.BR fr3X
 uses many environment variables to configure the client.  These can be set
 by editing your ~/.profile or ~/.bash_login (if you're using a /bin/bash
 shell) and adding ``export VARNAME="var value"''.  Or, if you are using the
@@ -124,7 +124,7 @@ same as
 .TP
 .BR IRCNAME
 sets the name that appears in the "realname" field on your /whois.  The
-default value is "* I'm to lame to read BitchX.doc *".
+default value is "* I'm to lame to read fr3X.doc *".
 .TP
 .BR IRCSERVER
 sets the default IRC server to use.
@@ -133,17 +133,17 @@ sets the default IRC server to use.
 sets the default IRC port to use.  Usually 6667.
 .TP
 .BR IRCPATH
-sets the path from which files are loaded.  Default is ~/.BitchX/
+sets the path from which files are loaded.  Default is ~/.fr3X/
 .TP
 .BR IRCUMODE
 sets your default usermode.  Default is "+iw"
 .TP
 .BR IRCRC
-sets the filename to be used in place of ~/.bitchxrc or ~/.ircrc
+sets the filename to be used in place of ~/.fr3xrc or ~/.ircrc
 .TP
 .BR IRCLIB
 sets the 
-.B BitchX 
+.B fr3X 
 library path (Used for some small example scripts).
 .TP
 .BR IRC_SERVERS_FILE
@@ -154,14 +154,14 @@ sets your CTCP FINGER information.
 .PP
 .SH FILES
 .TP
-.I ~/.bitchxrc
+.I ~/.fr3xrc
 Loaded by
-.B BitchX
+.B fr3X
 when it is started.
 .TP
 .I ~/.ircrc
 If 
-.BR ~/.bitchxrc 
+.BR ~/.fr3xrc 
 is not there, this file is loaded on startup instead.
 .TP
 .I ~/.ircservers
@@ -170,56 +170,56 @@ Contains a list of IRC servers to cycle through.
 .I /usr/local/lib/bx/
 System-wide configuration dir.
 .TP
-.I ~/.BitchX/BitchX.sav
+.I ~/.fr3X/fr3X.sav
 Personal configuration file.
 .TP
-.I ~/.BitchX/BitchX.ircnames
+.I ~/.fr3X/fr3X.ircnames
 Default random real name.  NOTE: Must be copied from /usr/local/lib/bx/
 .TP
-.I ~/.BitchX/BitchX.formats
+.I ~/.fr3X/fr3X.formats
 Personal 
-.B BitchX 
+.B fr3X 
 display formats.
 .TP
-.I ~/.BitchX/BitchX.reasons
+.I ~/.fr3X/fr3X.reasons
 Default random kick messages.  NOTE: Must be copied from /usr/local/lib/bx/
 .TP
-.I ~/.BitchX/BitchX.quit
+.I ~/.fr3X/fr3X.quit
 Default random quit messages.  NOTE: Must be copied from /usr/local/lib/bx/
 .TP
-.I /usr/local/lib/bx/BitchX.help
-.B BitchX 
+.I /usr/local/lib/bx/fr3X.help
+.B fr3X 
 help file.
 .TP
-.I ~/.BitchX/screens
+.I ~/.fr3X/screens
 Screen storage for a detached
-.BR BitchX
+.BR fr3X
 session.
 .PP
 
 .SH OBTAINING
 You can always download the newest version of
-.B BitchX
-by joining #BitchX on EFNet and typing "/offers" in the channel window.  To
+.B fr3X
+by joining #fr3X on EFNet and typing "/offers" in the channel window.  To
 check what the latest version is type "!explain latest" and the bot will
 tell you.  You can also ftp to 
-.B ftp.BitchX.com 
+.B ftp.fr3X.com 
 to get the latest client, scripts, tcl objects, documentation, and many other
 useful items.  You can also point your browser to 
-.B http://www.BitchX.com
+.B http://www.fr3X.com
 for some more things.
 .PP
 .SH BUGS
-Please report all bugs to an op on #BitchX on EFNet, e-mail panasync or send
+Please report all bugs to an op on #fr3X on EFNet, e-mail panasync or send
 an e-mail to the mailing list.
 
 .SH MAILING LIST
-There is a BitchX mailing list, to subscribe simply send an e-mail to:
-.B majordomo@lists.BitchX.com 
-with only the words "subscribe BitchX" in the body.  You will receive
+There is a fr3X mailing list, to subscribe simply send an e-mail to:
+.B majordomo@lists.fr3X.com 
+with only the words "subscribe fr3X" in the body.  You will receive
 another mail to confirm this and once you have replied you can post to the
 list by sending e-mail to
-.B bitchx@lists.BitchX.com.
+.B fr3x@lists.fr3X.com.
 This is a helpful place for bug reports
 
 .SH MAN PAGE ORIGINAL AUTHOR
@@ -233,9 +233,9 @@ Robert Durdle - Dragoon@EFNet
 dialtone
 .B <dialtone@chemlab.org>
 
-.SH BitchX Author
+.SH fr3X Author
 Colten Edwards
-.B <edwards@bitchx.dimension6.com>
+.B <edwards@fr3x.dimension6.com>
 .PP
 panasync
 

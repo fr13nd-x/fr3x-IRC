@@ -16,11 +16,11 @@
 #define         GUICHECKMENUITEM       (1 << 10)
 
 #ifdef __EMXPM__
-#include "PMbitchx.h"
+#include "PMfr3x.h"
 #elif defined(GTK)
-#include "gtkbitchx.h"
+#include "gtkfr3x.h"
 #elif defined(WIN32)
-#include "winbitchx.h"
+#include "winfr3x.h"
 #endif
 
 #define EVNONE    	0

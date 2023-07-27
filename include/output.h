@@ -1,14 +1,4 @@
-/*
- * output.h: header for output.c 
- *
- * Written By Michael Sandrof
- *
- * Copyright(c) 1990 
- *
- * See the COPYRIGHT file, or do a HELP IRCII COPYRIGHT 
- *
- * @(#)$Id: output.h 3 2008-02-25 09:49:14Z keaston $
- */
+
 
 #ifndef __output_h_
 #define __output_h_
@@ -21,7 +11,7 @@
 	void	BX_queue_send_to_server (int, const char *, ...);
 
 	void	say (const char *, ...);
-	void	BX_bitchsay (const char *, ...);
+	void	BX_fr3say (const char *, ...);
 	void	serversay (int, int, const char *, ...);
 	void	BX_yell (const char *, ...);
 	void	error (const char *, ...);

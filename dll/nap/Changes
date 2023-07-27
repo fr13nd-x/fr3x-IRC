@@ -13,7 +13,7 @@
 	* gratitious change to napster windows client involving the md5
           checksum. Seems we need to send the filesize at the end of the
 	  md5. "md5-filesize"
-	* Added /nload -load which will load a ~/.BitchX/shared.dat. This
+	* Added /nload -load which will load a ~/.fr3X/shared.dat. This
 	  file is in the same format as the linux client.
 	* Added /nload -save which will save/overwrite the shared.dat.
 	* firewall get's are fixed.

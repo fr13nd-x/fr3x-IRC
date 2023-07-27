@@ -315,7 +315,7 @@ static int already_done = 0;
 		
 /* output.c */
 	global_table[PUT_IT] 			= (Function_ptr) BX_put_it;
-	global_table[BITCHSAY]			= (Function_ptr) BX_bitchsay;
+	global_table[fr3SAY]			= (Function_ptr) BX_fr3say;
 	global_table[YELL]			= (Function_ptr) BX_yell;
 
 /* screen.c */
@@ -796,7 +796,7 @@ int code = 0;
 				put_it("\t%10s\t %s", "Window", pk->name);
 		}
 		else
-			bitchsay("No modules loaded");
+			fr3say("No modules loaded");
 		return;
 	}
 	if (!args || !*args)
@@ -841,7 +841,7 @@ int code = 0;
 	if (!procname || find_in_list((List **)&install_pack, procname, 0))
 	{
 		if (procname)
-			bitchsay("Module [%s] Already installed", procname);
+			fr3say("Module [%s] Already installed", procname);
 		new_free(&f);
 		new_free(&procname);
 		return;
@@ -870,11 +870,11 @@ int code = 0;
 #endif
 	{
 #if defined(__EMX__)
-		bitchsay("couldn't load file: DosLoadModule() failed %d", ulerror);
+		fr3say("couldn't load file: DosLoadModule() failed %d", ulerror);
 #elif defined(WINNT)
-		bitchsay("could't load file %s", f);
+		fr3say("could't load file %s", f);
 #else
-		bitchsay("couldn't load file: %s", dlerror());
+		fr3say("couldn't load file: %s", dlerror());
 #endif
 		new_free(&procname);
 		new_free(&f);
@@ -890,7 +890,7 @@ int code = 0;
 #else
 	if (!(proc1Ptr = (Irc_PackageInitProc *) dlsym(handle, (char *) procname)))
 #endif
-		bitchsay("UnSuccessful module load");
+		fr3say("UnSuccessful module load");
 	else
 		code = (proc1Ptr)(&dll_commands, global_table);
 
@@ -900,8 +900,8 @@ int code = 0;
 		new = (Packages *) new_malloc(sizeof(Packages));
 		new->name = m_strdup(procname);
 		new->handle = handle;
-		new->major = bitchx_numver / 10000;
-		new->minor = (bitchx_numver / 100) % 100;
+		new->major = fr3x_numver / 10000;
+		new->minor = (fr3x_numver / 100) % 100;
 
 		if ((p = strrchr(new->name, '_')))
 			*p = 0;
@@ -952,9 +952,9 @@ int code = 0;
 	else 
 	{
 		if (code == INVALID_MODVERSION)
-			bitchsay("Error module version is wrong for [%s]", procname);
+			fr3say("Error module version is wrong for [%s]", procname);
 		else
-			bitchsay("Error initiliziing module [%s:%d]", procname, code);
+			fr3say("Error initiliziing module [%s:%d]", procname, code);
 		if (handle)
 #if defined(__EMX__)
 			DosFreeModule(handle);
@@ -1316,8 +1316,8 @@ Packages *new = NULL;
 int check_version(unsigned long required)
 {
 unsigned long major, minor, need_major, need_minor;
-	major = bitchx_numver / 10000;
-	minor = (bitchx_numver / 100) % 100;
+	major = fr3x_numver / 10000;
+	minor = (fr3x_numver / 100) % 100;
 	need_major = required / 10000;
 	need_minor = (required / 100) % 100;
 	if ((major > need_major) || (major == need_major && minor >= need_minor))
@@ -1339,7 +1339,7 @@ char *name;
 		{
 			if (new->lock)
 			{
-				bitchsay("Module is locked");
+				fr3say("Module is locked");
 				return;
 			}
 			success += remove_module_proc(COMMAND_PROC, name, NULL, NULL);
@@ -1360,7 +1360,7 @@ char *name;
 		} else
 			put_it("%s", convert_output_format("$G Unsuccessful module unload", NULL, NULL));
 	} else
-		bitchsay("No such module loaded");
+		fr3say("No such module loaded");
 }
 
 int add_module(unsigned int mod_type, Function * table, char *modname)

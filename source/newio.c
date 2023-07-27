@@ -12,7 +12,7 @@ CVS_REVISION(newio_c)
 #include <sys/filio.h>
 #endif
 #ifdef WIN32
-#include "winbitchx.h"
+#include "winfr3x.h"
 #endif
 
 #define MAIN_SOURCE

@@ -29,14 +29,14 @@ struct chelp_index {
 	struct chelp_entry *entries;
 };
 
-struct chelp_index bitchx_help;
+struct chelp_index fr3x_help;
 struct chelp_index script_help;
 
 void get_help_topic(const char *args, int helpfunc)
 {
 	int found = 0, i;
 	char *others = NULL;
-	struct chelp_index *index = helpfunc ? &script_help : &bitchx_help;
+	struct chelp_index *index = helpfunc ? &script_help : &fr3x_help;
 	size_t arglen = strlen(args);
 
 	for (i = 0; i < index->size; i++)
@@ -72,7 +72,7 @@ void get_help_topic(const char *args, int helpfunc)
 	if (!found)
 	{
 		if (do_hook(HELPTOPIC_LIST, "%s", args))
-			bitchsay("No help on %s", args);
+			fr3say("No help on %s", args);
 	}
 
 	if (others && found)
@@ -95,14 +95,14 @@ BUILT_IN_COMMAND(chelp)
 		reload = 1;
 	}
 
-	if (reload || !bitchx_help.size)
+	if (reload || !fr3x_help.size)
 	{
 		char *help_dir = NULL;
 		FILE *help_file;
 #ifdef PUBLIC_ACCESS
-		malloc_strcpy(&help_dir, DEFAULT_BITCHX_HELP_FILE);
+		malloc_strcpy(&help_dir, DEFAULT_fr3X_HELP_FILE);
 #else
-		malloc_strcpy(&help_dir, get_string_var(BITCHX_HELP_VAR));
+		malloc_strcpy(&help_dir, get_string_var(fr3X_HELP_VAR));
 #endif
 		help_file = uzfopen(&help_dir, get_string_var(LOAD_PATH_VAR), 1);
 		new_free(&help_dir);
@@ -146,7 +146,7 @@ int read_file(FILE *help_file, int helpfunc)
 	char line[BIG_BUFFER_SIZE + 1];
 	int item_number = 0;
 	int topic = -1;
-	struct chelp_index *index = helpfunc ? &script_help : &bitchx_help;
+	struct chelp_index *index = helpfunc ? &script_help : &fr3x_help;
 
 	free_index(index);
 

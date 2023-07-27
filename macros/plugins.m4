@@ -61,7 +61,7 @@ AC_DEFUN(AC_CHECK_PLUGINS,
   AC_DEFINE(HAVE_DLLIB, 1, Define this if you want loadable module support.)
   AH_VERBATIM([WANT_DLL],
   [/*
- * Define this if you have shlib support and want plugin support in BitchX
+ * Define this if you have shlib support and want plugin support in fr3X
  * Note: Not all systems support this.
  */
 #ifdef HAVE_DLLIB

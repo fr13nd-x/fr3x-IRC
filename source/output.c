@@ -209,7 +209,7 @@ int len = 0;
 	}
 }
 
-void BX_bitchsay (const char *format, ...)
+void BX_fr3say (const char *format, ...)
 {
 int len;
 	if (window_display && format)

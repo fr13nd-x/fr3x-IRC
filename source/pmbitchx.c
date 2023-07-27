@@ -547,7 +547,7 @@ int mesg(char *format, ...) {
 	vsprintf(outbuf, format, args);
 	va_end(args);
 
-	WinMessageBox(HWND_DESKTOP, HWND_DESKTOP, outbuf, "PMBitchX", 0, MB_OK | MB_INFORMATION | MB_MOVEABLE);
+	WinMessageBox(HWND_DESKTOP, HWND_DESKTOP, outbuf, "PMfr3X", 0, MB_OK | MB_INFORMATION | MB_MOVEABLE);
 
 	return strlen(outbuf);
 }
@@ -873,7 +873,7 @@ void pm_aboutbox(char *about_text)
 	ULONG flStyle = FCF_SYSMENU | FCF_TITLEBAR |
 		FCF_SHELLPOSITION | FCF_TASKLIST | FCF_DLGBORDER | FCF_SIZEBORDER | FCF_MINMAX;
 
-	mainwindow = dw_window_new(HWND_DESKTOP, "About PMBitchX", flStyle);
+	mainwindow = dw_window_new(HWND_DESKTOP, "About PMfr3X", flStyle);
 
 	dw_window_set_icon(mainwindow, IDM_MAINMENU);
 
@@ -881,7 +881,7 @@ void pm_aboutbox(char *about_text)
 
 	dw_box_pack_start(mainwindow, lbbox, 0, 0, TRUE, TRUE, 0);
 
-	stext = dw_text_new("PMBitchX (c) 2002 Colten Edwards, Brian Smith", 0);
+	stext = dw_text_new("PMfr3X (c) 2002 Colten Edwards, Brian Smith", 0);
 
 	dw_window_set_style(stext, DT_VCENTER, DT_VCENTER);
 	dw_window_set_style(stext, DT_CENTER, DT_CENTER);
@@ -2340,9 +2340,9 @@ MRESULT	EXPENTRY NotebookDlgProc(HWND hWnd, ULONG msg, MPARAM mp1, MPARAM mp2)
 		GpiQueryFontMetrics(hPS = WinGetPS(hWnd), sizeof(FONTMETRICS), &fm);
 
 		if(nb_window->current_channel)
-			sprintf(szBuffer, "PMBitchX Properties for %s", nb_window->current_channel);
+			sprintf(szBuffer, "PMfr3X Properties for %s", nb_window->current_channel);
 		else
-			strcpy(szBuffer, "PMBitchX Properties");
+			strcpy(szBuffer, "PMfr3X Properties");
 
 		hwndNBK = WinWindowFromID(hWnd, ID_PROP);
 
@@ -2545,7 +2545,7 @@ void msgbox(void)
 	hmbab = WinInitialize(0);
 	hmbmq = WinCreateMsgQueue(hmbab, 0);
 
-	WinMessageBox(HWND_DESKTOP, HWND_DESKTOP, msgtext, "PMBitchX", 0, MB_OK | MB_INFORMATION | MB_MOVEABLE);
+	WinMessageBox(HWND_DESKTOP, HWND_DESKTOP, msgtext, "PMfr3X", 0, MB_OK | MB_INFORMATION | MB_MOVEABLE);
 
 	new_free(&msgtext);
 

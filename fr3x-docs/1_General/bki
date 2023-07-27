@@ -5,7 +5,7 @@
    This command "bans/kicks/ignores" the specified user off of the specified 
    channel. It is typically used to remove troublemakers, flooders, or 
    people otherwise making a nuisance of themselves on the channel.
-   The reason for the kick is randomly taken from BitchX.reasons if not 
+   The reason for the kick is randomly taken from fr3X.reasons if not 
    given.
 
 Examples:

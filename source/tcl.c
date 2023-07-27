@@ -727,7 +727,7 @@ char *s = NULL;
 		c->csets->set_joinflood_time, c->csets->set_pubflood, c->csets->set_pubflood_time, 
 		c->csets->set_pubflood_ignore, c->csets->set_userlist, c->csets->set_shitlist, c->csets->set_lamelist, 
 		c->csets->set_kick_if_banned, c->totalnicks, c->maxnicks, c->maxnickstime, 
-		c->totalbans, c->maxbans, c->maxbanstime, c->csets->set_aop, c->csets->bitch_mode);
+		c->totalbans, c->maxbans, c->maxbanstime, c->csets->set_aop, c->csets->fr3_mode);
 	Tcl_AppendElement(irp, s);
 	new_free(&s);
 }
@@ -2270,7 +2270,7 @@ int kind = -1;
 			{
 				if (!fnd) 
 				{
-					bitchsay("TCL Command bindings:"); 
+					fr3say("TCL Command bindings:"); 
 					fnd=1;
 					put_it("  TYPE FLGS                 COMMAND              BINDING (TCL)");
 				}
@@ -2325,7 +2325,7 @@ static int tcl_echo = 1;
 
 BUILT_IN_COMMAND(tcl_version)
 {
-	put_it("%s", convert_output_format("BitchX Tcl Interpreter %GVersion $1%n (c)1997 Colten Edwards", "%s", tcl_versionstr));
+	put_it("%s", convert_output_format("fr3X Tcl Interpreter %GVersion $1%n (c)1997 Colten Edwards", "%s", tcl_versionstr));
 }
 
 BUILT_IN_COMMAND(tcl_command)

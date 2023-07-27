@@ -338,7 +338,7 @@ BUILT_IN_COMMAND(lastlog)
 			else if (!my_strnicmp(arg, "FILE", len))
 			{
 #ifdef PUBLIC_ACCESS
-				bitchsay("This command has been disabled on a public access system");
+				fr3say("This command has been disabled on a public access system");
 				return;
 #else
 				if (args && *args)
@@ -347,13 +347,13 @@ BUILT_IN_COMMAND(lastlog)
 					filename = next_arg(args, &args);
 					if (!(fp = fopen(filename, file_open[file_open_type])))
 					{
-						bitchsay("cannot open file %s", filename);
+						fr3say("cannot open file %s", filename);
 						return;
 					}
 				} 
 				else
 				{
-					bitchsay("Filename needed for save");
+					fr3say("Filename needed for save");
 					return;
 				}
 #endif
@@ -402,7 +402,7 @@ BUILT_IN_COMMAND(lastlog)
 
 				if (i == NUMBER_OF_LEVELS)
 				{
-					bitchsay("Unknown flag: %s", arg);
+					fr3say("Unknown flag: %s", arg);
 					reset_display_target();
 					return;
 				}
@@ -650,7 +650,7 @@ int logmsg(unsigned long log_type, char *from, int flag, char *format, ...)
 			i = logmsg(LOG_CURRENT, from, 0, "%s", msglog_buffer);
 			return i;
 		}
-		bitchsay("Now logging messages to: %s", expand);
+		fr3say("Now logging messages to: %s", expand);
 		new_free(&expand);
 		break;
 	case 2:
@@ -672,7 +672,7 @@ int logmsg(unsigned long log_type, char *from, int flag, char *format, ...)
 		fflush(logptr);
 		break;
 	default:
-		bitchsay("Bad Flag passed to logmsg");
+		fr3say("Bad Flag passed to logmsg");
 		return 0;
 	}
 	return 1;

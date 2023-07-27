@@ -1,4 +1,4 @@
-Expression Syntax in BitchX                                              
+Expression Syntax in fr3X                                              
 
 This document describes the "expression" context of a statement, as used with
 the ${} expando, the @ operator, and the FOR, IF, UNLESS, UNTIL, and WHILE
@@ -28,9 +28,9 @@ The following statements are equivalent:
    @ :foo = 3                       # one colon declares LOCAL variables
    local foo 3
 
-BitchX's expression syntax is modeled after that of C++, and BitchX's 
+fr3X's expression syntax is modeled after that of C++, and fr3X's 
 operators (in general) hold the same precedence as they do in C++.  Most 
-of the C/C++ operator set is represented in BitchX, and their operation is
+of the C/C++ operator set is represented in fr3X, and their operation is
 the same.  The following operators, from highest to lowest precedence, 
 are supported:
 

@@ -29,5 +29,5 @@
    Thus, the $userhost() function will not work inside this hook.
 
    For a DCC SEND connection, this will be hooked twice. Once with $1 being
-   SEND, and again being GET. This is for compatibility with bitchx.
+   SEND, and again being GET. This is for compatibility with fr3x.
 

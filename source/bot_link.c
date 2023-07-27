@@ -25,7 +25,7 @@ CVS_REVISION(botlink_c)
 #define MAIN_SOURCE
 #include "modval.h"
 
-#ifndef BITCHX_LITE
+#ifndef fr3X_LITE
 static int clink_active = 0;
 static	int xlink_commands = 0;
 
@@ -83,7 +83,7 @@ int len = 0;
 	return len;
 }
 
-#ifndef BITCHX_LITE
+#ifndef fr3X_LITE
 void tandout_but(int idx, char *format, ...)
 {
 va_list args;
@@ -160,7 +160,7 @@ int i;
 	new_free(&t);
 
 	if (!found)
-		bitchsay("No Active bot link");
+		fr3say("No Active bot link");
 	else
 		put_it("%s", convert_output_format("%K(%R$1%K(%rxlink%K))%n $2-", "%s %s %s", update_clock(GET_TIME), get_server_nickname(from_server), args));
 }
@@ -239,10 +239,10 @@ void userhost_clink(UserhostItem *stuff, char *nick, char *args)
 {
 	if (!stuff || !stuff->nick || !nick || !strcmp(stuff->user, "<UNKNOWN>") || my_stricmp(stuff->nick, nick))
 	{
-		bitchsay("No information for %s found", nick);
+		fr3say("No information for %s found", nick);
 		return;
 	}
-	bitchsay("Attempting Clink to %s!%s@%s", nick, stuff->user, stuff->host);
+	fr3say("Attempting Clink to %s!%s@%s", nick, stuff->user, stuff->host);
 	send_ctcp(CTCP_PRIVMSG, nick, CTCP_BOTLINK, "%s", args);
 	clink_active++;
 }
@@ -263,7 +263,7 @@ int i = 0;
 		if (Nick)
 		{
 			if (Nick->userlist && (Nick->userlist->flags & ADD_BOT))
-			bitchsay("Attempting clink with %s!%s", Nick->nick, Nick->host);
+			fr3say("Attempting clink with %s!%s", Nick->nick, Nick->host);
 			send_ctcp(CTCP_PRIVMSG, nick, CTCP_BOTLINK, "%s", args);
 			clink_active++;
 		}

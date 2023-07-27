@@ -37,8 +37,8 @@
   Changes required too scr-bx so the console size can be passed. This makes
   scr-bx in-compatible with older scr-bx's
 * a few small changes made too detachcmd(). we now remove the
-  ~/.BitchX/screens file on a TERM signal. This helps when reattaching to a
-  cron'd BitchX process. We can use the same cron script as an egg.
+  ~/.fr3X/screens file on a TERM signal. This helps when reattaching to a
+  cron'd fr3X process. We can use the same cron script as an egg.
 * re-wrote whokill. /whokill pattern pattern pattern :reason will match
   the patterns and buffer the kills. on end, it then kills in groups to 
   help prevent flooding of the oper. Added NUM_KILLS variable. Requested
@@ -73,7 +73,7 @@
 * kopz notice that dcc min speed was not working.. fixed. Also modified
   /cdcc minspeed so that it accepts 2 arguements. a minspeed and a timeout.
 * Cset queuing is now fully implemented. You can even specify a cset in
-  your .bitchxrc file. It will be queued up until you join that channel.
+  your .fr3xrc file. It will be queued up until you join that channel.
 * more modifications to $aliasctl(). a PMATCH param can be specified which
   will search for wildcarded matches. MATCH does exact char matching.
 * HARD_UH_NOTIFY is gone. along with it went NOTIFY_SIGNON_UH and
@@ -225,8 +225,8 @@
   well as the window. /clear -scrollback -all works for all windows.
 * $chanmode() extended. $chanmode(#chan #) where # can be 0 normal, 1 bans,
   2 ban whoset time, 3 exemptions for TS4.
-     $chanmode(#bitchx 1)  ->  "*!*@*.aol.com"
-     $chanmode(#bitchx 2)  ->  "*!*@*.aol.com elmer 9123000"
+     $chanmode(#fr3x 1)  ->  "*!*@*.aol.com"
+     $chanmode(#fr3x 2)  ->  "*!*@*.aol.com elmer 9123000"
 * $channicks() and $chanusers() can accept one more param. This is the sort
   type to use for call. types of sorting are 0 normal, 1 none, 2 nick,
   3 host, 4 time, 5 ip if available.
@@ -260,13 +260,13 @@
   topic is $topic() or $topic(#channel)
 
 
-Changes in BitchX 75p1
+Changes in fr3X 75p1
 * my fix to msar() was wrong.
 * found and fixed a dcc problem with a rejected dcc.
 * epic pre1.400 changes merged.
 * scr-bx modified. internal /detach modified to go with it. Added a HUP
   signal which will hangup the session.
-* bug with orignick in .bitchxrc found.
+* bug with orignick in .fr3xrc found.
 * documentation for client plugins started.
 * removed Ctrl-Z when detached.
 * added -HUP signal. to detach an attached client. Changed signal handling
@@ -276,7 +276,7 @@ Changes in BitchX 75p1
 * Added a plugin hook for window commands. 
 * Added a plugin hook for a output procedure. It replaces ALL output's.
 * Set message_from() in chanwall to show too LOG_WALL.
-* BitchX.url buffer was 2048 and a CTOOLZ_DIR path greater than this would
+* fr3X.url buffer was 2048 and a CTOOLZ_DIR path greater than this would
   overfill the buffer.
 * Added URLGRAB hook which is activated on url's and ftp's. Added USERS_IP
   hook for display of users ip in /user -ip display
@@ -302,7 +302,7 @@ Changes in BitchX 75p1
 
 
 
-Changes in BitchX 75  July 1 1998
+Changes in fr3X 75  July 1 1998
 
 added $b variable.
 changed strip_ansi() to strip out chr(155) chr(11) and chr(8)
@@ -450,7 +450,7 @@ this so that /set MIRCS works properly...
 Channel cset queue setup. what does this mean? well we can now /cset
 #channel  we currently aren't on and add that channel to a queue. So when we
 do finally join that channel, the queue'd csets are used. This allows us to
-use csets from .bitchxrc or .ircrc files. 
+use csets from .fr3xrc or .ircrc files. 
 
 FromUserHost is set to empty_string at the end of the processing. This
 should allow logmsg() to use $userhost() correctly.
@@ -558,10 +558,10 @@ string.
 With the help of Raistlin and neonapple a bug in the fix_status_buffer()
 code was found and fixed. un-init'd variable was causing the problem
 
-Xavvy requested a install_local which will install BitchX and some other
-files for a local user. it checks and creates ~/bin and ~/.BitchX and then
-copies and links the binary BitchX in ~/bin. Also we copy the various
-BitchX.* files into ~/.BitchX for the user.
+Xavvy requested a install_local which will install fr3X and some other
+files for a local user. it checks and creates ~/bin and ~/.fr3X and then
+copies and links the binary fr3X in ~/bin. Also we copy the various
+fr3X.* files into ~/.fr3X for the user.
 
 OS2 PM changes merged in. todo are multiple windows. added a configure
 option  --enable-pm for os2 PM support. Otherwise vio window support is
@@ -609,9 +609,9 @@ scattered around the source tree.
 
 for now we can use the new /detach [password] command to detach a bx client
 from the terminal. you can then later log back into the client using 
-BitchX -R [tty] [pass]. This is still rudimentry and still buggy
+fr3X -R [tty] [pass]. This is still rudimentry and still buggy
 at the moment. kasper has agreed to write a frontend program to replace the
-BitchX -R so we aren't running 2 copies of bx. This will reduce memory
+fr3X -R so we aren't running 2 copies of bx. This will reduce memory
 requirements (ie two copies). Password is also encrypted as well using a
 random seed.
 
@@ -620,13 +620,13 @@ Created a new pgm while waiting for kasper to create it. it's a mini-screen
 attach program for bx's internal /detach. it's called scr-bx. -h gives help
 on this useful little program.
 
-BitchX -B mode changed. it no longer does what it used too. It now detaches
+fr3X -B mode changed. it no longer does what it used too. It now detaches
 from the terminal and runs in the background (like before) but, we can now
 re-attach to that session unlike before Thanks too a chat with kasper we now
 have a small program for re-attaching to the backgrounded program.. 
 
 
-Changes in BitchX 74p3
+Changes in fr3X 74p3
 Oper'g is now more safe. the oper password is not kept in core. it is
 removed as soon as possible from any place where it might be kept. ie
 do_hook(), vsend_to_server(), parse_line(), parse_command(), oper(),
@@ -672,7 +672,7 @@ filename ie /dcc send nick "filename with spaces" or
 "dir/filename with spaces". The filename is converted to a name with _'s.
 Christian Deimel (defender@gmx.net) sent me a patch that implements random 
 irc names. /ircname with no args will set the ircname to a randomly chosen
-one for the next server connect. BitchX.ircname has the random irc names.
+one for the next server connect. fr3X.ircname has the random irc names.
 Changes made to /window level +/- is now allowed.
 Modified server reconnect strategy. /set MAX_SERVER_RECONNECTS defines how
 many times we will attempt to reconnect to a server.
@@ -694,7 +694,7 @@ that is currently set. This works for channel and private ctcp floods.
 epic 0.49 changes merged in. along will some fixes for brokenness.
 
 
-Changes in BitchX 74p2
+Changes in fr3X 74p2
 notify_mark() coredump on undernet fixed.
 p_invite() coredump fixed if your not on a channel when invited to a new
 one.
@@ -737,7 +737,7 @@ server_prompt be able to parse % color codes.
 I broke sort() when patching in epic changes.
 Green found a problem with /adduser -whatever looping forever.
 Raistlin found a problem with -L removed the - that was being appended to
-the script name. .bitchxrc overrides .ircrc files as a side note.
+the script name. .fr3xrc overrides .ircrc files as a side note.
 fset can now be hooked just like /set is.
 Sping now works again. We now use a slightly modified version of old bx
 technique and new.
@@ -745,7 +745,7 @@ cdcc secure password is stored in the .cdcc.save file.
 Small bug in /hostname on linux systems prevented display of the virtuals.
 
 
-Changes in BitchX 74p1
+Changes in fr3X 74p1
 
 Coredump problem with timers and windows fixed. Possible problem with
 set_current_screen() repaired.
@@ -769,9 +769,9 @@ handles after 150-limit files.
 then /ver and /p should be sent to that nick. Added a check for
 get_target_by_refnum() in ping_cmd and ver_cmd.
 
-Phucilage updated the BitchX.help file for us.
+Phucilage updated the fr3X.help file for us.
 
-Changes in BitchX 74
+Changes in fr3X 74
 
 New userlist is hashed into 3 tiers ala CToolz. 
 	tier1 is based on hostname with no wildcards.
@@ -813,7 +813,7 @@ the command /unuser -ALL required this small change.
 
 New screen/window code from epic merged in. /clear works now. 
 
-Added new %a aop %s shitlist %h hacking %u userlist %b bitchmode variables
+Added new %a aop %s shitlist %h hacking %u userlist %b fr3mode variables
 for the status bar. These are single char flags. Changed status_away to have
 the away msgcount in it. 
 
@@ -998,7 +998,7 @@ command /url to manipulate this list.
 	/url http|ftp on|off
 	/url save|clear|list
 
-With help from Rosmo BitchX has been ported to OS/2 vio window. It actually
+With help from Rosmo fr3X has been ported to OS/2 vio window. It actually
 runs better under OS/2 than under win95/nt.
 
 Merged in changes from epic 032. Including one other patch for return
@@ -1051,7 +1051,7 @@ Fixed status bar overwrite on long lines.
 Fixed annoying problem with scrollback, using new epic display code.
 Added new flood checking using hash'd lists instead of an array.
 Other changes made for /set -format for compatibility.
-a /cset in the .bitchxrc file would core.
+a /cset in the .fr3xrc file would core.
 window.c/status.c changed ala epic. My own modifications added for split
 menu bar. 
 window split and window triple fixed up to work properly in epic's new code.
@@ -1074,7 +1074,7 @@ stats.
 dcc exempt +nick  will add a nick to the autoget list. This list has nicks
 that do not trigger dcc/cdcc flood protection and as well even if the dcc
 autoget is off, the files will still be autogotten. Nicks are saved in the
-BitchX.sav file.
+fr3X.sav file.
 
 addnoflood nick added. This nick will not trigger flood protection at all.
 
@@ -1166,7 +1166,7 @@ Bonehead mistake in ircaux strmcat/strmopencat fixed.
 Fixed up $statsparse(%>%M)  so it actually pads.
 
 Getting ready to revamp the help system including /help. A possibility of
-using the BitchX.help file internally.
+using the fr3X.help file internally.
 
 Major revamp of /cset using Sheik's cset code. Added /wset to compliment
 this.
@@ -1205,7 +1205,7 @@ Fixed awaylog timestamping for good.
 Added support for ircu's ># <# filter. /list -ircu -min # -max # *irc*
 Support for this could be automated in scripts quite easily.
 
-Fixed NICK statement usage in .bitchxrc or .ircrc files so a segfault
+Fixed NICK statement usage in .fr3xrc or .ircrc files so a segfault
 doesn't occur. If found all we do is copy this nick into the default
 nickname statement. 
 
@@ -1223,7 +1223,7 @@ recursive split_up_line() output_line() is a real no win.
 
 A problem with excessively long lines found and fixed. Dcc chat messages
 were not being displayed properly on send.
-A couple of bugfixes for NT/95 Bitchx specific versions introduced.
+A couple of bugfixes for NT/95 fr3x specific versions introduced.
 
 
 72p1 released on 072097
@@ -1387,8 +1387,8 @@ privmsgs and notices appearing on a channel.
 
 [oweff] ive setup http://crackrock.melnibone.org tho i doubt anyone 
 	will remember that addy. =]
-[raistlin] raistlin.toledolink.com is mirror'g bitchx.stuph.org. Thanks
-Blu3Viper foR bitchx.stuph.oRg.
+[raistlin] raistlin.toledolink.com is mirror'g fr3x.stuph.org. Thanks
+Blu3Viper foR fr3x.stuph.oRg.
 
 
 71p3  Released May 28/97
@@ -1413,7 +1413,7 @@ everything except .com .
 /reinit which will reinitialize all string /set's to the defaults
 New /ignore types added. KICKS JOINS QUITS MODES SMODES
 WINNT defines removed completely from the source. Added new WINNT defines
-and created BitchX97 for 95/NT using cygnus tools. term.c completely rewrote
+and created fr3X97 for 95/NT using cygnus tools. term.c completely rewrote
 for it.
 /set REASONFILE removed. 
 /set APPEND_LOG added. default is on. This effects all logfiles /set log on
@@ -1429,7 +1429,7 @@ rewrote get_builtins() so it returns builtin aliases. So now command
 completion will return builtin aliases.
 A /cdcc send nick #1 woUld fail. 
 $statsparse() will return the information from the status variables.
-so $statsparse(%N %C %L) returns  "root #bitchx [Lag 0]" as a string.
+so $statsparse(%N %C %L) returns  "root #fr3x [Lag 0]" as a string.
 requested by suicide.
 Some small changes with duplicated code in ctcp functions. New ctcp uptime
 added. It is ignored for everyone but those on your userlist.
@@ -1480,7 +1480,7 @@ Oweff and TimeCop requested /on CDCC_NOTE
 ls cd get put  all supported  /dcc ftp some.site username passwd fixed.
 dTM noticed that /window new hide channel #channel bind #channel was
 failing.
-with two windows and several channels bitchx would cause you to rejoin on
+with two windows and several channels fr3x would cause you to rejoin on
 the wrong server if you were kicked. p_kick()
 cleared up the Your not on a channel error message in p_Mode()
 Changes made to hide_window() to correct and error in window size recalc.
@@ -1506,7 +1506,7 @@ logging. This doesn't seem possible. use /log instead.
 renamed VERBOSE_CTCP to CTCP_VERBOSE
 /stats flag servername  will output in a nicer format now. c h i k l m o u y  
 /trace flags added. -s -u -o   will trace for servers,users,ircops.
-Added a HACK_OPS mode. BITCH mode should be on as well as HACK_OPS.
+Added a HACK_OPS mode. fr3 mode should be on as well as HACK_OPS.
 check_shit() now checks PROTECT_CHANNELS 
 Added password checking into check_auto(). If user is passwd protected, then
 auto-ops are not given. they have to /ctcp yournick op #channel passwd
@@ -1530,7 +1530,7 @@ Added /dump channel   for dumping channel stats
 Some changes to tcl.c required. msg, say, notice, desc added as tcl
 commands. They use the internal ircII parsers.
 Internal functions are now available to the tcl parser. To avoid any name
-space polution we renamed the internal BitchX functions with a "_" so
+space polution we renamed the internal fr3X functions with a "_" so
 _addshit from tcl accesses the internal function.
 Coredump in  /back noticed by shadz.
 Fixed /l #channel so it leaves a channel
@@ -1540,7 +1540,7 @@ Major Changes to alias/assign code. EPIC 4's alias caching changes merged.
 Mail handler modified. /set Mail 0 1 2
 Fixed some variables that have been missing for some time now. Misplaced
 ones. See ircii-EPIC0.028 UPDATES for complete list of changes for this
-version of BitchX
+version of fr3X
 immortal pointed out that /window new segfaults the client (happens in all
 irc clients). fix was in add_window_to_list() and new_window().
 prepare_command now sets active_server = -1. helps prevent segfault.
@@ -1563,7 +1563,7 @@ handling as well.
 EPIC pre0.29 changes added... Still to come are the userhost caching and
 new whois queue.
 71alpha11 released for people to try.
-Prob one of the longest standing bugs in the history of Bitchx was squished.
+Prob one of the longest standing bugs in the history of fr3x was squished.
 cdcc queue sends were crashing once in awhile. bad lamage here.
 /foreach fixed.
 /who *netcom.com* would add users to the users on the current channel, not
@@ -1580,7 +1580,7 @@ oweff pointed out some problems with cdcc hooks. Fixed. Broke 100% of
 scripts that handle cdcc output when I added the "type" of msg we are
 supposed to send according to the internal cdcc. ie NOTICE or PRIVMSG added
 to CDCC_PREPACK CDCC_PACK CDCC_POSTPACK and CDCC_NOTES.
-Afte mucho bitching /set mircs actually does something. It converts mirc to
+Afte mucho fr3ing /set mircs actually does something. It converts mirc to
 ansi when on. But only for non-scripts. So those of you using a script,
 you'll have to bug your script author about using $mircansi()
 bans on usernames of greater than 10 chars could fail. bk pointed this out
@@ -1879,14 +1879,14 @@ client of those that require it.
 
 
 
-02-10-96 BitchX 70 released. We've come along way baby.
+02-10-96 fr3X 70 released. We've come along way baby.
 
 Seems some bugs cropped up right away... /window set and status.c window
 pointer was being changed on status_notify which caused me some trouble with
 seemingly random segfaults. $mircansi() had a bug with ^C1,243324324 and
 ^C234723875 large numbers. Weird problem with /ftp /telnet possibly fixed...
 for some reason calloc() isn't returning a 0'd memory location. Fix for
--parsekey type_text blah instituted. This affected both epic and BitchX,
+-parsekey type_text blah instituted. This affected both epic and fr3X,
 Ctoolz, Scrollz and ALL other ircii clients including 2.9roof. /cdcc offer
 was displaying the wrong pack number for a note. fixed. small bug that can't
 happen very often found in built-in alias's. curr_scr_win->server has a
@@ -1932,7 +1932,7 @@ shade and all his color changes on the status bar found a nasty little
 problem with static buffers. so we increased the buffer sizes by a factor of
 2. Fixed /do say $repeat(5000 blah) to only return upto 2048 chars. Fixed a
 few windowing bugs shade pointed out. Apatrix pointed out a couple of
-deficiencies in /set bitch on. Maybe we cleaned it up. BarK0de pointed out a
+deficiencies in /set fr3 on. Maybe we cleaned it up. BarK0de pointed out a
 little inconsistancy with /addword and /banword(s). $gethost(nick) returns
 the hostname for the nick as stored internally. nick has to be on one of our
 current servers channels and the first match is returned. local variable
@@ -1993,7 +1993,7 @@ people are having trouble with the new term.c. Might possibly be termcap
 related. topic bug found by shadz on newnet. buffer overflow problem.
 
 
-BitchX 69 released. 12/28/96
+fr3X 69 released. 12/28/96
 Fixed dcc.c update_transfer_buffer() for the second time. noT sure what
 happened in the first time I patched this file. Fixed cdcc load to get the
 right number of files. A problem with /m . fixed. /relw and /relsw fixed.
@@ -2046,12 +2046,12 @@ dcc file capabilies. A 19meg file was transferred repeatly over the course
 of several days. It was done using localhost connect for highest possible
 transfer speeds. ncftp was 3.8Mb/s. Scrollz was between 450kb/s-1017kb/s. 
 ircii-hyper was around 650kb/s-1073kb/s (also had trouble with the eof 
-even between two clients irc-hyper). BitchX to eggdrop 460kb/s. 
-BitchX to combot was 806kb/s-1073Kb/s. BitchX 68e was a dismal
-275kb/s-490KB/s. BitchX to ircii-epic 3.003 was 450-700Kb/s. Ctoolz with 
+even between two clients irc-hyper). fr3X to eggdrop 460kb/s. 
+fr3X to combot was 806kb/s-1073Kb/s. fr3X 68e was a dismal
+275kb/s-490KB/s. fr3X to ircii-epic 3.003 was 450-700Kb/s. Ctoolz with 
 DCC_BLOCK_SIZE of 2048 was 1100Kb/s and with 4096 was 1475Kb/s.
 ircii 2.8.2 with DCC_BLOCK_SIZE of 4096 hit 1050Kb/s and with 2048 got
-1200Kb/s. And finally BitchX 68f to BitchX 68f was variable (*grin*) 
+1200Kb/s. And finally fr3X 68f to fr3X 68f was variable (*grin*) 
 between 890kb/s and 2150kb/s. Reasons for variance was /set DCC_BLOCKSIZE 
 was changed from 2048 to 4096 between runs and dcc status indicator was
 turned off as well. (100mhz pent 64m ram. 6 shells open. basic Redhat running 
@@ -2078,7 +2078,7 @@ Chatted with some newnet oper-admins about there server software. Merged in
 SOCKS support. Made configure understand some options about tcl,
 non-blocking, socks, and default-server. Use configure --help to find them.
 Url grabber. /set http_grab on/off. this will grab any http: string and
-place in the file $CTOOLZ_DIR/BitchX.http. string can be a public or a msg.
+place in the file $CTOOLZ_DIR/fr3X.http. string can be a public or a msg.
 As well /lastlog will also match grab any previously said url's. Small bug
 with input prompt and NULL being inserted into the string (fyi all clients
 suffer the same problem). ie "null char some text"  and press enter. /dc now
@@ -2102,7 +2102,7 @@ Added command matching. ie /m<tabkey> returns all commands starting with m
 etc. Linking of clients now made easier with /clink command. Several other
 commands like /cwho /cwhom /csay have been added. Things said over dcc chat
 are progated across the link. Some changes in window handling which look
-like they solve the windowing problems BitchX was having. Added 2 new user
+like they solve the windowing problems fr3X was having. Added 2 new user
 auto-op levels for giving voice to someone. 3 is delay voice and 4 is
 instant voice. other minor fixes. Removed my command matching in favor of
 the internal command_completion routine. more changes to tabkey routine. 
@@ -2113,7 +2113,7 @@ available ircii set's will be in the tcl variable ircii-set. Ansi stripping
 is not done. This does have limitations however. Fixed passing 0 to tcl's
 random(). Changed the party line. We now need to enter .chat to enter the
 party line. Various other commands are available from the partyline.
-including .help . /Wall from other BitchX users will now not display as a
+including .help . /Wall from other fr3X users will now not display as a
 wall. /set format_bwall can be used to modify the output. /dcx and /dcg
 added. dcx kills chat request from nick. dcg kills all gets/regets of files
 from nick. /lwk remove the current window. Note you cannot remove the very
@@ -2149,13 +2149,13 @@ can be changed with a compile time #define MAX_LAST_MSG. FORMAT_RELM
 FORMAT_RELN are used to format the output of these. So /rel[m-n] >[channel]
 [number]> <-l>. /cset aop for channel specific auto-op. the meaning of the
 /set aop has now changed because of this. Added ^W? key bind. fixed /4op and
-/topic. Creation of a simple minded Bitch mode. /cset bitch  mode will
+/topic. Creation of a simple minded fr3 mode. /cset fr3  mode will
 reverse certain modes placed by someone not on your botlist or your
 userlist. Fixed core dump with /links command. Added portnum capability to
 /dcc chat and /dcc bot(tcl) /dcc send and resend. Added a ascii from
 acidjazz. Thanks. fixed /away sending ansi out to the server. was causing
 havoc with non-ansi clients :). Replaced some occurance of nickinuser() with
-a routine from Sheik. Modified slightly to fit in with BitchX's userlist
+a routine from Sheik. Modified slightly to fit in with fr3X's userlist
 scheme. Mikh suggested a change for doing fast modes.
 Implemented and tested. Fixed check_prot() so it actually proTects users on
 the userlist. /userlist will now take several optional arguements. A channel
@@ -2169,7 +2169,7 @@ Modified /back so if /set -format_back is done it won't prompt for reading
 the away file. Also won't give you your away time. Possible fix for not
 displaying ansi with DISPLAY_ANSI off. Possible input prompt fix for ansi
 input. Some fixes/suggestions from FLiER concerning status update, and
-.bitchrc (w)SAVEA. nick and join floods now work as advertised. nick floods
+.fr3rc (w)SAVEA. nick and join floods now work as advertised. nick floods
 should be quicker to catch as well. /randomnick now takes upto two optional
 parameters, count and prefix to use. /window new channel #linux and window
 swapping were not updating the input prompt at all. Channel joins were not
@@ -2177,11 +2177,11 @@ always announced. Still a bug with the nick->userlist in p_channel() not
 being updated on the first announce of a join. $cparse() added for script
 color parsing. mathe suggested $getreason(nick). It uses the color parser
 so $0 and $1 are defined as nick and mynick. output is ansi-stripped. 
-Replace BitchX.reasons quickly. level 5 userlist protection should work as
+Replace fr3X.reasons quickly. level 5 userlist protection should work as
 well. /jnw #channel  added. Ansi is allowed in dcc chat's if and only if
 /set dcc_ansi is set on. Input prompt is now properly cleared. Sergs_ fixed
 a little problem with check_auto(). Also fixed up a few other things in the
-check_auto() check_prot() areas ie sent code. Added code to read BitchX.quit
+check_auto() check_prot() areas ie sent code. Added code to read fr3X.quit
 which is a file of quit messages. It's passed through color parser so it has
 $0 defined as well as any other $functions and variables. Lotsa other small
 fixes added as well. Merged new epic changes in. This added $chmod()
@@ -2215,7 +2215,7 @@ Changes for 67 Released 090896
 /away now converts the output format so we can do nicer things with it.
 idle time on /wi was screwed up somewhat. ctcp.c has been revamped. Thanks
 to FLiER of Scrollz fame for sending me a patch for a color input prompt.
-Changes were minimal to incorparate this into BitchX/epic. %! displays
+Changes were minimal to incorparate this into fr3X/epic. %! displays
 channel counts for ops/nonops/voice/ircops for the current channel. Fixed a
 problem with the input prompt not updating properly on channel change when a
 $T is in the input_prompt. Changes in status.c. Added color status bar
@@ -2245,7 +2245,7 @@ split nicks and check that against the person joining the channel.
 Dakota pointed out that ctcp_reply wasn't being done properly. As well
 Ctrl-K for invite's was a little problem. Ctr-T and Ctrl-E have the same
 problem but until a solution hits me in the head :) will remain the way they
-are. Color can now be used within the BitchX.help file. Topics can't be
+are. Color can now be used within the fr3X.help file. Topics can't be
 colored yet, and we still need a couple of indentation spaces before we can
 start the material for a topic. We now don't kick ourselves on floods and
 stuff. FORMAT_ACTION* and FORMAT_NOTICE* and FORMAT_MSG and FORMAT_PUBLIC*
@@ -2255,7 +2255,7 @@ properly handle the case of a server mode. /list will now prompt you yes/no
 before doing a /list * . FORMAT_VERSION is setup along with a /sv command.
 Requested by IceBreak. /whokill /tracekill and /traceserv are re-added by
 request of myc. get_reason() is used for getting random kick reasons from
-BitchX.reasons. We now can use $ variables in here. $0 is the nick and $1 is
+fr3X.reasons. We now can use $ variables in here. $0 is the nick and $1 is
 our nick. /encrypt will not segfault when we send/recieve a encrypted msg.
 Enabled the FORMAT_ENCRYPTED_NOTICE/MSG vars as well. Due to popular request
 FORMAT_NICK_AUTO, FORMAT_NICK_COMP and FORMAT_NICK_MSG were added. Because
@@ -2285,7 +2285,7 @@ either turns on or off full flood protection. /offers command and a /c
 command added. /c is for channel/user mode changes. /offers is for xdcc
 list'g a channel, useful in something like #sexpics.
 
-081396 -------Changes for BitchX 64--------------- (Major Upgrade)
+081396 -------Changes for fr3X 64--------------- (Major Upgrade)
 Lotza changes in tooo many places to even begin to list. Most have todo with
 the ansification of the client. Most msg's output from the client can now be
 completely user defined using /set FORMAT type variables. Thanks hellshock
@@ -2323,7 +2323,7 @@ completion on or off. Undefined FAST_DCC_SENDS within the config.h file. If
 you are on a ppp/slip site and require fast dcc sends and are prepared to
 use some CPU (ie aprox 30%) then define this option. Otherwise leave this
 alone, as your ISP will more than likely ban you :). Also you can now define
-a DEFAULT_USERMODE. Because of the way things work within BitchX you need to
+a DEFAULT_USERMODE. Because of the way things work within fr3X you need to
 either define this to change your initial connect or /reconnect in order to
 set your initial usermode. you can also export IRCUMODE=+iw to change your
 usermode for the initial connect. /rel* and friends now will take a nick or
@@ -2340,7 +2340,7 @@ It allows someone to $eval(rm -rf /*) your system. NOT good.
 
 
 
---------------- BitchX client -----------------
+--------------- fr3X client -----------------
 01/09/96
 
 Fixed small buglet in the size of a alias allowed.. was crashing irc when
@@ -2440,7 +2440,7 @@ uncompresses the file if needed. It slices it dices it... it... much better
 than before with 10 copies of the same routine in the code.
  
 02/05/96
-So many changes and I haven't documented them :)  EPIC7 and BitchX are
+So many changes and I haven't documented them :)  EPIC7 and fr3X are
 sharing there alias's file and a bunch of other stuff. Fixed quite a few
 bugs I introduced as a result of this. which means there are bugs lurking.
 ie. /alias save and then PageUp through the screen will core..  Probably
@@ -2473,7 +2473,7 @@ now.. Maybe this will be easier?
 020896
 Modified get_reason to accept a nick which is then used to help form
 automated reasons like in kicks and stuff. This file is called reasons and
-should be installed in the ~/.BitchX directory.  A %s placed in the string
+should be installed in the ~/.fr3X directory.  A %s placed in the string
 will be replaced with the nickname. fixed reasons on the shitlist, was fuxed
 up.  started looking for a good place to place the check_auto routine which
 does Aop and shitlist's. Made the client to a automatic who on join to aid
@@ -2515,7 +2515,7 @@ really want to announce it every time we reload.
 another buglet fixed when connecting to a server you don't have
 authoRization for. We now successfully try a couple of times and then prompt
 user to give us another servEr name, just like it's supposed to. Remember to
-check your BitchX.sav file if something is not working properly. I've been
+check your fr3X.sav file if something is not working properly. I've been
 bitten by this several times now. Small bug concerning on exec -name
 processes coredumping. Thanks Driz for sending me that TiME.irc script.
 
@@ -2579,7 +2579,7 @@ status line returns the count. Fixed a coRe dump on msg flood problem.
 Made a new /set called MSGCOUNT to store the count of recieved msg's while
 away. This was done for any scripts that might want to use it. kludge'd
 around ^M's on display screen by checking if the eol is ^M nul it, in
-add_to_screen. Added bitchsay to start replacing the use of say. Added a new
+add_to_screen. Added fr3say to start replacing the use of say. Added a new
 function called $isnum() returns 1 if the input is a number else 0. accepts
 numbers, - and # as a number. Fluff modz compat function.
 
@@ -2646,7 +2646,7 @@ if ([$Voice]==[ON]) {
 One word of warning though. The copying blocks, ie until the copy is
 finished we can do nothing. So make your event sounds short oR else you'll
 be waiting for awhile until the copy is done. Added two new
-functions  $epic() returns 1, $bitchx() returns 1 and a $winsize()  which
+functions  $epic() returns 1, $fr3x() returns 1 and a $winsize()  which
 returns the size of the specified window or the current window if nothing
 passed in. 
 
@@ -2665,8 +2665,8 @@ makes more sense with /adduser and /unuser and /Addbot and /UnBot. Channel
 will default to * if left out. This may also fix AIX compiles.
 
 031096
-Added Bhelp command. Ctoolz.help must be renamed to BitchX.help and placed
-in your .BitchX directory in order to work. Complaining does help and it was
+Added Bhelp command. Ctoolz.help must be renamed to fr3X.help and placed
+in your .fr3X directory in order to work. Complaining does help and it was
 actually a fairly simple command to add, we are using builtin array building
 commands. In my small tests of this function it seems to work almost exactly
 as Ctoolz chelp does. Started adding /dcc resend and reget functions. I may
@@ -2697,12 +2697,12 @@ kicks and we now mode +b then kick the user. one minute later we remove the
 ban. Added more to /chanst command. Fixed linux kernel for getrusage() :)
 and sent the patch to Linus. Maybe it'll make it into kernel 1.3.73. Fixed
 /dcc stats command to correctly display bytes sent/recieved. Fixed $1- bug
-that has plagued EPIC/Ctoolz/SCROLLZ/BitchX clients. Sometimes though a line
+that has plagued EPIC/Ctoolz/SCROLLZ/fr3X clients. Sometimes though a line
 of output seems to be lost with fluff mods xdcc commands. Don't ever take a
 negative index on a "" string. You can get odd results. NON-BLOCKING is
 working for /dcc but logins seem to have a problem. Hard to fix though as
 gdb gets sig-pipes all the time. Added /RELOAD command which reloads your
-BitchX.sav file. Had another look at check_auto and friends. It worked, so
+fr3X.sav file. Had another look at check_auto and friends. It worked, so
 wonders never cease. We now use a wildcard in the nick so we match on the
 *!*user@*.sasknet.ca if this causes trouble we may have to take alook at it
 again. A variable was added called IDLE_CHECK, it's the time in seconds
@@ -2715,7 +2715,7 @@ Changed some things around. Created a structure to hold channel stats in.
 When we join a channel and its not in the list it's added to the list. When
 we leave the channel it is not deleted. if we then rejoin a channel on this
 list the stats from before are copied over. Complicated, yes. But it solves
-a problem with the BitchX.sav list and the information stored there.
+a problem with the fr3X.sav list and the information stored there.
 Eventually a lot more info may get stored in it. Such as the banlist. The
 current channel's bans are already stored in the server_list channel list
 structure for each channel. I want to rewrite the /unban /ban routines to
@@ -2735,7 +2735,7 @@ Otherwise access is denied. Finally got a chance to try /dcc resend and
 reget in operation. It works so far. It's compatible with Ctoolz and prob 
 Scrollz as well.
 
-031796 BitchX .32
+031796 fr3X .32
 Added new command /cset. To start with some sets are put into
 a default channel list set. This default is copied to the new channel as you
 join it. These channel sets then become specific for the channel. The
@@ -2743,8 +2743,8 @@ default channel options can be changed by modifying include/config.h. They
 can be changed while running using /set. Userlist and shitlist are fixed up.
 Seems that we were being a little redundant. Also make sure that we use
 wild_match on both sides of a string. a New command /reload to reload you
-BitchX.sav file into the client. The default kick reasons file has been
-renamed to BitchX.reasons instead of reasons. I seen the new Ctoolz /dcc
+fr3X.sav file into the client. The default kick reasons file has been
+renamed to fr3X.reasons instead of reasons. I seen the new Ctoolz /dcc
 glist but after some careful though decided that I don't wanna tie the
 client into the script. Nick Kills and collides should be identified
 properly in oper mode. Operator kills local and foreign are differianted.
@@ -2779,7 +2779,7 @@ updates are meant for script writers. glist is a graphical display of active
 dcc's. resend and reget are for aborted transfers, and active displays the
 limits and bounds of various set's involving the number of active dcc's and
 the limit on the number of active dcc's allowed. Also /dcc ? returns a help
-screen. Added /Qk foR quote kicks. BitchX.reason is used from the .BitchX
+screen. Added /Qk foR quote kicks. fr3X.reason is used from the .fr3X
 directory. 
 
 
@@ -2805,7 +2805,7 @@ be?  Corrected channel statistics to better reflect what is actually
 happening on a channel. Had a couple of mistakes here and there. Channel
 splits might disturb these statistics though.
 
-032396  BitchX .35
+032396  fr3X .35
 Lotza bug fixes. hooking the 251-255 numerics now. /dcc send *.zip was broke
 due to some stupidity on my part. gettabkey and addtabkey now take an
 optional second parameter AUTOREPLY. This second parameter defines what list
@@ -2843,7 +2843,7 @@ a patch was the problem.. you couldn't unset it period because it did mean
 you were logg'ed into a server., but it should never have been displayed.
 Changed behavior of /dump. Be very cautious with this. It removes all
 aliases or ons or vars or binds or everything loaded. But first everything 
-is saved to BitchX.alias. Changed p_privmsg. First we check if the user is 
+is saved to fr3X.alias. Changed p_privmsg. First we check if the user is 
 ignored then we check we do ctcp and stuff. Changed keys.c and config.h.
 EMACS_BINDS is defined now and ALLOW_STOP_IRC define was removed so we can
 always stop irc. Added /DF for disk free command. Added /banstat to show
@@ -2865,14 +2865,14 @@ for about 10 secs. I think this has to do with hard_uh_notify and the amount
 of notify's we're getting back. I started using USERHOST which is better
 than ISON. ISON does tend to do this as we have to send individual requests
 for each nick. USERHOST we can send 5 at a time. BlackJac mentioned that
-phoenix runs fine with BitchX.. This has actually been working for awhile
+phoenix runs fine with fr3X.. This has actually been working for awhile
 now. Looked at Hellshocks dcc.c and whois.c but I don't think I'll add em
 into the client. His modifications involve sending ansi codes directly from
 the client. Personally I feel this should be the responsibility of the
 script itself. Sheik agrees with me on this. /ignore works a little
 differantly than expected. You need to specify the full nick!name@host where
 nick, name or host can have a wildcard.  we can now ignore _Elfoo_'s lame
-attempts of getting BitchX. Everyone should add /ignore
+attempts of getting fr3X. Everyone should add /ignore
 *Elfoo*!*@*.central.com ALL into their .ircrc file. Changed cdcc doffer. We
 now don't need to use #1 we can use 1. Changed xdcc send to accept either #1
 or 1 as the pack number. A queued message is sent to the user if our
@@ -2881,10 +2881,10 @@ but not very well tested.
 
 032896 .37 released
 Changed /dump. has a new parameter FILE which dumps to a file. It dumps
-everything to a file called BitchX.dump in your $HOME directory. Also had
+everything to a file called fr3X.dump in your $HOME directory. Also had
 forgotten to dump keys for ALL parameter. Added changes from e3000s5 as
 well. /fe has been changed and a couple of bugs in alias.c as well. Fixed a
-overzealous m_strdup problem in BitchX/EPIC alias's. Fixed nslookup to work
+overzealous m_strdup problem in fr3X/EPIC alias's. Fixed nslookup to work
 on nicknames as well as hosts. Zircon sure finds them bugs :).
 As much as I don't like it $unlink() and $rmdir() now are doing
 expand_twiddle so stuff like $unlink(~/file.zip) expands to your $HOME
@@ -2902,14 +2902,14 @@ misplaced FD_SET is the problem or a FD_CLR. One benefit of loading scripts
 before anything else is that the client is snappier on startup.. Not much
 left for almost complete Ctoolz compatibility. Guess we'd better open the
 file before seeking to the end on resend's. Fixed dcc_dldir problems when i
-replaced dcc.c with one from epic with bitchx mods. /Channel was broke. If
+replaced dcc.c with one from epic with fr3x mods. /Channel was broke. If
 there were no channel modes a NULL was passed to the output. fixed dcc paths
 problem in dcc.c, I might however have been overzealous in my use of it. dcc
 numbers are reset back to one on /dcc close function. Have to wait and see
 what happens when an error occurs. Fixed another couple of epic bugs. One
 with revw. It should never return a NULL and another in the MatchingBracket
 routine for $revw( without the closing bracket. Also ran epic regression to
-a successful completion after fixing a couple of bitchx errors in
+a successful completion after fixing a couple of fr3x errors in
 function_rpattern and function_rfilter.
 
 040396
@@ -2956,7 +2956,7 @@ that caused core to be dumped.
 
 040996
 Fixed chelp to allow blank lines instead of locking the client. Otiluke is
-working on a bitchx help file. Was asking about ansi codes :). Took hooks
+working on a fr3x help file. Was asking about ansi codes :). Took hooks
 out of /dcc list  they were breaking things I don't want to break. Reconnect
 is kinda fixed. Too many reconnect's quickly will confuse the client. This
 is an effect of non-blocking connects. May have fixed the core on instant op
@@ -2987,14 +2987,14 @@ what it hopefully does is a grep for server bans matching a certain
 nick!user@host. Worked on /dcc glist some more. Changed some hooks in cdcc.c
 CDCC_PREPACK from CDCC_HEADER. CDCC_POSTPACK added. Has the same info as the
 PREPACK. Patch from epic e3000s7 added. SAVEFILE_LIST and SAVEFILEPOST_LIST
-and SAVEFILEPRE_LIST hooks added. Modified Makefile's to create BitchX
+and SAVEFILEPRE_LIST hooks added. Modified Makefile's to create fr3X
 client instead of irc client. modified /fuck to do a /addshit nick channel 3
 as well.. Just like a hackbot. For a synopis of what was changed in the EPIC
 patch read the doc/UPDATES file.. Several new commands were added, some
 restrictions removed from some others, some useless code was removed.
 
 041396 .43 released
-Thanks to piraeus for adding color to the main BitchX ascii. I made a couple
+Thanks to piraeus for adding color to the main fr3X ascii. I made a couple
 of changes for those that have terminals that cannot display ansi. /set
 display_ansi determines whether or not the screen is displayed in color or
 not. Some major internal modifications have been made. These are related to
@@ -3037,7 +3037,7 @@ reload the offer list. You can reload this file offer list several times.
 It is a toggle command. defaults to off
 
 042396 .45 release
-Added new cdcc.c from ananda. Modified for BitchX hooks. I like it because
+Added new cdcc.c from ananda. Modified for fr3X hooks. I like it because
 it's simple and elegant. 
 
 042496
@@ -3049,7 +3049,7 @@ reason if none given. /tban for interactive delete of bans added. /bantype
 started. Should allow me to get rid of a bunch of useless almost duplicate
 functions. strtoul is missing on some systems. We now check during configure
 and supply a version if necessary. Same with memmove. Changes so that
-.bitchxrc is loaded instead of .ircrc if foUnd. else .ircrc is used.
+.fr3xrc is loaded instead of .ircrc if foUnd. else .ircrc is used.
 Fixed /bk of a non-existant user. /nwhowas to show the whowas queue. Fixed
 /fuck of a user not on the channel to work properly. Lamerz beware. Removed
 sitekickban and siteban commands in preparation of using /banstat.
@@ -3182,8 +3182,8 @@ hooks in cdcc. Added save of banwords command to savefile. Documented many
 on hooks for script writers perusal. A couple of new hooks implemented.
 CHANNEL_STAT for the /chanst command output. (32 parameters to this one).
 USAGE hook for the usage of internal commands. Over the next couple of
-versions of BitchX I expand the list of commands which can make use of this
-particular hook. New Documentation and a modified BitchX.help file provided.
+versions of fr3X I expand the list of commands which can make use of this
+particular hook. New Documentation and a modified fr3X.help file provided.
 
 061096 .54 released
 Ping fixed we think. ping is still in the CTCP_REPLY list though. if you
@@ -3205,7 +3205,7 @@ username doesn't change. Fixed up /Statsk which is a command for grepping
 those pesky server bans. Changed chelp and $help(). Sorry script writers but
 I decided to place the filename last as the parameter to $help(). This way
 we can initialize it once and then forget it about passing the filename
-altogether. chelp was changed to actually load the file on BitchX startup.
+altogether. chelp was changed to actually load the file on fr3X startup.
 Reasons are that the help from the $help() function will overwrite the ones
 that are loaded by chelp. So we preload the help, if they are overwritten
 well not much we can do then except restart irc. $help() returns a long
@@ -3220,7 +3220,7 @@ changed once again. $help returns info differant from /chelp. It is upto the
 script writer to format the information returned. A hook is also provided
 which applies to both /chelp and $help(). Write the proper on hook and never
 have to woRry about it again. Added SCRIPT_HELP_FILE. This is a full
-pathname/filename. Default is CTOOLZ_DIR/BitchX.help. $help() needs to be
+pathname/filename. Default is CTOOLZ_DIR/fr3X.help. $help() needs to be
 called the first time with a filename. It is expanded to a full pathname
 automatically. DESYNC_MESSAGE hook provided. See README.hooks for info.
 IDENT_HACK can be set to the name of the file to use for your hacked ident
@@ -3233,8 +3233,8 @@ Renamed command STATSK to /FKLINE. Integrated changes from ircii2.9base.
 Fixed a dumb problem in remove_channel(). Forgot to add the nicks to the
 whowas buffer when we left a channel. This would cause some ghost problems
 if we then left a channel, and some time later rejoined it. Created a save
-BitchX variables routine. Only saves the specific BitchX variables to
-BitchX.sav file. Linux glob functions don't seem to work properly. So I've
+fr3X variables routine. Only saves the specific fr3X variables to
+fr3X.sav file. Linux glob functions don't seem to work properly. So I've
 now enabled the included glob function by default. Added a WHOLEFT hook. We
 are saving the info from a netsplit currently. type //Wholeft sometime.
 We'll have to see whether this information is correct before implementing
@@ -3253,18 +3253,18 @@ their is no match then we will either do one of two things. if a ! and a @
 is in the ban spec then we just do a mode +b otherwise we search out the
 match using whois and doing the ban that way. All nicks on the channel are
 matched against the ban. Otherwise some could slip through the cracks.
-Oops. .bitchxrc file was not being loaded properly due to a missing / .
+Oops. .fr3xrc file was not being loaded properly due to a missing / .
 Changed behaviour of /tban and /unban to follow the variable NUM_BANMODES
 for the number of unbans todo in one shot. We now unban multiple bans in one
 shot. Thanks to  BlackJac for the start of a great INSTALLATION file. It was
 the first time he had compiled the client and made some notes for other
 beginNers and some not so beginners to follow. Found the little bug with
-.BitchX no being created with u+x permissions. Added BITCHX_HELP var. This
-is the complete path/filename of the default BitchX.help file. Default is
-~/.BitchX/BitchX.help. Changed $help() to look at the SCRIPT_HELP var if no
+.fr3X no being created with u+x permissions. Added fr3X_HELP var. This
+is the complete path/filename of the default fr3X.help file. Default is
+~/.fr3X/fr3X.help. Changed $help() to look at the SCRIPT_HELP var if no
 filename is passed to it. This Allows us to set SCRIPT_HELP to a dir/helpfile
 and then just call $help(some_topic). Notice the lack of filename. Default
-is ~/.BitchX/BitchX.help still. Fixed small annoyance in /notify that could
+is ~/.fr3X/fr3X.help still. Fixed small annoyance in /notify that could
 possibly save a blank notify to the notify list. This caused the notify list
 to display on startup. nasty bug in status.c fixed. Added a isuser()
 function that returns info on a nick that is in your userlist,botlist or
@@ -3314,7 +3314,7 @@ alias shelp {@htopic = [$0]?[$0]:[index] ;$help($htopic) }
 ctcp flood protection. If the current incoming ctcp is within CTCP_DELAY
 seconds we drop the request. 3 works well for most situations. Someone
 offering files may want to make this value 2 which is the default for
-ircII2.9. Value is saved in the BitchX.sav file. Fixed a couple of other
+ircII2.9. Value is saved in the fr3X.sav file. Fixed a couple of other
 nits with the wholeft commanD. Seems op kills were being interpreted as a
 server split. Someone suggested using "))" as the fix. Seems to work. When
 "we" left a channel it was being intrepreted as a server split as well. This
@@ -3362,12 +3362,12 @@ string, which should be automatically set to your nickname. It wasn't
 occurring properly. Found and fixed a problem with $read(). Lines with no
 carriage return were screwed up (Thanks Flier). BlackJac noticed a problem
 with the status bar channel modes not being properly updated. ChaosLord sent
-in a small patch for modifying argv to hide BitchX from admins. edit
-config.h and #define CLOAKED "emacs" or whatever and recompile. BitchX now
+in a small patch for modifying argv to hide fr3X from admins. edit
+config.h and #define CLOAKED "emacs" or whatever and recompile. fr3X now
 looks like it's emacs and noT irc client. Sheik suggested something that
 sounded pretty good. The ability to /ignore a whole channel or just certain
-things on a channel. Well we can now do this. /ignore #bitchx public  will
-ignore all publics from the channel bitchx. The channel ignore is checked
+things on a channel. Well we can now do this. /ignore #fr3x public  will
+ignore all publics from the channel fr3x. The channel ignore is checked
 after the regular ignore, so we can modify the behaviour of channel ignore
 using dont_ignore for a nickname etc. Some types of ignores don't translate
 well into channel ignore, so IGNORE_CRAP may not ignore everything you

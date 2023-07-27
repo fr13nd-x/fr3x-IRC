@@ -1302,7 +1302,7 @@ int snprintf (char *str, size_t size, const char *format, ...)
  * All exported functions are now called through the global table internally.
  *
  * Revision 1.1  2001/03/05 19:39:37  nuke
- * Added BitchX to the archive... slightly post 1.0c18
+ * Added fr3X to the archive... slightly post 1.0c18
  *
  * Revision 1.3  2000/10/29 04:55:52  cvs
  * Attemped fixes for Close from window list hanging PMBX.  Fix for
@@ -1313,7 +1313,7 @@ int snprintf (char *str, size_t size, const char *format, ...)
  * when a menu didn't exist. Added virtual host support on OS/2.
  *
  * Revision 1.1.1.1  2000/05/10 06:52:03  edwards
- * BitchX Source
+ * fr3X Source
  *
  *
  * 1999/05/28 00:59:04 rlm

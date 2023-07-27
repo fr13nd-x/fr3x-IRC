@@ -22,11 +22,11 @@ oldincludedir = @oldincludedir@
 
 local_dir = $(HOME)
 
-# Where the BitchX binary will be installed.
+# Where the fr3X binary will be installed.
 # "make install" will compile and install the program.
 INSTALL_IRC = @INSTALL_IRC@
 
-# Where the BitchX library will be. Generally this is the place that
+# Where the fr3X library will be. Generally this is the place that
 # you put the scripts, help pages and translation tables. It is
 # very important that you set this correctly.
 IRCLIB = @IRCLIB@
@@ -60,19 +60,19 @@ EXEEXT = @EXEEXT@
 # Extra files.
 DEFAULT_CTOOLZ_DIR = @DEFAULT_CTOOLZ_DIR@
 DEFAULT_MSGLOGFILE = @DEFAULT_MSGLOGFILE@
-DEFAULT_BITCHX_HELP_FILE = @DEFAULT_BITCHX_HELP_FILE@
+DEFAULT_fr3X_HELP_FILE = @DEFAULT_fr3X_HELP_FILE@
 DEFAULT_SCRIPT_HELP_FILE = @DEFAULT_SCRIPT_HELP_FILE@
-DEFAULT_BITCHX_KICK_FILE = @DEFAULT_BITCHX_KICK_FILE@
-DEFAULT_BITCHX_QUIT_FILE = @DEFAULT_BITCHX_QUIT_FILE@
-DEFAULT_BITCHX_IRCNAME_FILE = @DEFAULT_BITCHX_IRCNAME_FILE@
+DEFAULT_fr3X_KICK_FILE = @DEFAULT_fr3X_KICK_FILE@
+DEFAULT_fr3X_QUIT_FILE = @DEFAULT_fr3X_QUIT_FILE@
+DEFAULT_fr3X_IRCNAME_FILE = @DEFAULT_fr3X_IRCNAME_FILE@
 
-# Full path of the directory for BitchX help files.
+# Full path of the directory for fr3X help files.
 HELPDIR = @HELPDIR@
 
-# Full path of the directory for the BitchX scripts.
+# Full path of the directory for the fr3X scripts.
 INSTALL_SCRIPT = @INSTALL_SCRIPT@
 
-# Default setting for IRCPATH where BitchX will look for
+# Default setting for IRCPATH where fr3X will look for
 # its script files if the environment variable is undefined.
 # Usually, this should contain the same path as used for INSTALL_SCRIPT in
 # the Makefile, but it can contain multiple path elements
@@ -91,15 +91,15 @@ SHLIB_LD = @SHLIB_LD@
 SHLIB_CFLAGS = @SHLIB_CFLAGS@
 SHLIB_SUFFIX = @SHLIB_SUFFIX@
 
-# This command will be used to install the BitchX files on Win32/OS2EMX
+# This command will be used to install the fr3X files on Win32/OS2EMX
 # systems.
 WINNT_INSTALL = @WINNT_INSTALL@
 
-# This program allows you to use screen/xterm's to put new BitchX windows
+# This program allows you to use screen/xterm's to put new fr3X windows
 # on new screen/xterm windows.
 INSTALL_WSERV = @INSTALL_WSERV@
 
-# This program allows you to screen BitchX and reattach to it later.
+# This program allows you to screen fr3X and reattach to it later.
 INSTALL_SCRBX = @INSTALL_SCRBX@
 
 # Set gzip and bzip2 options.
@@ -173,4 +173,4 @@ distclean: clean
 
 install:
 	$(INSTALL) $(PLUGIN_NAME)$(SHLIB_SUFFIX) $(DESTDIR)$(PLUGINDIR)
-	$(INSTALL) $(srcdir)/BitchX.hints $(DESTDIR)$(PLUGINDIR)/@HINT_FILE@
+	$(INSTALL) $(srcdir)/fr3X.hints $(DESTDIR)$(PLUGINDIR)/@HINT_FILE@

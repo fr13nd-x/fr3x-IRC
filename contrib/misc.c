@@ -141,7 +141,7 @@ BUILT_IN_COMMAND(do_uptime)
 {
 	
 #ifdef ONLY_STD_CHARS
-	put_it("%s",convert_output_format("%G--[ %WBitchX%g-%wClient%g-%RStatistics %G]------------------------------------------",NULL));
+	put_it("%s",convert_output_format("%G--[ %Wfr3X%g-%wClient%g-%RStatistics %G]------------------------------------------",NULL));
 	put_it("%s",convert_output_format("%G| %CClient Version: %W$0 $1","%s %s", irc_version, internal_version));
 	put_it("%s",convert_output_format("%G| %CClient Running Since %W$0-","%s",my_ctime(start_time)));
 	put_it("%s",convert_output_format("%G| %CClient Uptime: %W$0-","%s",convert_time(now-start_time)));
@@ -156,7 +156,7 @@ BUILT_IN_COMMAND(do_uptime)
 	put_it("%s",convert_output_format("%G| %cTotal Users on Shitlist: %K[%R$0%K]","%d",shit_count));
 
 #else
-	put_it("%s",convert_output_format("%GÚÄ[ %WBitchX%gÄ%wClient%gÄ%RStatistics %G]ÄÄÄÄ---%gÄ--ÄÄ%K-%gÄÄÄÄÄ--%GÄ--ÄÄ%K-%gÄÄÄÄÄÄÄ--- %K--%g  -",NULL));
+	put_it("%s",convert_output_format("%GÚÄ[ %Wfr3X%gÄ%wClient%gÄ%RStatistics %G]ÄÄÄÄ---%gÄ--ÄÄ%K-%gÄÄÄÄÄ--%GÄ--ÄÄ%K-%gÄÄÄÄÄÄÄ--- %K--%g  -",NULL));
 	put_it("%s",convert_output_format("%G| %CClient Version: %W$0 $1","%s %s", irc_version, internal_version));
 	put_it("%s",convert_output_format("%G³ %CClient Running Since %W$0-","%s",my_ctime(start_time)));
 	put_it("%s",convert_output_format("%G| %CClient Uptime: %W$0-","%s",convert_time(now-start_time)));
@@ -197,9 +197,9 @@ BUILT_IN_COMMAND(extern_write)
 	if (!args || !*args)
 	{
 		if (sbuf.st_mode & 020)
-			bitchsay("Mesg is \002On\002");
+			fr3say("Mesg is \002On\002");
 		else
-			bitchsay("Mesg is \002Off\002");
+			fr3say("Mesg is \002Off\002");
 		return;
 	}
 	if (!my_stricmp(args, "ON") || !my_stricmp(args, "YES"))
@@ -219,7 +219,7 @@ BUILT_IN_COMMAND(extern_write)
 				yell("Sorry, couldnt set your tty's mode");
 				return;
 			}
-			bitchsay("Mesg is \002On\002");
+			fr3say("Mesg is \002On\002");
 			break;
 		case 0 :
 			if (chmod(tty, sbuf.st_mode &~ OTHER_WRITE) < 0)
@@ -227,7 +227,7 @@ BUILT_IN_COMMAND(extern_write)
 				yell("Sorry, couldnt set your tty's mode");
 				return;
 			}
-			bitchsay("Mesg is \002Off\002");
+			fr3say("Mesg is \002Off\002");
 			break;
 	}
 	
@@ -346,7 +346,7 @@ ChannelList *tmp, *new = NULL;
 
 		if (!new->check_idle)
 		{
-			bitchsay("Idle checking turned %s for %s",on_off(new->check_idle), channel); 
+			fr3say("Idle checking turned %s for %s",on_off(new->check_idle), channel); 
 			if ((tmp = lookup_channel(channel, from_server, CHAN_NOUNLINK)))
 				tmp->check_idle = tmp->max_idle = 0;
 			new_free(&channel);
@@ -361,7 +361,7 @@ ChannelList *tmp, *new = NULL;
 					tmp->max_idle = new->max_idle;
 					tmp->check_idle = new->check_idle;
 					add_timer(0, "", get_int_var(IDLE_CHECK_VAR), 1, timer_idlekick, channel, NULL, current_window);
-					bitchsay("Idle checking turned %s for %s %d mins",on_off(tmp->check_idle), channel, (int)(tmp->max_idle/60)); 
+					fr3say("Idle checking turned %s for %s %d mins",on_off(tmp->check_idle), channel, (int)(tmp->max_idle/60)); 
 				} 
 			} else
 				new_free(&channel);
@@ -456,7 +456,7 @@ int server = from_server;
 				if (kick_count <= get_int_var(MAX_IDLEKICKS_VAR))
 					my_send_to_server(server, "KICK %s %s :\002%s\002: (Idle Channel User)", tmp->channel, nick->nick, version);
 				else
-					bitchsay(" found idle user %-12s channel %s", nick->nick, tmp->channel);
+					fr3say(" found idle user %-12s channel %s", nick->nick, tmp->channel);
 				kick_count++;
 			}
 		}
@@ -485,7 +485,7 @@ int count = 0;
 		}
 	}
 	if (count && do_hook(SAVEFILE_LIST, "Idle %d", count))
-		bitchsay("Saved %d Idle channels", count);
+		fr3say("Saved %d Idle channels", count);
 }
 
 BUILT_IN_COMMAND(channel_stats)
@@ -632,7 +632,7 @@ put_it("%s", convert_output_format("IRCops     %K[%W$[3]0%K]%w$1-", "%d %s", num
 		new = new1->channellist;
 	if (!new)
 	{
-		bitchsay("Try joining a channel first");
+		fr3say("Try joining a channel first");
 		return;
 	}		
 	if (new)
@@ -862,7 +862,7 @@ struct rusage r_usage;
 			secs =1;
 		
 #ifdef ONLY_STD_CHARS
-		put_it("%s", convert_output_format("%G--%WBitchX%G-%WUsage%G-%WStatistics%G------------------------------------", NULL));
+		put_it("%s", convert_output_format("%G--%Wfr3X%G-%WUsage%G-%WStatistics%G------------------------------------", NULL));
 		put_it("%s",convert_output_format("%G| %CCPU %cUsage:  Secs %W$[-2]0%n:%W$[-2]1%n     %K[%CU%cser %W$[-2]2%n:%W$[-2]3   %CS%cystem %W$[-2]4%n:%W$[-2]5%K]","%d %d %d %d %d %d", secs/60,secs%60,r_usage.ru_utime.tv_sec/60, r_usage.ru_utime.tv_sec%60,r_usage.ru_stime.tv_sec/60, r_usage.ru_stime.tv_sec%60));
 		put_it("%s",convert_output_format("%G| %CMEM %cUsage:  MaXRSS %W$0   %cShMem %W$1  %cData %W$2  %cStack %W$3","%l %l %l %l", r_usage.ru_maxrss, r_usage.ru_ixrss, r_usage.ru_idrss,r_usage.ru_isrss));
 		put_it("%s",convert_output_format("%G| %CSwaps %W$[-8]0   %CReclaims %W$[-8]1   %CFaults %W$[-8]2","%l %l %l", r_usage.ru_nswap, r_usage.ru_minflt, r_usage.ru_majflt));
@@ -871,7 +871,7 @@ struct rusage r_usage;
 		put_it("%s",convert_output_format("%G| %CSignals %W$[-8]0   %CContext %cVol. %W$[-8]1   %cInvol %W$[-8]2","%l %l %l", r_usage.ru_nsignals, r_usage.ru_nvcsw, r_usage.ru_nivcsw));
 
 #else
-		put_it("%s", convert_output_format("%GÚÄ%WBitchX%GÄ%WUsage%GÄ%WStatistics%GÄÄÄÄ%g---%GÄ%g--%GÄÄ%g-%GÄÄÄÄÄÄ%g---%KÄ%g--%KÄÄ%g-%KÄÄÄÄÄÄÄÄ", NULL));
+		put_it("%s", convert_output_format("%GÚÄ%Wfr3X%GÄ%WUsage%GÄ%WStatistics%GÄÄÄÄ%g---%GÄ%g--%GÄÄ%g-%GÄÄÄÄÄÄ%g---%KÄ%g--%KÄÄ%g-%KÄÄÄÄÄÄÄÄ", NULL));
 		put_it("%s",convert_output_format("%G| %CCPU %cUsage:  Secs %W$[-2]0%n:%W$[-2]1%n     %K[%CU%cser %W$[-2]2%n:%W$[-2]3   %CS%cystem %W$[-2]4%n:%W$[-2]5%K]","%d %d %d %d %d %d", secs/60,secs%60,r_usage.ru_utime.tv_sec/60, r_usage.ru_utime.tv_sec%60,r_usage.ru_stime.tv_sec/60, r_usage.ru_stime.tv_sec%60));
 		put_it("%s",convert_output_format("%g³ %CMEM %cUsage:  MaXRSS %W$0   %cShMem %W$1  %cData %W$2  %cStack %W$3","%l %l %l %l", r_usage.ru_maxrss, r_usage.ru_ixrss, r_usage.ru_idrss,r_usage.ru_isrss));
 		put_it("%s",convert_output_format("%g| %CSwaps %W$[-8]0   %CReclaims %W$[-8]1   %CFaults %W$[-8]2","%l %l %l", r_usage.ru_nswap, r_usage.ru_minflt, r_usage.ru_majflt));
@@ -881,7 +881,7 @@ struct rusage r_usage;
 #endif
 	}
 #else
-	bitchsay("Lack of getrusage(). This function needed to be disabled on your client");
+	fr3say("Lack of getrusage(). This function needed to be disabled on your client");
 #endif
 }
 
@@ -902,7 +902,7 @@ register char *uh = userhost;
  
 static unsigned char newline1[BIG_BUFFER_SIZE+1];
 
-#ifndef BITCHX_LITE1
+#ifndef fr3X_LITE1
 char *mircansi(unsigned char *line)
 {
 /* mconv v1.00 (c) copyright 1996 Ananda, all rights reserved.	*/
@@ -1103,7 +1103,7 @@ void userage(char *command, char *use)
 			put_it("%s", convert_output_format(fget_string_var(FORMAT_USAGE_FSET), "%s %s", command, convert_output_format(use ? use : "%WNo Help available for this command", NULL, NULL)));
 	}
 	else
-		put_it("Please return the command you just typed to #bitchx on efnet");
+		put_it("Please return the command you just typed to #fr3x on efnet");
 }
 
 char *random_str(int min, int max)
@@ -1356,7 +1356,7 @@ int count;
 
 	if (from_server == -1 || !(serv = server_list[from_server].server_last))
 	{
-		bitchsay("No active splits");
+		fr3say("No active splits");
 		return;
 	}
 		
@@ -1374,9 +1374,9 @@ int count;
 		serv = serv->next;
 	}
 	if (count)
-		bitchsay("There %s %d split servers", (count == 1) ? "is": "are", count);
+		fr3say("There %s %d split servers", (count == 1) ? "is": "are", count);
 	else
-		bitchsay("No split servers found");
+		fr3say("No split servers found");
 }
 
 enum REDIR_TYPES { PRIVMSG = 0, KICK, TOPIC, WALL, WALLOP, NOTICE, KBOOT, KILL, DCC, LIST};
@@ -1583,7 +1583,7 @@ BUILT_IN_COMMAND(do_dirlasttype)
 			if (t[count].last_msg)
 #if 0
 			{
-				bitchsay("No such msg #%d for /%s received", count, command);
+				fr3say("No such msg #%d for /%s received", count, command);
 				break;
 			} else
 #endif
@@ -1604,7 +1604,7 @@ BUILT_IN_COMMAND(do_dirlasttype)
 #if 0
 				if (!count && !t[count].last_msg)
 				{
-					bitchsay("No such msg #%d for /%s received", count, command);
+					fr3say("No such msg #%d for /%s received", count, command);
 					break;
 				} else if (!t[count].last_msg)
 					break;
@@ -1674,7 +1674,7 @@ BUILT_IN_COMMAND(do_dirlasttype)
 		char *p = NULL;
 		if (!t[count].last_msg)
 		{
-			bitchsay("No such msg #%d for /%s received", count, command);
+			fr3say("No such msg #%d for /%s received", count, command);
 			return;
 		}
 		switch(numargs)
@@ -1695,7 +1695,7 @@ BUILT_IN_COMMAND(do_dirlasttype)
 		new_free(&p);
 	}
 	else
-		bitchsay("Can not %s what you requested", command);
+		fr3say("Can not %s what you requested", command);
 }
 
 /*
@@ -1747,7 +1747,7 @@ BUILT_IN_COMMAND(ChanWallOp)
 		}
 		if (!args || !*args)
 		{
-			bitchsay("NO Wallmsg included");
+			fr3say("NO Wallmsg included");
 			new_free(&exclude);
 			new_free(&include);
 			new_free(&channel);
@@ -1792,9 +1792,9 @@ BUILT_IN_COMMAND(ChanWallOp)
 			put_it("%s", convert_output_format(fget_string_var(FORMAT_BWALL_FSET), "%s %s %s %s %s", update_clock(GET_TIME), channel, "*", "*", args));
 			add_last_type(&last_sent_wall[0], 1, NULL, NULL, channel, buffer);
 			if (exclude)
-				bitchsay("Excluded <%s> from wallmsg", exclude);
+				fr3say("Excluded <%s> from wallmsg", exclude);
 			if (include)
-				bitchsay("Included <%s> in wallmsg", include);
+				fr3say("Included <%s> in wallmsg", include);
 		}
 		else
 			put_it("%s", convert_output_format("$G No ops on $0", "%s", channel));
@@ -1814,7 +1814,7 @@ void log_toggle(int flag, ChannelList *chan)
 
 	if (((logfile = get_string_var(MSGLOGFILE_VAR)) == NULL) || !get_string_var(CTOOLZ_DIR_VAR))
 	{
-		bitchsay("You must set the MSGLOGFILE and CTOOLZ_DIR variables first!");
+		fr3say("You must set the MSGLOGFILE and CTOOLZ_DIR variables first!");
 		set_int_var(MSGLOG_VAR, 0);
 		return;
 	}
@@ -1825,7 +1825,7 @@ void not_on_a_channel(Window *win)
 {
 	if (win)
 		message_to(win->refnum);
-	bitchsay("You're not on a channel!");
+	fr3say("You're not on a channel!");
 	message_to(0);
 }
 
@@ -2939,9 +2939,9 @@ char *u, *n, *h;
 		struct in_addr ip;
 		*buffer = 0;
 		if (rptr->nick && rptr->user)
-			bitchsay("[%s!%s@%s]: %s", n, u, h, rptr->re_he.h_name ? rptr->re_he.h_name: "invalid hostname");
+			fr3say("[%s!%s@%s]: %s", n, u, h, rptr->re_he.h_name ? rptr->re_he.h_name: "invalid hostname");
 		else
-			bitchsay("%s is %s (%s)", h, rptr->re_he.h_name ? rptr->re_he.h_name:"invalid hostname", (char *)inet_ntoa(rptr->re_he.h_addr_list[0]));
+			fr3say("%s is %s (%s)", h, rptr->re_he.h_name ? rptr->re_he.h_name:"invalid hostname", (char *)inet_ntoa(rptr->re_he.h_addr_list[0]));
 		for (i = 0; rptr->re_he.h_addr_list[i].s_addr; i++)
 		{
 			bcopy(&rptr->re_he.h_addr_list[i], (char *)&ip, sizeof(ip));
@@ -2949,9 +2949,9 @@ char *u, *n, *h;
 			if (strlen(buffer) > 490)
 				break;
 		}
-		bitchsay("IPs: %s", buffer);
+		fr3say("IPs: %s", buffer);
 	        for (i = 0; rptr->re_he.h_aliases[i]; i++)
-			bitchsay("\talias %d = %s", i+1, rptr->re_he.h_aliases[i]);
+			fr3say("\talias %d = %s", i+1, rptr->re_he.h_aliases[i]);
 	}
 
 }
@@ -2961,9 +2961,9 @@ void print_ns_fail(struct reslist *rptr)
 	if (do_hook(NSLOOKUP_LIST, "%s %s %s", rptr->host, rptr->nick?rptr->nick:empty_string, rptr->user?rptr->user:empty_string))
 	{
 		if (rptr->nick && rptr->user)
-			bitchsay("nslookup of %s!%s@%s failed.", rptr->nick, rptr->user, rptr->host);
+			fr3say("nslookup of %s!%s@%s failed.", rptr->nick, rptr->user, rptr->host);
 		else
-			bitchsay("nslookup of host %s failed.", rptr->host);
+			fr3say("nslookup of host %s failed.", rptr->host);
 	}
 }
 
@@ -3085,7 +3085,7 @@ BUILT_IN_COMMAND(nslookup)
 
 	if ((host = next_arg(args, &args)))
 	{
-		bitchsay("Checking tables...");
+		fr3say("Checking tables...");
 		if (!strchr(host, '.'))
 			userhostbase(host, userhost_nsl, 1, "%s", host);
 		else
@@ -3585,7 +3585,7 @@ register unsigned char *p = tmpstr;
 			if (do_hook(SOCKET_LIST, "%d %d %s Remote closed connection", s, sock_manager.sockets[s].port, sock_manager.sockets[s].server))
 			{
 				if (dgets_errno == -1)
-					bitchsay("Remote closed connection");
+					fr3say("Remote closed connection");
 			}
 			close_socketread(s);
 			break;
@@ -3645,7 +3645,7 @@ void netfinger (char *name)
 	{	
 		if ((s = connect_by_number(host, &port, SERVICE_CLIENT, PROTOCOL_TCP, 1)) < 0)
 		{
-			bitchsay("Finger connect error on %s@%s", name?name:empty_string, host);
+			fr3say("Finger connect error on %s@%s", name?name:empty_string, host);
 			return;
 		}
 		if ((add_socketread(s, port, 0, name, read_netfinger, NULL)) > -1)
@@ -3738,7 +3738,7 @@ struct	hostent *host;
 
         if (!stuff || !stuff->nick || !nick || !strcmp(stuff->user, "<UNKNOWN>") || my_stricmp(stuff->nick, nick))
         {
-        	bitchsay("No such nick [%s] found", nick);
+        	fr3say("No such nick [%s] found", nick);
                 return;
         }
 	next_arg(args, &args);
@@ -3748,11 +3748,11 @@ struct	hostent *host;
 	high_port = atol(t);	
 	if ((host = resolv(stuff->host)))
 	{
-		bitchsay("Scanning %s ports %d to %d", stuff->host, low_port, high_port);
+		fr3say("Scanning %s ports %d to %d", stuff->host, low_port, high_port);
 		scan(stuff->host, low_port, high_port, host);
 		return;
 	}
-	bitchsay("Cannot resolv host %s for %s", stuff->host, stuff->nick);
+	fr3say("Cannot resolv host %s for %s", stuff->host, stuff->nick);
 }
 
 BUILT_IN_COMMAND(findports)
@@ -3783,10 +3783,10 @@ struct hostent *host;
 		{
 			if ((host = resolv(remote_host)))
 			{
-				bitchsay("Scanning %s's tcp ports %d through %d",remote_host, low_port,high_port);
+				fr3say("Scanning %s's tcp ports %d through %d",remote_host, low_port,high_port);
 				scan(remote_host, low_port, high_port, host);
 			} else
-				bitchsay("No such host %s", remote_host);
+				fr3say("No such host %s", remote_host);
 		}
 		else
 			userhostbase(remote_host, userhost_scanport, 1, "%s %d %d", remote_host, low_port, high_port);
@@ -3820,7 +3820,7 @@ void userhost_ignore (UserhostItem *stuff, char *nick1, char *args)
 	{
                 if ((whowas = check_whowas_nick_buffer(nick1, arg, 0)))
 		{
-			bitchsay("Using WhoWas info for %s of %s ", arg, nick1);
+			fr3say("Using WhoWas info for %s of %s ", arg, nick1);
 			user = host; host = strchr(host, '@'); *host++ = 0;
 			nick = whowas->nicklist->nick;
 		}
@@ -3858,13 +3858,13 @@ void userhost_ignore (UserhostItem *stuff, char *nick1, char *args)
 				window_display = 0;
 				ignore(NULL, ignorebuf, ignorebuf, NULL);
 				window_display = old_window_display;
-				bitchsay("Unignored %s!%s@%s", nick, user, host);
+				fr3say("Unignored %s!%s@%s", nick, user, host);
 				found++;
 			}
 			igptr = igtmp;
 		}
 		if (!found)
-			bitchsay("No Match for ignorance of %s", nick);
+			fr3say("No Match for ignorance of %s", nick);
 		return;
 	}
 	old_window_display = window_display;
@@ -4092,7 +4092,7 @@ int	count = 0,
 		spec = "*!*@*";
 	if (!(chan = prepare_command(&server, to, NO_OP)))
 	{
-		bitchsay(to?"Not on that channel %s":"No such channel %s", to?to:empty_string);
+		fr3say(to?"Not on that channel %s":"No such channel %s", to?to:empty_string);
 		return;
 	}
 	message_from(chan->channel, LOG_CRAP);
@@ -4254,7 +4254,7 @@ int	count = 0,
 		}
 	}
 	else if (!msg && !hook)
-		bitchsay("End of UserList on %s %d counted", chan->channel, count);
+		fr3say("End of UserList on %s %d counted", chan->channel, count);
 
 	if (count && *msgbuf)
 	{
@@ -4714,11 +4714,11 @@ BUILT_IN_COMMAND(do_map)
 {
 	if (server_list[from_server].link_look == 0)
 	{
-		bitchsay("Generating irc server map");
+		fr3say("Generating irc server map");
 		send_to_server("LINKS");
 		server_list[from_server].link_look = 2;
 	} else
-		bitchsay("Wait until previous %s is done", server_list[from_server].link_look == 2? "MAP":"LLOOK");	
+		fr3say("Wait until previous %s is done", server_list[from_server].link_look == 2? "MAP":"LLOOK");	
 }
 
 void add_to_irc_map(char *server1, char *distance)

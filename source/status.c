@@ -116,7 +116,7 @@ static	char	*status_userlist (Window *);
 static	char	*status_shitlist (Window *);
 static	char	*status_nethack (Window *);
 static	char	*status_aop (Window *);
-static	char	*status_bitch (Window *);
+static	char	*status_fr3 (Window *);
 static	char	*status_newserver (Window *);
 static	char	*status_scrollback (Window *);
 static	char	*status_percent (Window *);
@@ -216,7 +216,7 @@ struct status_formats status_expandos[] = {
 { 0, '9', status_user9s,		 NULL, 			-1 },
 { 0, 'f', status_shitlist,		 NULL,			-1 },
 { 0, 'a', status_aop,			 NULL,			-1 },
-{ 0, 'b', status_bitch,			 NULL,			-1 },
+{ 0, 'b', status_fr3,			 NULL,			-1 },
 { 0, 'h', status_nethack,		 NULL,			-1 },
 { 0, 'l', status_lastjoin,		 NULL,			-1 },
 { 0, 'n', status_notifyusers,		 NULL,			-1 },
@@ -1588,7 +1588,7 @@ static char my_buffer[3] = "\0";
 	RETURN_EMPTY;
 }
 
-static	char	*status_bitch (Window *window)
+static	char	*status_fr3 (Window *window)
 {
 ChannelList *chan;
 int serv = window->server;
@@ -1597,7 +1597,7 @@ static char my_buffer[3] = "\0";
 	{
 		if ((chan = prepare_command(&serv, NULL, PC_SILENT)))
 		{
-			my_buffer[0] = chan->csets->bitch_mode ? 'B':'b';
+			my_buffer[0] = chan->csets->fr3_mode ? 'B':'b';
 			return my_buffer;
 		}
 	}

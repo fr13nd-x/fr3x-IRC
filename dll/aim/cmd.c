@@ -131,7 +131,7 @@ void amsg(IrcCommandDll *intp, char *command, char *args, char *subargs, char *h
 		serv_send_im(nick,loc);
 		RemoveFromLLByKey(msgdthem,rnick);
 		AddToLL(msgdthem,rnick,NULL);
-#ifdef BITCHX_PATCH
+#ifdef fr3X_PATCH
 		tks.list = 0;
 		tks.pos = -1;
 #endif		
@@ -662,7 +662,7 @@ void aquery(IrcCommandDll *intp, char *command, char *args, char *subargs,char *
 		tmp = current_window;
 	
 	if ( VALID_ARG(n) ) {
-#ifdef BITCHX_PATCH
+#ifdef fr3X_PATCH
 		msg = (char *) malloc(strlen(n)+50);
 		sprintf(msg,"-cmd amsg %s",n);
 		debug_printf("Querying: %s",msg);

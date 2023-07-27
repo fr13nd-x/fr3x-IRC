@@ -53,7 +53,7 @@ BUILT_IN_COMMAND(remove_log)
 	window_display = old_display;
 	if (unlink(expand)) 
 	{
-		bitchsay("Error unlinking: %s", expand);
+		fr3say("Error unlinking: %s", expand);
 		new_free(&expand);
 		return;
 	}
@@ -62,7 +62,7 @@ BUILT_IN_COMMAND(remove_log)
 	if (reset_logptr)
 		log_toggle(1, NULL);
 	window_display = old_display;
-	bitchsay("Removed %s.", expand);
+	fr3say("Removed %s.", expand);
 	status_update(1);
 	new_free(&expand);
 }

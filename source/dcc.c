@@ -133,7 +133,7 @@ static DCC_List *pending_dcc = NULL;
 
 
 static void process_dcc_chat(int);
-#ifndef BITCHX_LITE
+#ifndef fr3X_LITE
 static void process_dcc_bot(int);
 #endif
 static void
@@ -212,7 +212,7 @@ void dcc_ftpopen(char *command, char *args);
 
 DCC_commands	dcc_commands[] =
 {
-#ifndef BITCHX_LITE
+#ifndef fr3X_LITE
 	{ "BOT",	dcc_chat,		NULL },
 #endif
 	{ "CHAT",	dcc_chat,		"[nick]\n- Starts a dcc chat connection" },
@@ -737,7 +737,7 @@ void	(*func)(int) = process_dcc_chat;
 	n = get_socketinfo(s);
 	n->user = m_strdup(nick);
 	set_display_target(NULL, LOG_DCC);
-#ifndef BITCHX_LITE
+#ifndef fr3X_LITE
 	if (type == DCC_BOTMODE) func = process_dcc_bot;
 #endif			
 	if ((add_socketread(new_s, ntohs(remaddr.sin_port), flags, nick, func, NULL)) < 0)
@@ -840,7 +840,7 @@ SocketList 	*sl;
 				strmopencat(uhost, 99, "Unknown@", "unknown"/*inet_ntoa(remaddr.sin_addr)*/, NULL);
 			FromUserHost = uhost;
 
-#ifndef BITCHX_LITE
+#ifndef fr3X_LITE
 			if (*tmp == DEFAULT_BOTCHAR)
 			{ 
 				char *pc;
@@ -910,7 +910,7 @@ SocketList 	*sl;
 	reset_display_target();
 }
 
-#ifndef BITCHX_LITE
+#ifndef fr3X_LITE
 static void process_dcc_bot(int s)
 {
 unsigned long	flags;
@@ -1287,7 +1287,7 @@ UserList *ul = NULL;
 #endif
 			{
 				extern char *last_chat_req;
-				bitchsay("Type /chat to answer or /nochat to close");
+				fr3say("Type /chat to answer or /nochat to close");
 				malloc_strcpy(&last_chat_req, nick);
 			}
 			if (beep_on_level & LOG_DCC)
@@ -1363,7 +1363,7 @@ UserList *ul = NULL;
 	{
 		switch (Ctype)
 		{
-#ifndef BITCHX_LITE
+#ifndef fr3X_LITE
 			case DCC_BOTMODE:
 				func = process_dcc_bot;
 				break;
@@ -1519,7 +1519,7 @@ void dcc_chat(char *command, char *args)
 	int bot = 0;
 	int flags = 0;
 
-#ifndef BITCHX_LITE
+#ifndef fr3X_LITE
 	if (command && !my_stricmp(command, "BOT"))
 		bot++;
 #endif
@@ -2595,7 +2595,7 @@ char *filename, *p;
 #endif
 #endif
 	if (!count)
-		bitchsay("No active/pending dcc's");
+		fr3say("No active/pending dcc's");
 	else if (do_hook(DCC_POST_LIST, "%s %s %s %s %s %s %s", "DCCnum","Type","Nick", "Status", "K/s", "File","Encrypt"))
 		;
 }
@@ -3005,14 +3005,14 @@ char *nick;
 		nptr = find_name_in_genericlist(nick, dcc_no_flood, DCC_HASHSIZE, remove);
 		if (remove && nptr)
 		{
-			bitchsay("removed %s from dcc exempt list", nick);
+			fr3say("removed %s from dcc exempt list", nick);
 			new_free(&nptr->name);
 			new_free((char **)&nptr);
 		}
 		else if (!remove && !nptr)
 		{
 			add_name_to_genericlist(nick, dcc_no_flood, DCC_HASHSIZE);
-			bitchsay("added %s to dcc exempt list", nick);
+			fr3say("added %s to dcc exempt list", nick);
 		}
 		else if (remove && !nptr)
 			put_it("%s", convert_output_format("$G: %RDCC%n No such nick on the exempt list %K[%W$0%K]", "%s", nick));
@@ -3038,7 +3038,7 @@ List *nptr = NULL;
 	{
 		fprintf(fptr, "\n");
 		if (count && do_hook(SAVEFILE_LIST, "DCCexempt %d", count))
-			bitchsay("Saved %d DccExempt entries", count);
+			fr3say("Saved %d DccExempt entries", count);
 		                        
 	}
 	return count;
@@ -3330,7 +3330,7 @@ int num = -1;
 		any_user = 1;	
 	if (!type || (!nick && (!any_type || num == -1)))
 	{
-		bitchsay("Specify a nick and a type to close or a number");
+		fr3say("Specify a nick and a type to close or a number");
 		return;
 	}
 	if (!any_type)
@@ -3340,7 +3340,7 @@ int num = -1;
 				break;
 		if (!dcc_types[i]->name)
 		{
-			bitchsay("Unknown dcc type for close");
+			fr3say("Unknown dcc type for close");
 			return;
 		}
 	} else 
@@ -3953,7 +3953,7 @@ SocketList *s;
 					new->blocksize = BIG_BUFFER_SIZE;
 					set_socketinfo(s1, new);
 				} else
-					bitchsay("FTP data connection failed.");
+					fr3say("FTP data connection failed.");
 			}
 			else if (!my_strnicmp(command, "more", 3))
 				dcc_printf(s->is_read, "stat %s\n", (args && *args) ? "cwd" : "pwd", (args && *args) ?args:empty_string);
@@ -3986,7 +3986,7 @@ char *parse_ncftp(char *buffer, char **hostname)
 {
 char *dir = NULL, *p;
 
-/*bitchx,bitchx.com,panasync,,,/home/panasync,I,,34ce4360,1,*/
+/*fr3x,fr3x.com,panasync,,,/home/panasync,I,,34ce4360,1,*/
 	if (!(p = strchr(buffer, ',')))
 		return NULL;
 	*p++ = 0; *hostname = p;

@@ -11,17 +11,17 @@
 /* Define to 1 if using `alloca.c'. */
 #undef C_ALLOCA
 
-/* Default BitchX help file. */
-#undef DEFAULT_BITCHX_HELP_FILE
+/* Default fr3X help file. */
+#undef DEFAULT_fr3X_HELP_FILE
 
-/* Default BitchX ircname file. */
-#undef DEFAULT_BITCHX_IRCNAME_FILE
+/* Default fr3X ircname file. */
+#undef DEFAULT_fr3X_IRCNAME_FILE
 
-/* Default BitchX kick file. */
-#undef DEFAULT_BITCHX_KICK_FILE
+/* Default fr3X kick file. */
+#undef DEFAULT_fr3X_KICK_FILE
 
-/* Default BitchX quit file. */
-#undef DEFAULT_BITCHX_QUIT_FILE
+/* Default fr3X quit file. */
+#undef DEFAULT_fr3X_QUIT_FILE
 
 /* Default CToolZ directory. */
 #undef DEFAULT_CTOOLZ_DIR
@@ -29,7 +29,7 @@
 /* Default MsgLog file. */
 #undef DEFAULT_MSGLOGFILE
 
-/* Default BitchX script file. */
+/* Default fr3X script file. */
 #undef DEFAULT_SCRIPT_HELP_FILE
 
 /* Define a list of default servers here. */
@@ -414,17 +414,17 @@
 /* Define this if you want ZVT support. */
 #undef USE_ZVT
 
-/* Define long BitchX version here. */
+/* Define long fr3X version here. */
 #undef VERSION
 
-/* Define BitchX version number here. */
+/* Define fr3X version number here. */
 #undef VERSION_NUMBER
 
 /* Define this if you want CD-ROM support. */
 #undef WANT_CD
 
 /*
- * Define this if you have shlib support and want plugin support in BitchX
+ * Define this if you have shlib support and want plugin support in fr3X
  * Note: Not all systems support this.
  */
 #ifdef HAVE_DLLIB
@@ -446,7 +446,7 @@
 # undef _ALL_SOURCE
 #endif
 
-/* Define short BitchX version here. */
+/* Define short fr3X version here. */
 #undef _VERSION_
 
 /* Define this is you want OS/2 PM support. */

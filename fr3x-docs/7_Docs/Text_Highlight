@@ -1,6 +1,6 @@
 Special Text Highlighting Techniques                                        
 
-Although BitchX is a text-based irc client, with several GUI ports it still 
+Although fr3X is a text-based irc client, with several GUI ports it still 
 has many ways of marking text such that it stands out from the rest.  The 
 simplest kinds of text highlighting are boldface, underline, and 
 reverse video.  They work simply by surrounding the desired text with the 
@@ -19,13 +19,13 @@ govern whether they will actually be displayed in the display window.  In
 truth, other keys may be bound to the highlighting characters, but they will
 always be displayed as shown above.
 
-In addition, BitchX also supports the use of ANSI escape sequences inside the
+In addition, fr3X also supports the use of ANSI escape sequences inside the
 display window (ircII itself does not).  The main use for this is for using
 color.  ANSI escape sequences are really much more powerful than that, but
 a full discussion is beyond the scope of this document.  We will focus on
 how to use them to colorize text output.
 
-BitchX controls whether escape sequences are passed to the display window with
+fr3X controls whether escape sequences are passed to the display window with
 the DISPLAY_ANSI setting.  It is off by default.  All of the above effects
 can be achieved with escape sequences as well.  For text highlighting, all
 sequences have the following form (E is the ESC character):

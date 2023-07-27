@@ -299,7 +299,7 @@ static LookupStruct cset_struct[] = {
 	{ "AUTO_LIMIT",		offsetof(CSetList, set_auto_limit), BOOL_TYPE_VAR, VAR_READ_WRITE },
 	{ "AUTO_REJOIN",	offsetof(CSetList, set_auto_rejoin), INT_TYPE_VAR, VAR_READ_WRITE },
 	{ "BANTIME",		offsetof(CSetList, set_bantime), INT_TYPE_VAR, VAR_READ_WRITE },
-	{ "BITCH",		offsetof(CSetList, bitch_mode), BOOL_TYPE_VAR, VAR_READ_WRITE },
+	{ "fr3",		offsetof(CSetList, fr3_mode), BOOL_TYPE_VAR, VAR_READ_WRITE },
 	{ "CHANMODE",		offsetof(CSetList, chanmode), STR_TYPE_VAR, VAR_READ_WRITE },
 
 	{ "CHANNEL_LOG",	offsetof(CSetList, channel_log), BOOL_TYPE_VAR, VAR_READ_WRITE },

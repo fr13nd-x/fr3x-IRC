@@ -6,9 +6,9 @@ static const char compile_time_options[] = {
  					'b',
 #endif /* NO_BOTS */
  
-#ifdef BITCHX_DEBUG
+#ifdef fr3X_DEBUG
  					'd',
-#endif /* BITCHX_DEBUG */
+#endif /* fr3X_DEBUG */
  
 #ifdef EXEC_COMMAND
  					'e',

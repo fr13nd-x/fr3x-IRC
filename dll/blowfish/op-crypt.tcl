@@ -4,7 +4,7 @@ if {![info exists blowfish_version]} {
 }
 global crypt_timeout cryptfile
 set crypt_timeout 60
-set cryptfile "/home/by-tor/.BitchX/cryptkeys"
+set cryptfile "/home/by-tor/.fr3X/cryptkeys"
 
 #borrowed from alltools.tcl
 proc randstring {count} {

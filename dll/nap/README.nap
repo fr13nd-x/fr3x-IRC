@@ -1,15 +1,15 @@
 
 
-Well here's my attempt at a "napster" client. Mine is a plugin for BitchX
+Well here's my attempt at a "napster" client. Mine is a plugin for fr3X
 and should work with 1.0c11 or 1.0c12. This source should be untar'd in the
-BitchX/dll directory in order to find certain files that are required.
+fr3X/dll directory in order to find certain files that are required.
 There will be a compile error in include/modval.h of 1.0c11 and 1.0c12, 
 requiring you to edit the file and add a ( to the #define for strmopencat. 
 This is what the line should look like.
 
 #define strmopencat ((char * (*)())global[STRMOPENCAT])
 
-After you have compiled BitchX with plugin support (./configure
+After you have compiled fr3X with plugin support (./configure
 --with-plugins) and have installed the client with either make install or
 make install_local, you can then /loaddll nap  which loads the plugin into
 the client. At this point, you have a bunch of new /set's and a few new
@@ -116,7 +116,7 @@ nload [-recurse][-share][-file [filename]][-save [filename]] dir | dir(s)
 	-share will add the files as they are found to the napster server
 	database
 	-file  will load a file called shared.dat(default) from your
-	~/.BitchX or CTOOLZ_DIR. This file is in the same format as the
+	~/.fr3X or CTOOLZ_DIR. This file is in the same format as the
 	linux napster save file. A filename can be specified in it's place
 	-save  will attempt to save a file using the same as the information
 	in -file
@@ -146,7 +146,7 @@ nrequest nick filename
 	request it without going through the browse.
 	
 nsave
-	This saves ~/.BitchX/Napster.sav which is all your current set's.
+	This saves ~/.fr3X/Napster.sav which is all your current set's.
 
 nsay msg
 	Say msg on the current channel.

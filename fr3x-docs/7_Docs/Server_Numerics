@@ -1,7 +1,7 @@
 Hooking Server Numerics                                                     
 
 In addition to the numerous named hooks provided by the client (refer to the
-ON command in Section 5), BitchX and EPIC can hook any numeric reply sent 
+ON command in Section 5), fr3X and EPIC can hook any numeric reply sent 
 by a server. They are treated no differently from named hooks.  Space 
 constraints prevent a full discussion of all server numerics, not to mention 
 that they tend to differ from network to network.

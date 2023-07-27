@@ -1,10 +1,4 @@
-/*
- * vars.h: header for vars.c
- *
- * Generated from vars.h.proto automatically by the Makefile
- *
- * @(#)$Id: vars.h 3 2008-02-25 09:49:14Z keaston $
- */
+
 
 #ifndef __vars_h_
 #define __vars_h_
@@ -38,8 +32,8 @@ enum VAR_TYPES {
 	BEEP_MAX_VAR ,
 	BEEP_ON_MSG_VAR ,
 	BEEP_WHEN_AWAY_VAR ,
-	BITCH_VAR,
-	BITCHX_HELP_VAR,
+	fr3_VAR,
+	fr3X_HELP_VAR,
 	BLINK_VIDEO_VAR,
 	BOLD_VIDEO_VAR ,
 	BOT_LOG_VAR,
@@ -385,7 +379,7 @@ NUMBER_OF_VARIABLES
 
 extern	char	*var_settings[];
 extern	int	loading_global;
-	void	savebitchx_variables (FILE *);
+	void	savefr3x_variables (FILE *);
 	void	reinit_autoresponse (Window *, char *, int);
 	void	clear_sets (void);
 	void	clear_bindings (void);
@@ -411,7 +405,7 @@ extern	int	loading_global;
 
 #define VIF_CHANGED	0x01
 #define VIF_GLOBAL	0x02
-#define VIF_BITCHX	0x04
+#define VIF_fr3X	0x04
 #define VIF_PENDING	0x08
 
 #define	DEBUG_COMMANDS		0x0001

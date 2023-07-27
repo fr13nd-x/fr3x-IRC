@@ -340,12 +340,12 @@ int old_server = from_server;
 		if (nick1 && (whowas = check_whowas_nick_buffer(nick1, args, 0)))
 		{
 			malloc_sprintf(&host, "%s!%s", whowas->nicklist->nick, whowas->nicklist->host);
-			bitchsay("Using WhoWas info for unban of %s ", nick1);
+			fr3say("Using WhoWas info for unban of %s ", nick1);
 			n = whowas->nicklist;
 		}
 		else if (nick1)
 		{
-			bitchsay("No match for the unban of %s on %s", nick1, args);
+			fr3say("No match for the unban of %s on %s", nick1, args);
 			return;
 		}
 		if (!nick1)
@@ -387,7 +387,7 @@ int old_server = from_server;
 
 	flush_mode_all(chan);
 	if (!count)
-		bitchsay("No match for Unban of %s on %s", nick1, args);
+		fr3say("No match for Unban of %s on %s", nick1, args);
 	new_free(&host);
 	from_server = old_server;
 }
@@ -425,12 +425,12 @@ void userhost_ban(UserhostItem *stuff, char *nick1, char *args)
 			user = m_strdup(clear_server_flags(whowas->nicklist->host));
 			host = strchr(user, '@');
 			*host++ = 0;
-			bitchsay("Using WhoWas info for ban of %s ", nick1);
+			fr3say("Using WhoWas info for ban of %s ", nick1);
 			n = whowas->nicklist;
 		}
 		else if (nick1)
 		{
-			bitchsay("No match for the %s of %s on %s", fuck ? "Fuck":"Ban", nick1, channel);
+			fr3say("No match for the %s of %s on %s", fuck ? "Fuck":"Ban", nick1, channel);
 			return;
 		}
 	} 
@@ -443,7 +443,7 @@ void userhost_ban(UserhostItem *stuff, char *nick1, char *args)
 
 	if (!(my_stricmp(nick, get_server_nickname(from_server))))
 	{
-		bitchsay("Try to kick yourself again!!");
+		fr3say("Try to kick yourself again!!");
 		new_free(&user);
 		return;
 	}
@@ -803,7 +803,7 @@ register NickList *nicks;
 		char reason[BIG_BUFFER_SIZE+1];
 		*reason = 0;
 		quote_it(rest ? rest : "MassKick", NULL, reason);						
-		bitchsay("Performing (%s) Mass Kick on %s", all? "opz/non-opz" : ops ? "ops":"non-opz", chan->channel);
+		fr3say("Performing (%s) Mass Kick on %s", all? "opz/non-opz" : ops ? "ops":"non-opz", chan->channel);
 		sprintf(buf, "KICK %%s %%s :\002%s\002", reason);
 		len = strlen(buf);
 		for (new = masskick_list; new; new = new->next)
@@ -823,7 +823,7 @@ register NickList *nicks;
 		shitlist_erase(&masskick_list);
 	}
 	else
-		bitchsay("No matches for mass kick of %s on %s", spec, chan->channel);
+		fr3say("No matches for mass kick of %s on %s", spec, chan->channel);
 }
 
 BUILT_IN_COMMAND(mknu)
@@ -990,7 +990,7 @@ register NickList *nicks;
 		char modestr[100];
 		int i = 0;
 		
-		bitchsay("Performing Mass Bans on %s", chan->channel);
+		fr3say("Performing Mass Bans on %s", chan->channel);
 		for (tmp = massban_list; tmp; tmp = tmp->next)
 		{
 			malloc_strcat(&buffer, tmp->filter);
@@ -1104,7 +1104,7 @@ BUILT_IN_COMMAND(unban)
 		new_free(&banstring);
 	}
 	if (!count)
-		bitchsay("No ban matching %s found", spec);
+		fr3say("No ban matching %s found", spec);
 	reset_display_target();
 }
 
@@ -1327,7 +1327,7 @@ int server;
 	{
 		if (!chan->bans && !chan->exemptbans)
 		{
-			bitchsay("No bans on %s", chan->channel);
+			fr3say("No bans on %s", chan->channel);
 			return;
 		}
 		if (chan->bans)
@@ -1381,7 +1381,7 @@ int server = from_server;
 		int done = 0;	
 		if (!chan->bans)
 		{
-			bitchsay("No bans on %s", stuff);
+			fr3say("No bans on %s", stuff);
 			return;
 		}
 
@@ -1469,7 +1469,7 @@ int server;
 	
 		if (!chan->bans)
 		{
-			bitchsay("No bans on %s", chan->channel);
+			fr3say("No bans on %s", chan->channel);
 			return;
 		}
 		if ((do_hook(BANS_HEADER_LIST, "%s %s %s %s %s", "#", "Channel", "Ban", "SetBy", "Seconds")))
@@ -1516,7 +1516,7 @@ static void set_default_bantype(char value, char *helparg)
 		default :
 			return;
 	}
-	bitchsay("BanType set to %s", 
+	fr3say("BanType set to %s", 
 		bantypes[defban >= 1 && defban <= 7 ? defban : 0]);
 }
 
@@ -1525,6 +1525,6 @@ BUILT_IN_COMMAND(bantype)
 	if (args && *args)
 		set_default_bantype(*args, helparg);
 	else
-		bitchsay("Current BanType is %s", 
+		fr3say("Current BanType is %s", 
 			bantypes[defban >= 1 && defban <= 7 ? defban : 0]);
 }

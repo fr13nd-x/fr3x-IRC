@@ -40,7 +40,7 @@ IrcVariable fset_array[] =
 	{ "BANS",		0,STR_TYPE_VAR,	0, NULL, NULL, 0, 0},
 	{ "BANS_FOOTER",		0,STR_TYPE_VAR,	0, NULL, NULL, 0, 0},
 	{ "BANS_HEADER",		0,STR_TYPE_VAR,	0, NULL, NULL, 0, 0},
-	{ "BITCH",		0,STR_TYPE_VAR,	0, NULL, NULL, 0, 0},
+	{ "fr3",		0,STR_TYPE_VAR,	0, NULL, NULL, 0, 0},
 	{ "BOT",			0,STR_TYPE_VAR,	0, NULL, NULL, 0, 0},
 	{ "BOT_FOOTER",		0,STR_TYPE_VAR,	0, NULL, NULL, 0, 0},
 	{ "BOT_HEADER",		0,STR_TYPE_VAR,	0, NULL, NULL, 0, 0},
@@ -570,7 +570,7 @@ void create_fsets(Window *win, int ansi)
 	fset_string_var(FORMAT_BANS_FOOTER_FSET, DEFAULT_FORMAT_BANS_FOOTER_FSET);
 #endif
 
-	fset_string_var(FORMAT_BITCH_FSET, DEFAULT_FORMAT_BITCH_FSET);
+	fset_string_var(FORMAT_fr3_FSET, DEFAULT_FORMAT_fr3_FSET);
 	fset_string_var(FORMAT_BOT_HEADER_FSET, DEFAULT_FORMAT_BOT_HEADER_FSET);
 	fset_string_var(FORMAT_BOT_FOOTER_FSET, DEFAULT_FORMAT_BOT_FOOTER_FSET);
 	fset_string_var(FORMAT_BOT_FSET, DEFAULT_FORMAT_BOT_FSET);
@@ -815,7 +815,7 @@ FsetNumber *tmp;
 	outfile = fopen(p, "w");
 	if (!outfile)
 	{
-		bitchsay("Cannot open file %s for saving!", thefile);
+		fr3say("Cannot open file %s for saving!", thefile);
 		new_free(&p);
 		return 1;
 	}
@@ -834,7 +834,7 @@ FsetNumber *tmp;
 	}
 	
 	fclose(outfile);
-	bitchsay("Saved %d formats to %s", count, thefile);
+	fr3say("Saved %d formats to %s", count, thefile);
 	new_free(&p);
 	return 0;
 }
@@ -1055,7 +1055,7 @@ int num = my_atol(name);
 				if (args && *args)
 					malloc_strcpy(&tmp->format, args);
 				if (verbose)
-					bitchsay("Numeric %d is %s", num, tmp->format);
+					fr3say("Numeric %d is %s", num, tmp->format);
 				return;
 			}
 		}
@@ -1064,7 +1064,7 @@ int num = my_atol(name);
 	if (!args || !*args)
 	{
 		if (verbose)
-			bitchsay("No such Numeric Fset %d", num);
+			fr3say("No such Numeric Fset %d", num);
 		return;
 	}
 	tmp = (FsetNumber *) new_malloc(sizeof(FsetNumber));
@@ -1072,6 +1072,6 @@ int num = my_atol(name);
 	tmp->format = m_strdup(args);
 	add_to_list_ext((List **)&numeric_fset, (List *)tmp, compare_number);
 	if (verbose)
-		bitchsay("Added Numeric %d as %s", num, tmp->format);
+		fr3say("Added Numeric %d as %s", num, tmp->format);
 }
 

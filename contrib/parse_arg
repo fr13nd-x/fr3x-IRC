@@ -106,7 +106,7 @@
 	else if ((ptr = getenv("NAME")))
 		strmcpy(realname, ptr, REALNAME_LEN);
 	else if (!*realname)
-		strmcpy(realname, "* New BX user who didn't read BitchX.doc *", REALNAME_LEN);
+		strmcpy(realname, "* New BX user who didn't read fr3X.doc *", REALNAME_LEN);
 
 	if ((ptr = getenv("HOME")))
 		malloc_strcpy(&my_path, ptr);
@@ -172,7 +172,7 @@
 #if defined(WINNT) || defined(__EMX__)
 		malloc_sprintf(&bircrc_file, "%s/bx-rc", my_path);
 #else
-		malloc_sprintf(&bircrc_file, "%s/.bitchxrc", my_path);
+		malloc_sprintf(&bircrc_file, "%s/.fr3xrc", my_path);
 #endif
 
 	while ((ch = getopt(argc, argv, "aBbc:dfFhH:l:L:Nn:p:r:qsvxz:")) != EOF)

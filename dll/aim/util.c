@@ -1,12 +1,3 @@
-/*
- * AOL Instant Messanger Module for BitchX 
- *
- * By Nadeem Riaz (nads@bleh.org)
- *
- * util.c
- *
- * utility/misc functions
- */
 
 #include <irc.h>
 #include <struct.h>
@@ -116,7 +107,7 @@ char *rm_space(char *s) {
 }
 
 /* 
- * Still dont like split args routines in bitchx (new_next_arg)
+ * Still dont like split args routines in fr3x (new_next_arg)
  * It doesnt allow for args with "'s in them, next_arg doesnt allow
  * for args with spaces !@$. Need a *real* split routne that can handle
  * both (with escaping)

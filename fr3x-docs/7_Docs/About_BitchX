@@ -1,59 +1,59 @@
-BitchX is the Enhanced Programmable (I)RC-II (C)lient.                  
+fr3X is the Enhanced Programmable (I)RC-II (C)lient.                  
 
-BitchX is about 90% backwards compatible with ircII and close too 99%
-compatible with EPIC because BitchX is based on epic.  BitchX
+fr3X is about 90% backwards compatible with ircII and close too 99%
+compatible with EPIC because fr3X is based on epic.  fr3X
 was originally built upon the ircII 2.8 client, until the epic client was
-able to run phoenix.irc. At which time I switched the BitchX codebase from
+able to run phoenix.irc. At which time I switched the fr3X codebase from
 ircII to an epic base.
 
-BitchX is quite abit larger than ircII/epic, but that is mostly because of 
+fr3X is quite abit larger than ircII/epic, but that is mostly because of 
 the multitude of new features and the large amount of re-written code in an
 attempt to make ircII faster, more efficient, and more powerful as well as
 have color and a semi functional client right out of the box WITHOUt scripts
 of any sort.
 
-BitchX is derived directly from EPIC which is derived from IRC-II which is 
+fr3X is derived directly from EPIC which is derived from IRC-II which is 
 currently maintained by Matthew Green, and includes in whole all the 
 additions included in the "plus" clients by Jeremy Nelson and all of the 
-modifications in the "mod" clients by Jake Khuon.  BitchX is currently 
+modifications in the "mod" clients by Jake Khuon.  fr3X is currently 
 maintained by Colten Edwards and a few others. EPIC is maintained by Jeremy
-Nelson aka "hop". Alot of changes that appear within BitchX are backported
+Nelson aka "hop". Alot of changes that appear within fr3X are backported
 to EPIC as I am a contributor to epic.
 
-You can get a copy of the BitchX client via ftp from these mirrors:
+You can get a copy of the fr3X client via ftp from these mirrors:
 Not all sites will be always up to date, but many of them try.
 
    Site                 Directory                         Maintainer
-   ftp.bitchx.com       /pub/BitchX			    Mhacker/panasync
-   ftp.bitchx.org       /pub/BitchX                       sideshow
+   ftp.fr3x.com       /pub/fr3X			    Mhacker/panasync
+   ftp.fr3x.org       /pub/fr3X                       sideshow
 
-If you want to mirror the BitchX client, please drop an email to Colten
-Edwards (panasync@BitchX.com) telling him the host and directory where 
-we can count on you to keep a copy of the current version of the BitchX 
-client.  The BitchX client takes about 1.2m, the help files take about 150k, 
+If you want to mirror the fr3X client, please drop an email to Colten
+Edwards (panasync@fr3X.com) telling him the host and directory where 
+we can count on you to keep a copy of the current version of the fr3X 
+client.  The fr3X client takes about 1.2m, the help files take about 150k, 
 and from time to time there are other patches that range from 5k to 30k in 
 size.
 
-A mailing list for all things related to BitchX exists.  Send email to
-majordomo@lists.bitchx.com with the words "subscribe bitchx" in the body
+A mailing list for all things related to fr3X exists.  Send email to
+majordomo@lists.fr3x.com with the words "subscribe fr3x" in the body
 (and nothing else!).  This list exists for bug reports, discussion about and
-requests for new features, and anything else that has to do with BitchX.
+requests for new features, and anything else that has to do with fr3X.
 
- * BitchX is completely safe:  There are no hidden trap doors.  
+ * fr3X is completely safe:  There are no hidden trap doors.  
    We value your trust, and will not do anything to abuse it.
 
- * BitchX is programmable:  While ircII does contain a wide range of commands
-   and functions, BitchX contains hundreds more.
+ * fr3X is programmable:  While ircII does contain a wide range of commands
+   and functions, fr3X contains hundreds more.
 
- * BitchX supports bots:  We do not agree with those who feel that script 
+ * fr3X supports bots:  We do not agree with those who feel that script 
    bots are all the evil of irc, and we feel that scripts bots must not be
-   squelched by those who have the stranglehold of control on irc.  BitchX
+   squelched by those who have the stranglehold of control on irc.  fr3X
    will support bots for as long as we maintain it.
 
- * BitchX is complete:  EPIC supplies over 100 various functions and
+ * fr3X is complete:  EPIC supplies over 100 various functions and
    commands which allow you to do things very quickly things that required
-   very large or slow scripts in the past. BitchX adds too the list of
-   functions and command so that with BitchX you do not need that same 
+   very large or slow scripts in the past. fr3X adds too the list of
+   functions and command so that with fr3X you do not need that same 
    script to run a good easy client as most of those same scripted commands 
    are available in the client itself. This has a problem however in a 
    increase in memory usage.

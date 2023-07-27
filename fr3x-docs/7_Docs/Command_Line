@@ -1,9 +1,9 @@
-Command Line Usage of BitchX                                               
+Command Line Usage of fr3X                                               
 
-The BitchX irc client has a number of options available to it from the command
+The fr3X irc client has a number of options available to it from the command
 line.  The basic command-line syntax is:
 
-   BitchX [<switches>] [<nickname> [<server list>]]
+   fr3X [<switches>] [<nickname> [<server list>]]
 
 The nickname may be at most 30 characters long.  The server list may be a
 space-delimited list of server addresses.  Each server name may use the
@@ -26,6 +26,6 @@ desired.  The available switches are as follows:
    -l <file>  loads <file> in place of your .ircrc
    -L <file>  loads <file> in place of your .ircrc and expands $ expandos
 
-Unlike other Unix programs, switches for BitchX cannot be combined. 
+Unlike other Unix programs, switches for fr3X cannot be combined. 
 Something like "-db" is not allowed, "-d -b" must be used.
 

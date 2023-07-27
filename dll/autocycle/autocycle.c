@@ -1,7 +1,3 @@
-/*
- * dll/autocycle/autocycle.c - Auto-cycle plugin for BitchX
- * Copyright (c) David Walluck 1999
- */
 
 #include "irc.h"
 #include "struct.h"

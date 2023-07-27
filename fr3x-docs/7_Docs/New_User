@@ -3,7 +3,7 @@
 ++ This file is for users new to irc.  Its intention is to briefly ++
 ++  describe what irc is all about.  It is not a command summary.  ++
 ++  Please refer to /help 7 introduction to get started with the ++
-++                   various BitchX/EPIC commands.                 ++
+++                   various fr3X/EPIC commands.                 ++
 
 Irc stands for Internet Relay Chat.  It is a networked, real-time, online
 chat system.  Its popularity has grown enormously since its invention
@@ -33,7 +33,7 @@ the command involves the /on or /exec commands, don't do it unless you
 are sure you know what you are doing.  If all else fails, ask an irc
 operator or a help channel (such as #irchelp) for help.
 
-One final note on commands.  The various BitchX commands can be
+One final note on commands.  The various fr3X commands can be
 abbreviated (to the shortest possible unambiguous string).  For example,
 /na would run the /names command.  This is mentioned because,
 occasionally, you will run across pranksters trying to get new users to

@@ -6,7 +6,7 @@
    channel. A pattern to match can also be specified.
 
 Examples:
-   /banstat #bitchx
+   /banstat #fr3x
 
 See Also:
    on bans_header on bans_list on bans_footer

@@ -44,7 +44,7 @@ static	char	*last_away_msg = NULL;
 static	char	*last_away_nick = NULL;
 
 
-#define BITCHXINFO "For more information about \002BitchX\002 type \002/about\002"
+#define fr3XINFO "For more information about \002fr3X\002 type \002/about\002"
 
 void	parse_364		(char *, char *, char *);
 void	parse_365		(char *, char *, char *);
@@ -541,7 +541,7 @@ void numbered_command(char *from, int comm, char **ArgList)
 	case 1:	/* #define RPL_WELCOME          001 */
 	{		
 		char *s = NULL;
-		bitchsay(BITCHXINFO);
+		fr3say(fr3XINFO);
 		set_server2_8(from_server, 1);
 		accept_server_nickname(from_server, user);
 		set_server_motd(from_server, 1);

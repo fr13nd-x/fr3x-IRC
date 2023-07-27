@@ -51,7 +51,7 @@ extern void (*chatprintf)(char *, ...);
 
 
 /* aim.c */
-#ifdef BITCHX_PATCH
+#ifdef fr3X_PATCH
 char * amsg_complete_func(int, char *, int *, char **);
 char * get_next_buddy_complete();
 int do_aim_tabkey_overwrite(int x, char *p, int *c, char **s);
@@ -67,7 +67,7 @@ char *Aim_Version(IrcCommandDll *intp);
 
 extern char *name;
 extern char *timer_id;
-#ifdef BITCHX_PATCH
+#ifdef fr3X_PATCH
 struct tab_key_struct {
 	int list;
 	int pos;

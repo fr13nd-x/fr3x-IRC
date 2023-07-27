@@ -1,12 +1,12 @@
 #####################################################################################
 ## logger.bx by powuh, Wed Dec  4 20:54:36 EST 2002
 ##
-## This is a logger script for BitchX and Epic.  It is fully customizable, so you
+## This is a logger script for fr3X and Epic.  It is fully customizable, so you
 ## can log what you want to, where you want to!  I wrote this after finding many
 ## flaws in bxlog.bx by dARTh in both log handling, and code syntax.  Hopefully
 ## my logger.bx will be a better replacement.
 ##
-## Any comments, suggestions, etc can be directed to powuh on EFNet's #BitchX
+## Any comments, suggestions, etc can be directed to powuh on EFNet's #fr3X
 #####################################################################################
 
 @ log.version = [1.0]
@@ -14,7 +14,7 @@
 
 if (fexist($log.config.file) == -1) {
    xecho -b Config file, $log.config.file, not found... Using default values.  Type /logconf to configure!
-   @ logdir = [~/.BitchX/logs];@ logdate = [%m-%d-%y/%H:%M];@ logdir.channels = [$logdir/channels]
+   @ logdir = [~/.fr3X/logs];@ logdate = [%m-%d-%y/%H:%M];@ logdir.channels = [$logdir/channels]
    @ logdir.messages = [$logdir/messages];@ logdir.notices = [$logdir/notices];@ logdir.ctcp = [$logdir/ctcp]
    @ logdir.dcc = [$logdir/dcc];@ logpublic = 1;@ logprivate = 1;@ lognotices = 1;@ logdccs = 1;@ logctcps = 1
    }{load $log.config.file}

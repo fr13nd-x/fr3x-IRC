@@ -1,12 +1,4 @@
-/*
- * AOL Instant Messanger Module for BitchX 
- *
- * By Nadeem Riaz (nads@bleh.org)
- *
- * toc.c
- *
- * Interface to libtoc (libtoc -> client)
- */
+
 
 
 #include <irc.h>

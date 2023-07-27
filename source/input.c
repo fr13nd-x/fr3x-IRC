@@ -1184,7 +1184,7 @@ BUILT_IN_KEYBINDING(send_line)
 			char auto_comp_char;
 			char *p;
 
-			/* this is for people with old BitchX.sav files that set it to '\0' */
+			/* this is for people with old fr3X.sav files that set it to '\0' */
 			if (!(auto_comp_char = (char)get_int_var(NICK_COMPLETION_CHAR_VAR)))
 				auto_comp_char = DEFAULT_NICK_COMPLETION_CHAR;
 								
@@ -1587,10 +1587,10 @@ BUILT_IN_KEYBINDING(join_last_invite)
 			new_free(&invite_channel);
 		}
 		else
-			bitchsay("Already joining %s", invite_channel);
+			fr3say("Already joining %s", invite_channel);
 	}
 	else
-		bitchsay("You haven't been invited to a channel yet");
+		fr3say("You haven't been invited to a channel yet");
 }
 
 BUILT_IN_KEYBINDING(wholeft)
@@ -2321,7 +2321,7 @@ int globtype = GLOB_MARK;
 		case LOAD_COMPLETION:
 		{
 			if (!possible)
-				path = m_sprintf("~/.BitchX/");
+				path = m_sprintf("~/.fr3X/");
 			else
 			{
 				if (*possible == '/' || *possible == '~' || *possible == '.')
@@ -2716,7 +2716,7 @@ do_more_tab:
 				case CDCC_COMPLETION:
 				{
 					char *n, *use = get;
-					bitchsay("Found %d files/dirs", count);
+					fr3say("Found %d files/dirs", count);
 					n = new_next_arg(use, &use);
 					while (n && *n)
 					{
@@ -2736,7 +2736,7 @@ do_more_tab:
 					if ((q = strrchr(n, '/')) && *(q+1))
 					{
 						strncpy(path, n, q - n + 1);
-						bitchsay("path = %s", path);
+						fr3say("path = %s", path);
 					}
 					count = 0;
 					while (n && *n)

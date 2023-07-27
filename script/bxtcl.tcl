@@ -45,26 +45,45 @@ set cyb(lst) ""
 proc bleh {} {
 global cyb cl hblk blu red
 putscr "robocod's ..............."
-putscr {[1m        [30m.r    -4eeee[0m}
-putscr {[1m     [30mz$P[37m         [30m"$$[37m                                                          [0m}
-putscr {[1m   [30m.$$%[37m            [30m$[37m                                                          [0m}
-putscr {[1m  [30mJ$$F[37m             [30m^[37m                                                          [0m}
-putscr {[1m [30m4$$$[37m                                                                         [0m}
-putscr {[1m [30m$$$F[37m                           [0;34m=*$[1;37m                                           [0m}
-putscr {[1m [30m$$$F[37m                             [0;34m$[1;37m                                           [0m}
-putscr {[1m [30m$$$F[37m                             [0;34m$[1;37m                                           [0m}
-putscr {[1m [30m*$$b[37m                  [0;34m3$"[1;37m   [0;34m^$"[1;37m  [0;34m$.@" ".[1;37m    [0;34m.=" "$.[1;37m  [0;34m.e[1;37m [0;34md$$c[1;37m  [0;34m.r""*ee[1;37m        [0m}
-putscr {[1m  [30m$$$[37m                   [0;34m$R[1;37m   [0;34m4"[1;37m   [0;34m$[1;37m     [0;34m^$[1;37m  [0;34mJ[1;37m      [0;34m$r[1;37m  [0;34m$"[1;37m     [0;34m.$[1;37m    [0;34m$F[1;37m        [0m}
-putscr {[1m  [30m^$$$[37m             [30m$[37m    [0;34m^$[1;37m   [0;34m%[1;37m    [0;34m$[1;37m      [0;34m$[1;37m  [0;34m$[1;37m      [0;34m4$[1;37m  [0;34m$[1;37m      [0;34m^$[1;37m    [0;34m$[1;37m         [0m}
-putscr {[1m    [30m*$b[37m          [30m.$$[37m     [0;34m3L[1;37m [0;34m/[1;37m     [0;34m$r[1;37m    [0;34m4$[1;37m  [0;34m$F[1;37m     [0;34m4F[1;37m  [0;34m$[1;37m        [0;34m)*""[1;37m          [0m}
-putscr {[1m      [30m"$c[37m       [30md$$$[37m      [0;34m$E[1;37m      [0;34m$[1;37m  [0;34m..e$"[1;37m  [0;34m^$.[1;37m    [0;34mF[1;37m  [0;34m4$[1;37m       [0;34m$c.....[1;37m        [0m}
-putscr {[1m                          [0;34m4"[1;37m      [0;34m"[1;37m           [0;34m"**"[1;37m    [0;34m4"[1;37m       [0;34m.F""""*$[1;37m       [0m}
-putscr {[1m                          [0;34mF[1;37m                                   [0;34m$"[1;37m [0;31mrev[1;37m  [0;34m$[1;37m       [0m}
-putscr {[1m                         [0;34m@[1;37m                                    [0;34m3L[1;37m     [0;34md"[1;37m       [0m}
-putscr {[1m                       [0;34m*"[1;37m                                       [0;34m"**"[1;37m          [0m}
-putscr {[1m                                                                              [0m}
-putscr {[1m                                                                              [0m}
-putscr "\002C\002y\002B\002o\002R\002g v$cyb(ver) -=- Advanced BitchX TCL"
+putscr {[1m        [30m.r    -4eeee[0m
+}
+putscr {[1m     [30mz$P[37m         [30m"$$[37m                                                          [0m
+}
+putscr {[1m   [30m.$$%[37m            [30m$[37m                                                          [0m
+}
+putscr {[1m  [30mJ$$F[37m             [30m^[37m                                                          [0m
+}
+putscr {[1m [30m4$$$[37m                                                                         [0m
+}
+putscr {[1m [30m$$$F[37m                           [0;34m=*$[1;37m                                           [0m
+}
+putscr {[1m [30m$$$F[37m                             [0;34m$[1;37m                                           [0m
+}
+putscr {[1m [30m$$$F[37m                             [0;34m$[1;37m                                           [0m
+}
+putscr {[1m [30m*$$b[37m                  [0;34m3$"[1;37m   [0;34m^$"[1;37m  [0;34m$.@" ".[1;37m    [0;34m.=" "$.[1;37m  [0;34m.e[1;37m [0;34md$$c[1;37m  [0;34m.r""*ee[1;37m        [0m
+}
+putscr {[1m  [30m$$$[37m                   [0;34m$R[1;37m   [0;34m4"[1;37m   [0;34m$[1;37m     [0;34m^$[1;37m  [0;34mJ[1;37m      [0;34m$r[1;37m  [0;34m$"[1;37m     [0;34m.$[1;37m    [0;34m$F[1;37m        [0m
+}
+putscr {[1m  [30m^$$$[37m             [30m$[37m    [0;34m^$[1;37m   [0;34m%[1;37m    [0;34m$[1;37m      [0;34m$[1;37m  [0;34m$[1;37m      [0;34m4$[1;37m  [0;34m$[1;37m      [0;34m^$[1;37m    [0;34m$[1;37m         [0m
+}
+putscr {[1m    [30m*$b[37m          [30m.$$[37m     [0;34m3L[1;37m [0;34m/[1;37m     [0;34m$r[1;37m    [0;34m4$[1;37m  [0;34m$F[1;37m     [0;34m4F[1;37m  [0;34m$[1;37m        [0;34m)*""[1;37m          [0m
+}
+putscr {[1m      [30m"$c[37m       [30md$$$[37m      [0;34m$E[1;37m      [0;34m$[1;37m  [0;34m..e$"[1;37m  [0;34m^$.[1;37m    [0;34mF[1;37m  [0;34m4$[1;37m       [0;34m$c.....[1;37m        [0m
+}
+putscr {[1m                          [0;34m4"[1;37m      [0;34m"[1;37m           [0;34m"**"[1;37m    [0;34m4"[1;37m       [0;34m.F""""*$[1;37m       [0m
+}
+putscr {[1m                          [0;34mF[1;37m                                   [0;34m$"[1;37m [0;31mrev[1;37m  [0;34m$[1;37m       [0m
+}
+putscr {[1m                         [0;34m@[1;37m                                    [0;34m3L[1;37m     [0;34md"[1;37m       [0m
+}
+putscr {[1m                       [0;34m*"[1;37m                                       [0;34m"**"[1;37m          [0m
+}
+putscr {[1m                                                                              [0m
+}
+putscr {[1m                                                                              [0m
+}
+putscr "\002C\002y\002B\002o\002R\002g v$cyb(ver) -=- Advanced fr3X TCL"
 }
 utimer 4 bleh
 proc grabhost {arg} {
@@ -141,7 +160,7 @@ ircii "^set flood_protection off"
 ircii "^set flood_kick off"
 ircii "^set flood_rate 0"
 ircii "^set display_ansi on"
-ircii "^set script_help ~/.BitchX/NONE"
+ircii "^set script_help ~/.fr3X/NONE"
 ircii "^set exec_protection off"
 ircii "^set -continued_line"
 ircii "^set novice off"
@@ -157,10 +176,10 @@ ircii "set msglog off"
 ircii "set mail 1"
 ircii "set show_channel_names on"
 ircii "set msglogfile Ctoolz.away"
-ircii "eval set logfile .BitchX/cyborg.chanLog"
-ircii "set reasonfile BitchX.reason"
-ircii "set ctoolz_dir ~/.BitchX"
-ircii "set savefile BitchX.sav"
+ircii "eval set logfile .fr3X/cyborg.chanLog"
+ircii "set reasonfile fr3X.reason"
+ircii "set ctoolz_dir ~/.fr3X"
+ircii "set savefile fr3X.sav"
 ircii "set eight on"
 ircii "set beep_on_msg msgs"
 ircii "set beep on"

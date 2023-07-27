@@ -18,9 +18,9 @@
 #include "hash2.h"
 #include "gui.h"
 #include "newio.h"
-#include "../doc/BitchX.xpm"
+#include "../doc/fr3X.xpm"
 
-char BitchXbg[] = "BitchX.xpm";
+char fr3Xbg[] = "fr3X.xpm";
 
 GtkWidget	*mainwindow,
 		    *mainviewport,
@@ -469,7 +469,7 @@ char extkeycode[4];
 
 /* This is the main output function, code will need to be added here to make
    sure text goes to the correct window as well as ANSI handling etc, this 
-   will probably be the most complex part of gtkBitchX */
+   will probably be the most complex part of gtkfr3X */
 
 void output_info(gpointer data, int pipefd)
 {
@@ -527,7 +527,7 @@ void gtk_label_set_color(GtkWidget *label, int color)
 	}
 }
 
-/* This may be going away, it replaces code which is currently elsewhere in BitchX */
+/* This may be going away, it replaces code which is currently elsewhere in fr3X */
 void gtk_resize(Screen *this_screen)
 {
 	co = this_screen->co; li = this_screen->li;
@@ -811,7 +811,7 @@ void zvt_load_font(char *fontname, Screen *screen)
 	font = gdk_font_load(fontname);
 	if(!font)
 	{
-		bitchsay("Unable to load font \"%s\".", fontname);
+		fr3say("Unable to load font \"%s\".", fontname);
 		/* Fall back to fixed */
 		font = gdk_font_load("fixed");
 		fontname = "fixed";
@@ -847,9 +847,9 @@ void gtk_windowicon(GtkWidget *window)
 #ifndef USE_IMLIB
 	iconstyle = gtk_widget_get_style(window);
 	if (!icon_pixmap)
-		icon_pixmap = gdk_pixmap_create_from_xpm_d(window->window, &bitmap, &iconstyle->bg[GTK_STATE_NORMAL], BitchX);
+		icon_pixmap = gdk_pixmap_create_from_xpm_d(window->window, &bitmap, &iconstyle->bg[GTK_STATE_NORMAL], fr3X);
 #else
-	gdk_imlib_data_to_pixmap(BitchX, &icon_pixmap, &bitmap);
+	gdk_imlib_data_to_pixmap(fr3X, &icon_pixmap, &bitmap);
 #endif
 
 	gdk_window_set_icon(window->window, NULL, icon_pixmap, bitmap);
@@ -862,7 +862,7 @@ void font_ok_handler(GtkWidget *widget, GtkParam *param)
 	font = gtk_entry_get_text((GtkEntry *)param->data[0]);
 	if(!font)
 	{
-		bitchsay("Unable to load font.");
+		fr3say("Unable to load font.");
 		free(param);
 		return;
 	}
@@ -2092,7 +2092,7 @@ void gtkbx_init(void)
 
 	gtk_signal_connect(GTK_OBJECT(mainviewport), "key_press_event", GTK_SIGNAL_FUNC(gtk_keypress), mainwindow);
 
-	/* Add BitchX colors to the system colormap */
+	/* Add fr3X colors to the system colormap */
 	cmap = gdk_colormap_get_system();
 	for(z=0;z<16;z++)
 		gdk_color_alloc(cmap, &colors[z]);
@@ -2153,7 +2153,7 @@ void gtkbx_init(void)
 	zvt_term_set_color_scheme((ZvtTerm *)mainviewport, bx_red, bx_green, bx_blue);
 
 	/* Use a background XPM if it exists */
-	if ((bg = path_search(BitchXbg, get_string_var(LOAD_PATH_VAR))))
+	if ((bg = path_search(fr3Xbg, get_string_var(LOAD_PATH_VAR))))
 		zvt_term_set_background((ZvtTerm *)mainviewport, bg, FALSE, FALSE);
 
 	zvt_term_set_size((ZvtTerm *)mainviewport, 80, 25);
@@ -2550,7 +2550,7 @@ void gtk_new_window(Screen *gtknew, Window *win)
 	gtk_signal_connect(GTK_OBJECT(gtknew->viewport), "key_press_event", GTK_SIGNAL_FUNC(gtk_keypress), gtknew);
 
 	/* Add a background XPM if it exists */
-	if ((bg = path_search(BitchXbg, get_string_var(LOAD_PATH_VAR))))
+	if ((bg = path_search(fr3Xbg, get_string_var(LOAD_PATH_VAR))))
 		zvt_term_set_background((ZvtTerm *)gtknew->viewport, bg, FALSE, FALSE);
 
 	gtk_signal_connect(GTK_OBJECT(gtknew->viewport), "map", GTK_SIGNAL_FUNC(viewport_map), NULL);
@@ -3295,9 +3295,9 @@ void gtk_about_box(char *about_text)
 #ifndef USE_IMLIB
 		style = gtk_widget_get_style(about_window);
 		if (!icon_pixmap)
-			icon_pixmap = gdk_pixmap_create_from_xpm_d(about_window->window, &bitmap, &style->bg[GTK_STATE_NORMAL], BitchX);
+			icon_pixmap = gdk_pixmap_create_from_xpm_d(about_window->window, &bitmap, &style->bg[GTK_STATE_NORMAL], fr3X);
 #else
-		gdk_imlib_data_to_pixmap(BitchX, &icon_pixmap, &bitmap);
+		gdk_imlib_data_to_pixmap(fr3X, &icon_pixmap, &bitmap);
 #endif
 
 		gdk_window_set_icon(about_window->window, NULL, icon_pixmap, bitmap);

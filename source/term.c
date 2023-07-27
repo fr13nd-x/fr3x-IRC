@@ -624,15 +624,15 @@ static	char	termcap2[2048];	/* bigger than we need, just in case */
 
 /* 
  * Any GUI system modules must be included here to make the GUI support
- *  routines accessable to the rest of BitchX. 
+ *  routines accessable to the rest of fr3X. 
  */
 #ifndef WTERM_C
 #ifdef __EMXPM__
-#include "PMBitchX.c"
+#include "PMfr3X.c"
 #elif defined(GTK)
-#include "gtkbitchx.c"
+#include "gtkfr3x.c"
 #elif defined(WIN32)
-#include "winbitchx.c"
+#include "winfr3x.c"
 #endif
 #endif
 /*

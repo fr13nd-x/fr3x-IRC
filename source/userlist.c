@@ -214,7 +214,7 @@ void prepare_addshit(UserhostItem *stuff, char *nick, char *args)
 
         if (!stuff || !stuff->nick || !nick || !strcmp(stuff->user, "<UNKNOWN>") || my_stricmp(stuff->nick, nick))
         {
-        	bitchsay("No such nick [%s] found", nick);
+        	fr3say("No such nick [%s] found", nick);
                 return;
         }
 
@@ -283,7 +283,7 @@ unsigned long	flags = 0;
 	
         if (!stuff || !stuff->nick || !nick || !strcmp(stuff->user, "<UNKNOWN>") || my_stricmp(stuff->nick, nick))
         {
-		bitchsay("No such nick [%s] found", nick);
+		fr3say("No such nick [%s] found", nick);
 		return;
         }
 
@@ -334,7 +334,7 @@ unsigned long	flags = 0;
 	else
 	{
 		if (!(remove_userhost_from_userlist(host,  channels)))
-			bitchsay("User not found on the userlist");
+			fr3say("User not found on the userlist");
 		else
 			put_it("%s", convert_output_format("$G Removed [$0] on $1 from userlist", "%s %s", host, channels));
 	}
@@ -424,7 +424,7 @@ BUILT_IN_COMMAND(add_user)
 		{
 			if ((type == USERLIST_REMOVE) && !my_stricmp(nick, "-ALL"))
 			{
-				bitchsay("Removing all Users on Userlist");
+				fr3say("Removing all Users on Userlist");
 				remove_all(type);
 				return;
 			}
@@ -439,7 +439,7 @@ BUILT_IN_COMMAND(add_user)
 			return;
 		if (!(channels = next_arg(args, &args)) || !*channels)
 		{
-			bitchsay("Need a channel for %s", command ? "UnUser" : "AddUser");
+			fr3say("Need a channel for %s", command ? "UnUser" : "AddUser");
 			return;
 		}
 #ifdef COMPATIBILITY
@@ -504,7 +504,7 @@ BUILT_IN_COMMAND(add_user)
 				add_userhost_to_userlist(p, newuh? newuh : bang, channels, e_pass, convert_str_to_flags(capabilities));
 			else
 				remove_userhost_from_userlist(newuh ? newuh : bang, channels);
-			bitchsay("%s %s!%s %s Userlist", type == USERLIST_ADD ? "Adding":"Deleting", p, newuh ? newuh : bang,
+			fr3say("%s %s!%s %s Userlist", type == USERLIST_ADD ? "Adding":"Deleting", p, newuh ? newuh : bang,
 					 type == USERLIST_ADD ? "to":"from");
 			new_free(&newuh);
 		}
@@ -553,13 +553,13 @@ BUILT_IN_COMMAND(add_shit)
 
 		if (type == SHITLIST_REMOVE && !my_stricmp(nick, "-ALL"))
 		{
-			bitchsay("Removing all Users on shitlist");
+			fr3say("Removing all Users on shitlist");
 			remove_all(SHITLIST_REMOVE);
 			return;
 		}
 		channels = next_arg(args, &args);
 		if (!channels || !*channels) {
-			bitchsay("Need a channel for %s", 
+			fr3say("Need a channel for %s", 
 				type == SHITLIST_REMOVE ? "UnShit": "AddShit");
 			return;
 		}
@@ -693,10 +693,10 @@ void add_to_a_list(char *thestring, int thetype, char *nick, char *channels, cha
 				sync_shitlist(sremove, 1);
 				if (shitlevel == PERM_IGNORE)
 					ignore_nickname(sremove->filter, IGNORE_ALL, 0);
-				bitchsay("Adding %s!%s to Shitlist", nick, thestring);
+				fr3say("Adding %s!%s to Shitlist", nick, thestring);
 			}
 			else
-				bitchsay ("%s!%s already on my Shitlist", nick, thestring);
+				fr3say ("%s!%s already on my Shitlist", nick, thestring);
 			break;
 		}
 		case SHITLIST_REMOVE:
@@ -715,10 +715,10 @@ void add_to_a_list(char *thestring, int thetype, char *nick, char *channels, cha
 				new_free(&sremove->reason);
 				new_free(&sremove->channels);
 				new_free((char **)&sremove);
-				bitchsay("Deleting %s!%s from Shitlist", nick, thestring);
+				fr3say("Deleting %s!%s from Shitlist", nick, thestring);
 			}
 			if (!scount)
-				bitchsay("Didnt find %s!%s on the Shitlist", nick, thestring);
+				fr3say("Didnt find %s!%s on the Shitlist", nick, thestring);
 			new_free(&s_str);
 			break;
 		}
@@ -774,7 +774,7 @@ BUILT_IN_COMMAND(showshitlist)
 	
 	if (!tmp)
 	{
-		bitchsay("No entries in Shit list");
+		fr3say("No entries in Shit list");
 		return;
 	}
 	while (tmp)
@@ -811,9 +811,9 @@ int size = -1;
 			
 		}
 		if (count)
-			bitchsay("%d entries with a comment", count);
+			fr3say("%d entries with a comment", count);
 		else
-			bitchsay("There are no comments");
+			fr3say("There are no comments");
 		return;
 	}
 	if (args && *args)
@@ -831,7 +831,7 @@ int size = -1;
 					malloc_strcpy(&tmp->comment, args);
 				else
 					new_free(&tmp->comment);
-				bitchsay("%s info for %s", (args && *args)?"Added":"Removed", uh);
+				fr3say("%s info for %s", (args && *args)?"Added":"Removed", uh);
 			}
 		}
 	}
@@ -1308,7 +1308,7 @@ char *nick = NULL, *userhost = NULL, *p;
 			if (user->flags & PROT_KICK)
 			{
 				if (kicker && (!kicker->userlist || (kicker->userlist && !(kicker->userlist->flags & PROT_KICK))))
-					send_to_server("KICK %s %s :\002BitchX\002 Protected User", chan->channel, kicker->nick);
+					send_to_server("KICK %s %s :\002fr3X\002 Protected User", chan->channel, kicker->nick);
 			}
 			if ((user->flags & PROT_REOP) || do_reop)
 			{
@@ -1391,12 +1391,12 @@ char err_msg[7][50] = { empty_string, "No Level Specified", "No Protection level
 		char *userhost = NULL;
 		if (!(what = next_arg(args, &args)))
 		{
-			bitchsay("%s %s", command, err_msg[comm]);
+			fr3say("%s %s", command, err_msg[comm]);
 			return;
 		}
 		if (!(ThisNick = (UserList *)find_bestmatch(user, 0)))
 		{
-			bitchsay("Nick [%s] was not found on userlist", user);
+			fr3say("Nick [%s] was not found on userlist", user);
 			return;
 		}	
 		flags = ThisNick->flags;
@@ -1511,7 +1511,7 @@ int	flag;
 				ThisNick->sent_deop_time = now;
 			case 2:
 				if (flag != 1)
-					bitchsay("NetHack detected on %s by %s!%s", channel->channel, nick, ThisNick->host); 
+					fr3say("NetHack detected on %s by %s!%s", channel->channel, nick, ThisNick->host); 
 			case 0:
 			default:
 				break;
@@ -1531,7 +1531,7 @@ char *buffer = NULL;
 		p = expand_twiddle(buffer);
 		if (p && access(p, F_OK) != 0)
 		{
-			bitchsay("Created directory %s", p);
+			fr3say("Created directory %s", p);
 			mkdir(p, S_IWUSR|S_IRUSR|S_IXUSR);
 		}
 		new_free(&p);
@@ -1552,7 +1552,7 @@ char *buffer = NULL;
 BUILT_IN_COMMAND(savelists)
 {
 #ifdef PUBLIC_ACCESS
-	bitchsay("This command is disabled on a public access system");
+	fr3say("This command is disabled on a public access system");
 	return;
 #else
 	char thefile[BIG_BUFFER_SIZE+1];
@@ -1574,12 +1574,12 @@ BUILT_IN_COMMAND(savelists)
 
 	if (!outfile)
 	{
-		bitchsay("Cannot open file %s for saving!", thefile);
+		fr3say("Cannot open file %s for saving!", thefile);
 		new_free(&p);
 		return;
 	}
 	if (do_hook(SAVEFILEPRE_LIST, "%s %s", thefile, p)) 
-		bitchsay("Saving All Your Settings to %s", thefile);
+		fr3say("Saving All Your Settings to %s", thefile);
 
 #ifdef WANT_USERLIST
 	if (ulist)
@@ -1593,7 +1593,7 @@ BUILT_IN_COMMAND(savelists)
 		count ++;
 	}
 	if (count && do_hook(SAVEFILE_LIST, "UserList %d", count))
-		bitchsay("Saved %d UserList entries", count);
+		fr3say("Saved %d UserList entries", count);
 
 	count = 0;
 	if (slist)
@@ -1605,7 +1605,7 @@ BUILT_IN_COMMAND(savelists)
 		count ++;
 	}
 	if (count && do_hook(SAVEFILE_LIST, "ShitList %d", count))
-		bitchsay("Saved %d ShitList entries", count);
+		fr3say("Saved %d ShitList entries", count);
 #endif
 
 	count = 0;
@@ -1618,7 +1618,7 @@ BUILT_IN_COMMAND(savelists)
 		count ++;
 	}
 	if (count && do_hook(SAVEFILE_LIST, "LameNickList %d", count))
-		bitchsay("Saved %d LameNick entries", count);
+		fr3say("Saved %d LameNick entries", count);
 
 	if (ajoin)
 		fprintf(outfile, "# %s Auto-Join List\n", version);
@@ -1634,7 +1634,7 @@ BUILT_IN_COMMAND(savelists)
 		ajoin = ajoin->next;
 	}
 	if (count && do_hook(SAVEFILE_LIST, "AutoJoin %d", count))
-		bitchsay("Saved %d AutoJoin entries", count);
+		fr3say("Saved %d AutoJoin entries", count);
 
 #ifdef WANT_USERLIST
 	ulist = user_list;
@@ -1651,7 +1651,7 @@ BUILT_IN_COMMAND(savelists)
 		ulist = ulist->next;
 	}
 	if (count && do_hook(SAVEFILE_LIST, "UserInfo %d", count))
-		bitchsay("Saved %d UserInfo entries", count);
+		fr3say("Saved %d UserInfo entries", count);
 #endif
 
 	save_notify(outfile);
@@ -1659,11 +1659,11 @@ BUILT_IN_COMMAND(savelists)
 	save_idle(outfile);
 	save_banwords(outfile);
 	dcc_exempt_save(outfile);
-	savebitchx_variables(outfile);
+	savefr3x_variables(outfile);
 
 	fprintf(outfile, "BANTYPE %c\n", defban == 1? 'N':defban == 2? 'B':defban==3?'H':defban==4?'D':defban==5?'U':defban==6?'S':'I');
 	if (do_hook(SAVEFILEPOST_LIST, "%s %s", thefile, p))
-		bitchsay("Done Saving to file %s", thefile);
+		fr3say("Done Saving to file %s", thefile);
 
 	fclose(outfile);
 	new_free(&p);

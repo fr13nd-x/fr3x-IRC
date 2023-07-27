@@ -1,21 +1,21 @@
-BitchX bots mini-howto.. by Rwf, date: 08/17/97
+fr3X bots mini-howto.. by Rwf, date: 08/17/97
 
 Table of contents:
-	(1) Overview of BitchX's bot mode
+	(1) Overview of fr3X's bot mode
 	(2) Basic steps to link two (or more) clients
 	(3) Using the partyline
 	(4) Frequently asked questions
 	(5) Contacts / miscellaneous information
 
-Note: this document targets BitchX 72p2 and higher.. if you don't have
+Note: this document targets fr3X 72p2 and higher.. if you don't have
 	at least 72p2, check out the contacts section info on how to get
-	a newer copy of BitchX.
+	a newer copy of fr3X.
 
 
-(1) Overview of BitchX's bot mode
+(1) Overview of fr3X's bot mode
 
-BitchX includes an eggdrop-like bot mode.. it allows you to create a DCC
-'partyline' between several BitchX clients. This document explains how
+fr3X includes an eggdrop-like bot mode.. it allows you to create a DCC
+'partyline' between several fr3X clients. This document explains how
 to create a network like this, and answers some of the questions surrounding
 the linking in general.
 
@@ -154,7 +154,7 @@ e) Finishing touches..
 	The most important setting being BOT_MODE .. make sure its 
 	 turned on, otherwise the bot will refuse DCC chats.
 	
-	2. In BitchX 72p2 and up, the bots will only accept chats from
+	2. In fr3X 72p2 and up, the bots will only accept chats from
 	    persons in their userlist (see /bhelp adduser  for details),
 	    *OR* persons who have been .invite 'd into the chat session.
 	    See the command list in the next section for details.
@@ -191,7 +191,7 @@ Just typing text in the DCC causes the bot to relay it to the partyline.
 Its time for the big FAQ list.. a lot of these I asked myself at one time,
 but its good info so be sure to read it ALL.
 
-q) What's BitchX?
+q) What's fr3X?
 a) Uhm... this isn't the file you were looking for.
 
 q) The bots didn't link but I have botlist entries for them each!
@@ -212,7 +212,7 @@ a) No. The bots do not share userfiles..
 q) Can the bots link to eggdrops?
 a) No. Eggdrops link via telnet, not DCC.
 
-q) Where can i get BitchX?
+q) Where can i get fr3X?
 a) See the contacts section.
 
 q) Where can i get screen?
@@ -241,11 +241,11 @@ q) Does chicken come in a can?
 
 Where to get bX:
 
-As always, there's the #BitchX channel on EFNet.
-Get BitchX via FTP: ftp://aurora.bridges.edu
+As always, there's the #fr3X channel on EFNet.
+Get fr3X via FTP: ftp://aurora.bridges.edu
 Get screen from the same places.
 
 Contacts:
 
-Rwf - find me on EFNet.. #Lb, or #BitchX. rwf@loonybin.dyn.ml.org
-panasync - find him on EFNet too, in #BitchX.
+Rwf - find me on EFNet.. #Lb, or #fr3X. rwf@loonybin.dyn.ml.org
+panasync - find him on EFNet too, in #fr3X.

@@ -1,9 +1,4 @@
-/*
-  Europa - Copyright (c) 1999, Ed Schlunder <zilym@asu.edu>
 
-  This is free software distributable under the terms of the GNU GPL-- See
-  the file COPYING for details.
- */
 
 #define MOD_VERSION "0.01"
 #define MOD_NAME "Europa"
@@ -36,7 +31,7 @@
 int beQuiet = 0;
 MYSQL mysql;
 
-/* called when bitchx user enters IRC command "/europa DATA" */
+/* called when fr3x user enters IRC command "/europa DATA" */
 BUILT_IN_DLL(europa)
 {
   int i;
@@ -211,7 +206,7 @@ void processChat(int argc, char *args[], char *argl[]) {
   }
 }
 
-/* called by BitchX whenever someone says something in the channel directed to
+/* called by fr3X whenever someone says something in the channel directed to
    this user... */
 int public_ar_proc(char *which, char *str, char **unused) {
   char *local, *args[MAX_WORDS], *argl[MAX_WORDS];

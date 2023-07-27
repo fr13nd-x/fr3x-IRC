@@ -110,7 +110,7 @@ int to_chan = 0;
 
 	if (!(tmp = get_server_channels(server)))
 	{
-		bitchsay("No Channel or no server");
+		fr3say("No Channel or no server");
 		return;
 	}
 
@@ -206,8 +206,8 @@ WordKickList *new;
 				malloc_strcpy(&new->channel, chan);
 				malloc_strcpy(&new->string, args);
 				add_to_list((List **)&ban_words, (List *)new);
-				bitchsay("Added %s to %s Banned Word List", new->string, new->channel);
-			} else bitchsay("[%s] is already in the list for channel %s", args, chan);
+				fr3say("Added %s to %s Banned Word List", new->string, new->channel);
+			} else fr3say("[%s] is already in the list for channel %s", args, chan);
 		}
 		else
 		{
@@ -215,14 +215,14 @@ WordKickList *new;
 			malloc_strcpy(&word, args);
 			while ((new = (WordKickList *) removewild_from_list((List **)&ban_words, word)))
 			{
-				bitchsay("Removed %s Banned Word [%s]", new->channel, new->string);
+				fr3say("Removed %s Banned Word [%s]", new->channel, new->string);
 				new_free(&new->channel);
 				new_free(&new->string);
 				new_free((char **)&new);
 				count++;
 			}
 			if (!count)
-				bitchsay("Banned Word %s not found.", word);
+				fr3say("Banned Word %s not found.", word);
 			new_free(&word);
 		}
 	}
@@ -239,7 +239,7 @@ WordKickList *new;
 		for (new = ban_words; new; new = new->next)
 			put_it("%-14s %40s", new->channel, new->string);
 	} else
-		bitchsay("No Banned Words on list");
+		fr3say("No Banned Words on list");
 }
 
 void save_banwords(FILE *outfile)
@@ -258,7 +258,7 @@ void save_banwords(FILE *outfile)
 		}
 	}
 	if (count && do_hook(SAVEFILE_LIST,"BanWords %d", count))
-		bitchsay("Saved %d Banned Words List", count);
+		fr3say("Saved %d Banned Words List", count);
 }
 
 #if 0
@@ -433,7 +433,7 @@ char *key = NULL;
 			channel = get_current_channel_by_refnum(0);
 		if (!t || !*t)
 		{
-			bitchsay("No Mode Specified");
+			fr3say("No Mode Specified");
 			return;
 		}
 		if ((chan = lookup_channel(channel, from_server, 0)))
@@ -528,11 +528,11 @@ char *key = NULL;
 			if (*buffer)
 			{
 				malloc_strcpy(&chan->modelock_key, buffer);
-				bitchsay("%s Mode Locked at: [%s] %s", chan->channel, buffer, (chan->limit > 0) ? "Users":empty_string);
+				fr3say("%s Mode Locked at: [%s] %s", chan->channel, buffer, (chan->limit > 0) ? "Users":empty_string);
 			} else
-				bitchsay("Invalid Mode for [%s]", chan->channel);
+				fr3say("Invalid Mode for [%s]", chan->channel);
 		} else
-			bitchsay("No Such Channel");
+			fr3say("No Such Channel");
 	}
 	else if (command && *command && !my_stricmp(command, "ClearLock"))
 	{
@@ -546,9 +546,9 @@ char *key = NULL;
 			{
 				new_free(&chan->modelock_key);
 				chan->modelock_val = 0;
-				bitchsay("Cleared %s Mode Lock", chan->channel);
+				fr3say("Cleared %s Mode Lock", chan->channel);
 			} else
-				bitchsay("No such Channel [%s]", t);
+				fr3say("No such Channel [%s]", t);
 		} 
 		else if (t && *t && *t == '*')
 		{
@@ -557,7 +557,7 @@ char *key = NULL;
 				new_free(&chan->modelock_key);
 				chan->modelock_val = 0;
 			}
-			bitchsay("Cleared All Channel Mode Locks");
+			fr3say("Cleared All Channel Mode Locks");
 		}
 	}
 	else
@@ -565,7 +565,7 @@ char *key = NULL;
 		for (i = 0; i < server_list_size(); i++ )
 		{
 			for (chan = get_server_channels(from_server); chan; chan = chan->next)
-				bitchsay("Lock on %s: %s", chan->channel, chan->modelock_key ? chan->modelock_key : "none");
+				fr3say("Lock on %s: %s", chan->channel, chan->modelock_key ? chan->modelock_key : "none");
 		}
 	}
 }
@@ -622,7 +622,7 @@ char *t, *channel;
 		}
 		else if (t && *t && !my_strnicmp(t, "OF", 2))
 			chan->topic_lock = 0;
-		bitchsay("Topic lock for [%s] - %s", chan->channel, on_off(chan->topic_lock));
+		fr3say("Topic lock for [%s] - %s", chan->channel, on_off(chan->topic_lock));
 	}
 }
 
@@ -649,7 +649,7 @@ BUILT_IN_COMMAND(sping)
 	{
 		Sping *tmp;
 		reset_display_target();
-		bitchsay("Sent server ping to [\002%s\002]", args);
+		fr3say("Sent server ping to [\002%s\002]", args);
 		while ((sname = next_arg(args, &args)))
 		{
 			if (*sname == '.')
@@ -657,7 +657,7 @@ BUILT_IN_COMMAND(sping)
 					sname = get_server_name(from_server);
 			if (!wild_match("*.*", sname))
 			{
-				bitchsay("%s is not a server", sname);
+				fr3say("%s is not a server", sname);
 				continue;
 			}
 			tmp = new_malloc(sizeof(Sping));
@@ -740,17 +740,17 @@ static int here = 0;
 		set_int_var(FLOOD_PROTECTION_VAR, 1);
 		here = 1;
 	}
-	bitchsay("Toggled flood protection - [%s]", on_off(here));
+	fr3say("Toggled flood protection - [%s]", on_off(here));
 }
 
 BUILT_IN_COMMAND(do_toggle)
 {
-#ifndef BITCHX_LITE
+#ifndef fr3X_LITE
 if (!args || !*args)
 {
 #ifdef ONLY_STD_CHARS
 
-put_it("%s", convert_output_format("%G-----------%K[ %WBitchX %wToggles %K]%G----------------------------------------------", NULL));
+put_it("%s", convert_output_format("%G-----------%K[ %Wfr3X %wToggles %K]%G----------------------------------------------", NULL));
 put_it("%s", convert_output_format("%G|   %Cauto_ns%clookup %K[%W$[-3]0%K]    %Cctcp_f%clood_protection %K[%W$[-3]1%K]    %Cbeep%c        %K[%W$[-3]2%K]", "%s %s %s", on_off(get_int_var(AUTO_NSLOOKUP_VAR)), on_off(get_int_var(CTCP_FLOOD_PROTECTION_VAR)), on_off(get_int_var(BEEP_VAR))));
 put_it("%s", convert_output_format("%G|   %Cpub%cflood      %K[%W$[-3]0%K]    %Cflood_p%crotection      %K[%W$[-3]1%K]    %Ckickf%clood   %K[%W$[-3]2%K]", "%s %s %s", on_off(get_int_var(PUBFLOOD_VAR)), on_off(get_int_var(FLOOD_PROTECTION_VAR)), on_off(get_int_var(KICKFLOOD_VAR))));
 put_it("%s", convert_output_format("%G|   %Cdcc_a%cutoget   %K[%W$[-3]0%K]    %Cflood_k%cick            %K[%W$[-3]1%K]    %Cmsg%clog      %K[%W$[-3]2%K]", "%s %s %s", on_off(get_int_var(DCC_AUTOGET_VAR)), on_off(get_int_var(FLOOD_KICK_VAR)), on_off(get_int_var(MSGLOG_VAR))));
@@ -760,13 +760,13 @@ put_it("%s", convert_output_format("%G|   %Ccl%coak         %K[%W$[-3]0%K]    %C
 put_it("%s", convert_output_format("%G|   %Ckick_o%cps      %K[%W$[-3]0%K]    %Cannoy%c_kick            %K[%W$[-3]1%K]    %Cuser%clist    %K[%W$[-3]2%K]", "%s %s %s", on_off(get_int_var(KICK_OPS_VAR)), on_off(get_int_var(ANNOY_KICK_VAR)), on_off(get_int_var(USERLIST_VAR))));
 put_it("%s", convert_output_format("%G|   %Chack%cing       %K[%W$[-3]0%K]    %Cnick_c%completion       %K[%W$[-3]1%K]    %Cauto_r%cejoin %K[%W$[-3]2%K]","%s %s %s", on_off(get_int_var(HACKING_VAR)),on_off(get_int_var(NICK_COMPLETION_VAR)), on_off((get_int_var(AUTO_REJOIN_VAR)?1:0)) ));
 put_it("%s", convert_output_format("%K|   %Caop           %K[%W$[-3]0%K]    %Cauto_aw%cay             %K[%W$[-3]1%K]    %Cauto_rec%conn %K[%W$[-3]2%K]", "%s %s %s", on_off((get_int_var(AOP_VAR))),on_off((get_int_var(AUTO_AWAY_VAR))), on_off(get_int_var(AUTO_RECONNECT_VAR))));
-put_it("%s", convert_output_format("%K|   %Cbitch         %K[%W$[-3]0%K]    %Cdcc_f%cast              %K[%W$[-3]1%K]    %Ckick_if_ban %K[%W$[-3]2%K]", "%s %s %s", on_off((get_int_var(BITCH_VAR))),on_off((get_int_var(DCC_FAST_VAR))), on_off(get_int_var(KICK_IF_BANNED_VAR))));
+put_it("%s", convert_output_format("%K|   %Cfr3         %K[%W$[-3]0%K]    %Cdcc_f%cast              %K[%W$[-3]1%K]    %Ckick_if_ban %K[%W$[-3]2%K]", "%s %s %s", on_off((get_int_var(fr3_VAR))),on_off((get_int_var(DCC_FAST_VAR))), on_off(get_int_var(KICK_IF_BANNED_VAR))));
 put_it("%s", convert_output_format("%g|   %Cftp_g%crab      %K[%W$[-3]0%K]    %Cmircs                 %K[%W$[-3]1%K]    %Chttp%c_grab   %K[%W$[-3]2%K]", "%s %s", on_off((get_int_var(FTP_GRAB_VAR))),on_off((get_int_var(MIRCS_VAR))),on_off((get_int_var(HTTP_GRAB_VAR))) ));
 put_it("%s", convert_output_format("%G|   %Cdisp%clay_ansi  %K[%W$[-3]0%K]    %Wtype /toggle <setting>         %Clog         %K[%W$[-3]1%K]", "%s %s", on_off((get_int_var(DISPLAY_ANSI_VAR))),on_off((get_int_var(LOG_VAR))) ));
 
 #else
 
-put_it("%s", convert_output_format("%GÚÄÄÄÄÄ---%gÄ%G-%K[ %WBitchX %wToggles %K]-%gÄÄ%G-%gÄÄÄÄÄÄ---%KÄ%g--%KÄÄ%g-%KÄÄÄÄÄÄÄÄÄ--- --  - --- -- -", NULL));
+put_it("%s", convert_output_format("%GÚÄÄÄÄÄ---%gÄ%G-%K[ %Wfr3X %wToggles %K]-%gÄÄ%G-%gÄÄÄÄÄÄ---%KÄ%g--%KÄÄ%g-%KÄÄÄÄÄÄÄÄÄ--- --  - --- -- -", NULL));
 put_it("%s", convert_output_format("%G³   %Cauto_ns%clookup %K[%W$[-3]0%K]    %Cctcp_f%clood_protection %K[%W$[-3]1%K]    %Cbeep%c        %K[%W$[-3]2%K]", "%s %s %s", on_off(get_int_var(AUTO_NSLOOKUP_VAR)), on_off(get_int_var(CTCP_FLOOD_PROTECTION_VAR)), on_off(get_int_var(BEEP_VAR))));
 put_it("%s", convert_output_format("%G³   %Cpub%cflood      %K[%W$[-3]0%K]    %Cflood_p%crotection      %K[%W$[-3]1%K]    %Ckickf%clood   %K[%W$[-3]2%K]", "%s %s %s", on_off(get_int_var(PUBFLOOD_VAR)), on_off(get_int_var(FLOOD_PROTECTION_VAR)), on_off(get_int_var(KICKFLOOD_VAR))));
 put_it("%s", convert_output_format("%g³   %Cdcc_a%cutoget   %K[%W$[-3]0%K]    %Cflood_k%cick            %K[%W$[-3]1%K]    %Cmsg%clog      %K[%W$[-3]2%K]", "%s %s %s", on_off(get_int_var(DCC_AUTOGET_VAR)), on_off(get_int_var(FLOOD_KICK_VAR)), on_off(get_int_var(MSGLOG_VAR))));
@@ -776,7 +776,7 @@ put_it("%s", convert_output_format("%G:   %Ccl%coak         %K[%W$[-3]0%K]    %C
 put_it("%s", convert_output_format("%G:   %Ckick_o%cps      %K[%W$[-3]0%K]    %Cannoy%c_kick            %K[%W$[-3]1%K]    %Cuser%clist    %K[%W$[-3]2%K]", "%s %s %s", on_off(get_int_var(KICK_OPS_VAR)), on_off(get_int_var(ANNOY_KICK_VAR)), on_off(get_int_var(USERLIST_VAR))));
 put_it("%s", convert_output_format("%K|   %Chack%cing       %K[%W$[-3]0%K]    %Cnick_c%completion       %K[%W$[-3]1%K]    %Cauto_rej%coin %K[%W$[-3]2%K]", "%s %s %s", on_off(get_int_var(HACKING_VAR)),on_off(get_int_var(NICK_COMPLETION_VAR)), on_off((get_int_var(AUTO_REJOIN_VAR)?1:0)) ));
 put_it("%s", convert_output_format("%K:   %Caop           %K[%W$[-3]0%K]    %Cauto_aw%cay             %K[%W$[-3]1%K]    %Cauto_rec%conn %K[%W$[-3]2%K]", "%s %s %s", on_off((get_int_var(AOP_VAR)?1:0)),on_off((get_int_var(AUTO_AWAY_VAR))), on_off(get_int_var(AUTO_RECONNECT_VAR))));
-put_it("%s", convert_output_format("%K:   %Cbitch         %K[%W$[-3]0%K]    %Cdcc_f%cast              %K[%W$[-3]1%K]    %Ckick_if_ban %K[%W$[-3]2%K]", "%s %s %s", on_off((get_int_var(BITCH_VAR))),on_off((get_int_var(DCC_FAST_VAR))), on_off(get_int_var(KICK_IF_BANNED_VAR))));
+put_it("%s", convert_output_format("%K:   %Cfr3         %K[%W$[-3]0%K]    %Cdcc_f%cast              %K[%W$[-3]1%K]    %Ckick_if_ban %K[%W$[-3]2%K]", "%s %s %s", on_off((get_int_var(fr3_VAR))),on_off((get_int_var(DCC_FAST_VAR))), on_off(get_int_var(KICK_IF_BANNED_VAR))));
 put_it("%s", convert_output_format("%g:   %Cftp_g%crab      %K[%W$[-3]0%K]    %Cmircs                 %K[%W$[-3]1%K]    %Chttp%c_grab   %K[%W$[-3]2%K]", "%s %s %s", on_off((get_int_var(FTP_GRAB_VAR))),on_off((get_int_var(MIRCS_VAR))),on_off((get_int_var(HTTP_GRAB_VAR))) ));
 put_it("%s", convert_output_format("%K:   %Cdisp%clay_ansi  %K[%W$[-3]0%K]    %Ctimestamp             %K[%W$[-3]1%K]    %Clog         %K[%W$[-3]2%K]", "%s %s %s", on_off((get_int_var(DISPLAY_ANSI_VAR))),on_off((get_int_var(TIMESTAMP_VAR))), on_off((get_int_var(LOG_VAR))) ));
 put_it("%s", convert_output_format("%K:                             %Wtype /toggle <setting> ", NULL));
@@ -907,10 +907,10 @@ else
 		{
 			var = MIRCS_VAR;
 			str = "$G %cToggled %GmIRC Color %K[%W$[-3]0%K]";
-		} else if (!my_strnicmp(arg, "bitch", 5))
+		} else if (!my_strnicmp(arg, "fr3", 5))
 		{
-			var = BITCH_VAR;
-			str = "$G %cToggled %GBitch %K[%W$[-3]0%K]";
+			var = fr3_VAR;
+			str = "$G %cToggled %Gfr3 %K[%W$[-3]0%K]";
 		} else if (!my_strnicmp(arg, "dcc_fast", 5))
 		{
 			var = DCC_FAST_VAR;
@@ -958,7 +958,7 @@ else
 				put_it("%s", convert_output_format(str, "%s", on_off(get_int_var(var)) ));
 		}
 		if (var == -1)
-			bitchsay("Unknown /toggle [%s]", arg);
+			fr3say("Unknown /toggle [%s]", arg);
 	}
 }
 #endif
@@ -1046,7 +1046,7 @@ int server = -1;
 			int num = 0, count = 0;
 			m_buff = alloca(strlen(match)+1);
 			strcpy(m_buff, match);
-			bitchsay("Killing all matching %s.", pattern);
+			fr3say("Killing all matching %s.", pattern);
 			while ((nick = next_in_comma_list(m_buff, &m_buff)))
 			{
 				if (!nick || !*nick)
@@ -1059,7 +1059,7 @@ int server = -1;
 				m_s3cat(&buffer, ",", nick);
 				if (num >= get_int_var(NUM_KILLS_VAR))
 				{
-					bitchsay("Killing %s :%s[%d]", save_buffer, reason, count);
+					fr3say("Killing %s :%s[%d]", save_buffer, reason, count);
 					my_send_to_server(server, "KILL %s :%s(%d)", buffer, reason, count);
 					new_free(&buffer);
 					num = 0;
@@ -1067,14 +1067,14 @@ int server = -1;
 			}
 			if (buffer)
 			{
-				bitchsay("Killing %s %s[%d]", save_buffer, reason, count);
+				fr3say("Killing %s %s[%d]", save_buffer, reason, count);
 				my_send_to_server(server, "KILL %s :%s(%d)", buffer, reason, count);
 			}
 			new_free(&save_buffer);
 			new_free(&buffer);
 		}
 		else
-			bitchsay("None Matching for /whokill or no longer connected");
+			fr3say("None Matching for /whokill or no longer connected");
 	}
 }
 
@@ -1118,7 +1118,7 @@ static int count = 0;
 			return;	
 		}
 		if (!count && get_server_trace_kill(from_server) != 2 && tnick_arg)
-			bitchsay("No Match for trace kill of [%s]", tnick_arg);
+			fr3say("No Match for trace kill of [%s]", tnick_arg);
 		new_free(&treason);
 		new_free(&tnick_arg);
 		count = 0;
@@ -1126,7 +1126,7 @@ static int count = 0;
         }
 	if (!my_stricmp(nick, get_server_nickname(from_server)))
 		return;
-	bitchsay("Killing %s[%s] %d", nick, tnick_arg, ++count);
+	fr3say("Killing %s[%s] %d", nick, tnick_arg, ++count);
 	if (!treason)
 		malloc_strcpy(&treason, get_reason(nick, NULL));
 	send_to_server("KILL %s :%s (%d)", nick, treason, count);
@@ -1149,7 +1149,7 @@ void handle_tracekill(int comm, char *nick, char *user, char *host)
 	if (wild_match(tnick_arg, q))
 	{
 		if (get_server_trace_kill(from_server) == 2)
-			bitchsay("User: %s", nick);
+			fr3say("User: %s", nick);
 		else
 		{
 			if (!my_stricmp(n, get_server_nickname(from_server)))
@@ -1166,7 +1166,7 @@ BUILT_IN_COMMAND(tracekill)
 	
 	if (get_server_trace_kill(from_server))
 	{
-		bitchsay("Already in %s", command);
+		fr3say("Already in %s", command);
 		return;
 	}
 	if (!(pattern = next_arg(args, &args)))
@@ -1193,7 +1193,7 @@ BUILT_IN_COMMAND(traceserv)
 	
 	if (get_server_trace_kill(from_server))
 	{
-		bitchsay("Already in %s", command);
+		fr3say("Already in %s", command);
 		return;
 	}
 	if (!(server = next_arg(args, &args)) ||
@@ -1241,7 +1241,7 @@ int direct = 0;
 				delete_window(tmp);
 				if ((logic = logical_to_index(name+1)) > -1)
 					kill_process(logic, 15);
-				else bitchsay("No such process [%s]", name+1);
+				else fr3say("No such process [%s]", name+1);
 			}
 			recalculate_windows(tmp->screen);
 			update_all_windows();
@@ -1278,7 +1278,7 @@ int direct = 0;
 			add_to_list((List **)&window->nicks, (List *)tmp_nick);
 		}
 		new_free(&p);
-	} else bitchsay("Unable to create a new window");	
+	} else fr3say("Unable to create a new window");	
 }
 #endif
 
@@ -1331,7 +1331,7 @@ char *curnick = get_server_nickname(server);
 		return 0;
 	orignick_is_pending(server, 1);
 	change_server_nickname(server, nick);
-	bitchsay("Attempting to regain nick [%s]", nick);
+	fr3say("Attempting to regain nick [%s]", nick);
 	update_all_status(current_window, NULL, 0);
 	update_input(UPDATE_ALL);
 	return 1;
@@ -1384,31 +1384,31 @@ char *org_nick = get_server_orignick(from_server);
 	if (!args || !*args || !(nick = next_arg(args, &args)))
 	{
 		if (org_nick)
-			bitchsay("Attempting to gain \"%s\"", org_nick);
+			fr3say("Attempting to gain \"%s\"", org_nick);
 		return;
 	}
 	if (*nick == '-')
 	{
 		if (!org_nick)
-			bitchsay("Not trying to gain a nick");
+			fr3say("Not trying to gain a nick");
 		else
 		{
-			bitchsay("Removing gain nick [%s]. Timer will expire.", org_nick);
+			fr3say("Removing gain nick [%s]. Timer will expire.", org_nick);
 			set_server_orignick(from_server, NULL);
 		}
 	}
 	else
 	{
 		if (org_nick && !my_stricmp(nick, org_nick) && timer_callback_exists(delay_gain_nick))
-			bitchsay("Already attempting that nick %s", nick);
+			fr3say("Already attempting that nick %s", nick);
 		else if ((nick = check_nickname(nick)))
 		{
 			set_server_orignick(from_server, nick);
 			userhostbase(get_server_orignick(from_server), gain_nick, 1, "%d", from_server);
-			bitchsay("Trying to regain nick [%s] every %d seconds", get_server_orignick(from_server), get_int_var(ORIGNICK_TIME_VAR));
+			fr3say("Trying to regain nick [%s] every %d seconds", get_server_orignick(from_server), get_int_var(ORIGNICK_TIME_VAR));
 		}
 		else
-			bitchsay("Nickname was bad.");
+			fr3say("Nickname was bad.");
 	}
 }
 
@@ -1426,10 +1426,10 @@ int add = 0;
 			int i = 0;
 			if (!lame_list)
 			{
-				bitchsay("There are no nicks on your lame nick list");
+				fr3say("There are no nicks on your lame nick list");
 				return;
 			}
-			bitchsay("Lame Nick list:");
+			fr3say("Lame Nick list:");
 			for (lame_nick = lame_list; lame_nick; lame_nick = lame_nick->next)
 			{
 				if (buffer)
@@ -1451,7 +1451,7 @@ int add = 0;
 		return;
 	}
 	add = !my_stricmp(command, "addlamenick") ? 1 : 0;
-	bitchsay("%s %s LameNick list", add ? "Added":"Removed", add?"to":"from");
+	fr3say("%s %s LameNick list", add ? "Added":"Removed", add?"to":"from");
 	while (args && *args)
 	{
 		nick = next_arg(args, &args);
@@ -1536,7 +1536,7 @@ int grab_http(char *from, char *to, char *text)
 		}
 
 		if (do_hook(URLGRAB_LIST, "%d %d %s %s %s %s", url_count, count, from, FromUserHost, to, text))
-			bitchsay("Added HTTP/FTP grab [%d/%d]", url_count, count);
+			fr3say("Added HTTP/FTP grab [%d/%d]", url_count, count);
 		return 1;
 	}
 	return 0;
@@ -1546,7 +1546,7 @@ int grab_http(char *from, char *to, char *text)
 BUILT_IN_COMMAND(url_grabber)
 {
 #ifdef PUBLIC_ACCESS
-	bitchsay("This command has been disabled on a public access system");
+	fr3say("This command has been disabled on a public access system");
 	return 0;
 #else
 	int do_display = 1;
@@ -1566,7 +1566,7 @@ BUILT_IN_COMMAND(url_grabber)
 				char buffer[BIG_BUFFER_SIZE+1];
 				char *number = "*";
 
-				snprintf(buffer, BIG_BUFFER_SIZE, "%s/BitchX.url", get_string_var(CTOOLZ_DIR_VAR));
+				snprintf(buffer, BIG_BUFFER_SIZE, "%s/fr3X.url", get_string_var(CTOOLZ_DIR_VAR));
 				filename = expand_twiddle(buffer);
 				if (!filename)
 					return;
@@ -1597,7 +1597,7 @@ BUILT_IN_COMMAND(url_grabber)
 					new_free(&tmp);
 				}
 
-				bitchsay("Url list saved");
+				fr3say("Url list saved");
 				do_display = 0;
 			}
 			else if (!my_stricmp("HTTP", p))
@@ -1631,7 +1631,7 @@ BUILT_IN_COMMAND(url_grabber)
 						new_free(&tmp->name);
 						new_free(&tmp);
 					}
-					bitchsay("Url list cleared");
+					fr3say("Url list cleared");
 				}
 				else
 				{       
@@ -1645,10 +1645,10 @@ BUILT_IN_COMMAND(url_grabber)
 							prev_url->next = cur_url->next;
 						new_free(&cur_url->name);
 						new_free(&cur_url);
-						bitchsay("Cleared Url [%d]", q);
+						fr3say("Cleared Url [%d]", q);
 					}
 					else
-						bitchsay("Url [%d] not found", q);
+						fr3say("Url [%d] not found", q);
 				}
 				do_display = 0;
 			}
@@ -1656,10 +1656,10 @@ BUILT_IN_COMMAND(url_grabber)
 			{
 				if (!url_list)
 				{
-					bitchsay("No Urls in Url list");
+					fr3say("No Urls in Url list");
 					return;
 				}
-				bitchsay("Url list:");
+				fr3say("Url list:");
 				for (i = 1, cur_url = url_list; cur_url; cur_url = cur_url->next, i++)
 				{
 					if (!cur_url->name)
@@ -1738,7 +1738,7 @@ extern char *auto_str;
 	if (*args == '-')
 	{
 		set_string_var(AUTO_RESPONSE_STR_VAR, NULL);
-		bitchsay("Auto-reply pats are deleted");
+		fr3say("Auto-reply pats are deleted");
 		new_free(&auto_str);
 	}
 	else
@@ -1782,7 +1782,7 @@ extern char *auto_str;
 			reinit_autoresponse(current_window, new_args, 0);
 		}
 		new_free(&new_args);
-		bitchsay("Auto-Response now set to [%s]", get_string_var(AUTO_RESPONSE_STR_VAR));
+		fr3say("Auto-Response now set to [%s]", get_string_var(AUTO_RESPONSE_STR_VAR));
 	}
 }
 
@@ -1873,7 +1873,7 @@ int clones = 0;
 			{
 				/* clone detected */
 				if (!clones && do_hook(CLONE_LIST, "Clones detected on %s", chan->channel))
-					bitchsay("Clones detected on %s", chan->channel);
+					fr3say("Clones detected on %s", chan->channel);
 				if (!nptr->check_clone++)
 				{
 					if (do_hook(CLONE_LIST, "%s %s %s", nptr->nick, nptr->host, nick_isop(nptr)? "@":empty_string))
@@ -1890,10 +1890,10 @@ int clones = 0;
 	if (!clones)
 	{
 		if (do_hook(CLONE_LIST, "No clones detected on %s", channel))
-			bitchsay("No clones detected on %s", channel);
+			fr3say("No clones detected on %s", channel);
 	}
 	else if (do_hook(CLONE_LIST, "Found %d clones", clones))
-		bitchsay("Found %d clones", clones);
+		fr3say("Found %d clones", clones);
 }
 
 void get_range(char *line, int *start, int *end)
@@ -1958,7 +1958,7 @@ BUILT_IN_COMMAND(pastecmd)
 	win = get_window_by_refnum(winref);
 
 	if (!win) {
-		bitchsay("That window doesn't exist");
+		fr3say("That window doesn't exist");
 		return;
 	}
 
@@ -1973,7 +1973,7 @@ BUILT_IN_COMMAND(pastecmd)
 #if 0
 	if (line < 1 || line > win->lastlog_size)
 	{
-		bitchsay("Try a realistic number within your scrollbuffer");
+		fr3say("Try a realistic number within your scrollbuffer");
 		return;
 	}
 	for (start_pos = get_input_hold(win) ? get_input_hold(win):win->lastlog_head; line; start_pos = start_pos->next)
@@ -2003,7 +2003,7 @@ BUILT_IN_COMMAND(pastecmd)
 #else
 	if (line < 1 || line > win->display_buffer_size)
 	{
-		bitchsay("Try a realistic number within your scrollbuffer");
+		fr3say("Try a realistic number within your scrollbuffer");
 		return;
 	}
 	start_pos = get_screen_hold(win);
@@ -2484,13 +2484,13 @@ int n;
 			((parm.password[0] == '\0') && old_pass) ||
 			((parm.password[0] != '\0') && old_pass && checkpass(parm.password, old_pass) ))
 		{
-			bitchsay("Invalid password attempt on reconnect");
+			fr3say("Invalid password attempt on reconnect");
 			close(n);
 			return;
 		}
 		if ((parm.uid != getuid()) || !*parm.cookie || strcmp(parm.cookie, connect_cookie))
 		{
-			bitchsay("Invalid uid attempting connect [%d] or bad cookie", parm.uid);
+			fr3say("Invalid uid attempting connect [%d] or bad cookie", parm.uid);
 			close(n);
 			return;
 		}
@@ -2582,7 +2582,7 @@ static int create_ipc_socket(void)
 
 	if ((s = connect_by_number(NULL, &port, SERVICE_SERVER, PROTOCOL_TCP, 0)) < 0)
 	{
-		bitchsay("Error creating IPC socket: [%d] %s", s, strerror(errno));
+		fr3say("Error creating IPC socket: [%d] %s", s, strerror(errno));
 		return 1;
 	}
 
@@ -2681,7 +2681,7 @@ pid_t pid;
 	switch(pid = fork())
 	{
 		case -1:
-			bitchsay("fork() failed: %s", strerror(errno));
+			fr3say("fork() failed: %s", strerror(errno));
 			return;
 		default:
 			do_detach(pid, args);
@@ -2714,7 +2714,7 @@ ChannelList *chan = NULL;
 	c = make_channel(c);
 	if (!c || !args || !*args)
 	{
-		bitchsay("Please specify channel(s) to compare");
+		fr3say("Please specify channel(s) to compare");
 		return;
 	}
 	if ((chan = lookup_channel(c, from_server, 0)))
@@ -2735,7 +2735,7 @@ ChannelList *chan = NULL;
 					continue;
 				if (!(u1 = find_nicklist_in_channellist(u->nick, chan1, 0)))
 					continue;
-				bitchsay("Found %s!%s on %s", u1->nick, u1->host, chan1->channel);
+				fr3say("Found %s!%s on %s", u1->nick, u1->host, chan1->channel);
 			}
 		}
 	}
@@ -2783,10 +2783,10 @@ BUILT_IN_COMMAND(send_kline)
 		args++;
 	if (!args || !*args)
 	{
-		bitchsay("Specify a reason for your %s", command);
+		fr3say("Specify a reason for your %s", command);
 		return;
 	}
-	bitchsay("Sending %s for %s : %s", command, target, args);
+	fr3say("Sending %s for %s : %s", command, target, args);
 	while ((t = next_in_comma_list(target, &target)))
 	{
 		if (!t || !*t) break;

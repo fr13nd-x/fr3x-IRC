@@ -1,7 +1,7 @@
 
 /* PM specific stuff */
-#ifndef PM_BitchX_h
-#define PM_BitchX_h
+#ifndef PM_fr3X_h
+#define PM_fr3X_h
 
 #define FONTDIALOG      256
 

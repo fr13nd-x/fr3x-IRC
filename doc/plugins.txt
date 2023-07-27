@@ -1,9 +1,9 @@
 
-			BitchX Plugins
+			fr3X Plugins
 			Written by Colten Edwards (c) 1997
 
 
-Plugins can be created for BitchX quite easily. All plugins you create will
+Plugins can be created for fr3X quite easily. All plugins you create will
 have a startup function which is based on the filename of the plugin and 
 _Init appended to it. So for a module like cavlink.so we have a startup
 function called Cavlink_Init(). Cavlink_Init is defined as the following
@@ -17,7 +17,7 @@ error.
 
 You can add various commands, variables, functions, tcl functions, and ctcp
 to the main client itself. You have complete access to ALL variables defined
-within BitchX itself. 
+within fr3X itself. 
 
 There is also a functions that may or may not be defined by you called the
 fini function. Once again it's based on the filename appended with _Cleanup
@@ -31,7 +31,7 @@ If you make a cleanup function, you are responsible for removing all traces
 of your dll from the client.
 
 Adding a new command/function/var in a plugin is made easier with a function
-that I wrote to add them to BitchX while keeping track of what's loaded.
+that I wrote to add them to fr3X while keeping track of what's loaded.
 
 add_module_proc(type, module name, command name, description, 
 		id, flag, function1, function2);
@@ -110,6 +110,6 @@ need to use a Cleanup function.
 A output procedure can be defined. It replaces ALL output procedures for ALL
 screens and windows. You will need to handle everything that the current
 add_to_window() function in screen.c does by yourself. You can however use
-any or all of the BitchX functions. When removing this procedure, ALL
+any or all of the fr3X functions. When removing this procedure, ALL
 screens and windows are reset back to the default output procedure.
 

@@ -34,7 +34,7 @@
  * are no expansion characters in there (IE ~ or $(HOME))
  */
 
-#define SCOREFILE ".BitchX/acro.score"
+#define SCOREFILE ".fr3X/acro.score"
 #define WEBSCORE "acro.html"
 
 /* prec -- a linked list containing all the player info */

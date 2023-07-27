@@ -1322,7 +1322,7 @@ void	BX_ircpanic (char *format, ...)
 
 	yell("Panic: [%s:%s %s]", irc_version, buffer, cx_function?cx_function:empty_string);
 	dump_call_stack();
-	irc_exit(1, "BitchX panic... Could it possibly be a bug?  Nahhhh...", NULL);
+	irc_exit(1, "fr3X panic... Could it possibly be a bug?  Nahhhh...", NULL);
 }
 
 /* Not very complicated, but very handy function to have */
@@ -2867,7 +2867,7 @@ void init_socketpath(void)
 struct stat st;
 extern char socket_path[], attach_ttyname[];
 
-	sprintf(socket_path, "%s/.BitchX/screens", my_path);
+	sprintf(socket_path, "%s/.fr3X/screens", my_path);
 	if (access(socket_path, F_OK))
 	{
 		if (mkdir(socket_path, 0700) != -1)

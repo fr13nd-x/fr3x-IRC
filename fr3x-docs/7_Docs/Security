@@ -1,6 +1,6 @@
 Security Issues                                                             
 
-BitchX is an extremely flexible client.  To borrow a phrase from many a C
+fr3X is an extremely flexible client.  To borrow a phrase from many a C
 programmer, it gives you enough rope to hang yourself.  With caution and
 some common sense, this isn't a problem.
 
@@ -18,7 +18,7 @@ sending you a message beginning with "obey", followed by any command.  On
 top of that, you won't even see the message, and if the perpetrator is
 careful, you won't see its output either.
 
-Social engineering is also a problem on irc.  BitchX and EPIC attempt to 
+Social engineering is also a problem on irc.  fr3X and EPIC attempt to 
 combat this with special configuration settings that disable certain 
 "dangerous" commands.  Of course, experienced users can disable these 
 settings, but novices should think twice before doing so.

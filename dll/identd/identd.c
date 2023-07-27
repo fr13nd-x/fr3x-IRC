@@ -26,7 +26,7 @@ unsigned int lport = 0, rport = 0;
 	bufptr = buffer;
 	if (recv(s, buffer, sizeof(buffer)-1, 0) <=0)
 	{
-		bitchsay("ERROR in identd request");
+		fr3say("ERROR in identd request");
 		close_socketread(s);
 		return;
 	}
@@ -35,12 +35,12 @@ unsigned int lport = 0, rport = 0;
 		if (lport < 1 || rport < 1 || lport > 32767 || rport > 32767)
 		{
 			close_socketread(s);
-			bitchsay("ERROR port for identd bad [%d:%d]", lport, rport);
+			fr3say("ERROR port for identd bad [%d:%d]", lport, rport);
 			return;
 		}
 		sprintf(buffer, "%hu , %hu : USERID : UNIX : %s", lport, rport, get_dllstring_var("identd_user"));
 		dcc_printf(s, "%s\r\n", buffer);
-		bitchsay("Sent IDENTD request %s", buffer);
+		fr3say("Sent IDENTD request %s", buffer);
 		set_socketflags(identd, now);
 	}
 	close_socketread(s);

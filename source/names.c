@@ -1283,7 +1283,7 @@ void BX_remove_from_channel(char *channel, char *nick, int server, int netsplit,
 				if ((s1 = convert_to_keystr("CHANGE_TO_SPLIT")))
 					s = s1;
 				put_it("%s", convert_output_format(fget_string_var(FORMAT_NETSPLIT_FSET), "%s %s %s", update_clock(GET_TIME), server1, server2));
-				bitchsay("%s \002%s\002 to see who left \002%s\002 to change to [%s]", t ? "Press" : "", t ? t : "/wholeft", s ? s : "/server", server1);
+				fr3say("%s \002%s\002 to see who left \002%s\002 to change to [%s]", t ? "Press" : "", t ? t : "/wholeft", s ? s : "/server", server1);
 			}
 			reset_display_target();
 		}
@@ -1843,7 +1843,7 @@ struct timeval tv;
 	get_time(&tv);
 	set_display_target(chan, LOG_CRAP);
 	if (do_hook(CHANNEL_SYNCH_LIST, "%s %1.3f", chan, BX_time_diff(tmp->tv,tv)))
-		bitchsay("Join to %s was synched in %1.3f secs!!", chan, BX_time_diff(tmp->tv,tv));
+		fr3say("Join to %s was synched in %1.3f secs!!", chan, BX_time_diff(tmp->tv,tv));
 #ifdef WANT_USERLIST
 	delay_check_auto(chan);
 #endif

@@ -1,4 +1,4 @@
-How to use the BitchX/EPIC help system
+How to use the fr3X/EPIC help system
 
 ++ New users should use "/ehelp 7 new_user" before proceeding further. ++
 
@@ -7,7 +7,7 @@ What has changed is the structure of the helpfiles, and the helpfiles
 themselves.  Helpfiles are now organized in logical groups of commands,
 similar to the Unix manual system.
 
-  Section 1: General Commands           Section 5: Programming BitchX
+  Section 1: General Commands           Section 5: Programming fr3X
   Section 2: Server Queries             Section 6: Builtin Functions
   Section 3: IRC Operator Commands      Section 7: Documentation
   Section 4: Miscellaneous Commands     Section 8: Script Library
@@ -24,7 +24,7 @@ include a Unix-ish section reference, such as "whois(2)".
 
 Also if your familar with a command and you find that it's not listed in
 here, please write a description of it and email it to
-edwards@bitchx.dimension6.com. Your input here, might help someone else.
+edwards@fr3x.dimension6.com. Your input here, might help someone else.
 
   ++ If you have not yet read "/ehelp 7 new_user", please do so now. ++
 

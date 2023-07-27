@@ -1,4 +1,4 @@
-Synopsis:
+sSynopsis:
    unajoin <channel>
 
 Description:
@@ -7,7 +7,7 @@
    saved using SAVE command. 
 
 Examples:
-   /unajoin #bitchx
+   /unajoin #fr3x
 
 See Also:
    ajoin(1); ajoinlist(1); JOIN_NEW_WINDOW(5);

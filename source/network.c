@@ -160,20 +160,20 @@ int red;
 	sock4_connect.address = inet_addr(p);
 	if ((red = write(s, &sock4_connect, 8 + strlen(sock4_connect.username) + 1)) == -1)
 	{
-		bitchsay("Cannot write to socks proxy: %s", strerror(errno));
+		fr3say("Cannot write to socks proxy: %s", strerror(errno));
 		return 0;
 	}
 	alarm(get_int_var(CONNECT_TIMEOUT_VAR));
 	if ((red = read(s, socksreq, 8)) == -1)
 	{
 		alarm(0);
-		bitchsay("Cannot read from socks proxy: %s", strerror(errno));
+		fr3say("Cannot read from socks proxy: %s", strerror(errno));
 		return 0;
 	}
 	alarm(0);
 	if (socksreq[1] != 90)
 	{
-		bitchsay("Cannot connect to SOCKS4 proxy: %s", socks4_error(socksreq[1]));
+		fr3say("Cannot connect to SOCKS4 proxy: %s", socks4_error(socksreq[1]));
 		return 0;
 	}
 	return 1;
@@ -206,7 +206,7 @@ int red;
 
 	if ((red = write(s, &sock5_connect, 4)) == -1)
 	{
-		bitchsay("Cannot write to proxy: %s", strerror(errno));
+		fr3say("Cannot write to proxy: %s", strerror(errno));
 		return 0;
 	}
 
@@ -215,14 +215,14 @@ int red;
 	if ((red = read(s, tmpbuf, sizeof(tmpbuf)-1)) == -1)
 	{
 		alarm(0);
-		bitchsay("Cannot use SOCKS5 proxy, read failed during auth: %s", strerror(errno));
+		fr3say("Cannot use SOCKS5 proxy, read failed during auth: %s", strerror(errno));
 		return 0;
 	}
 	alarm(0);
 	/* report server desired authentication (if not none) */
 	if (tmpbuf[1] != AUTH_NONE)
 	{
-		bitchsay("Cannot use SOCKS5 proxy, server wants type %x authentication.", tmpbuf[1]);
+		fr3say("Cannot use SOCKS5 proxy, server wants type %x authentication.", tmpbuf[1]);
 		return 0;
 	}
 
@@ -237,7 +237,7 @@ int red;
 
 	if ((red = write(s, &sock5_connect, 10)) == -1)
 	{
-		bitchsay("Cannot write to the proxy: %s", strerror(errno));
+		fr3say("Cannot write to the proxy: %s", strerror(errno));
 		return 0;
 	}
 	memset(tmpbuf, 0, sizeof(tmpbuf)-1);
@@ -245,18 +245,18 @@ int red;
 	if ((red = read(s, tmpbuf, sizeof(tmpbuf)-1)) == -1)
 	{
 		alarm(0);
-		bitchsay("Cannot use SOCKS5 proxy, read failed during bounce: %s. Attempting SOCKS4", strerror(errno));
+		fr3say("Cannot use SOCKS5 proxy, read failed during bounce: %s. Attempting SOCKS4", strerror(errno));
 		return 0;
 	}
 	alarm(0);
 	if (tmpbuf[0] != SOCKS5_VERSION)
 	{
-		bitchsay("This is not a SOCKS5 proxy.");
+		fr3say("This is not a SOCKS5 proxy.");
 		return 0;
 	}
 	if (tmpbuf[1] != SOCKS5_NOERR)
 	{
-		bitchsay("Cannot use SOCKS5 proxy, server failed: %s", socks5_error(tmpbuf[1]));
+		fr3say("Cannot use SOCKS5 proxy, server failed: %s", socks5_error(tmpbuf[1]));
 		return 0;
 	}
 	/*
@@ -271,7 +271,7 @@ int red;
 			read(s, tmpbuf, 2);
 			tmpbuf[3] = '\0';
 			tmpI = atoi(tmpbuf);
-			bitchsay("SOCKS5 bounce successful, your address will be: %s:%d", inet_ntoa(tmpAddr), ntohs(tmpI));
+			fr3say("SOCKS5 bounce successful, your address will be: %s:%d", inet_ntoa(tmpAddr), ntohs(tmpI));
 			break;
 		case 3:
 		{
@@ -285,16 +285,16 @@ int red;
 			read(s, tmpbuf, 2);
 			tmpbuf[3] = '\0';
 			tmpI = atoi(tmpbuf);
-			bitchsay("SOCKS5 bounce successful, your address will be: %s:%d", buffer, ntohs(tmpI));
+			fr3say("SOCKS5 bounce successful, your address will be: %s:%d", buffer, ntohs(tmpI));
 			break;
 		}
 		case 4:
 			read(s, tmpbuf, 18);
 			/* don't report address of ipv6 addresses. */
-			bitchsay("SOCKS5 bounce successful. [ipv6]");
+			fr3say("SOCKS5 bounce successful. [ipv6]");
 			break;
 		default:
-			bitchsay("error tmpbuf[3]: %x", tmpbuf[3]);
+			fr3say("error tmpbuf[3]: %x", tmpbuf[3]);
 			alarm(0);
 			return 0;
 	}
@@ -310,7 +310,7 @@ int handle_socks(int fd, struct sockaddr_in addr, char *host, int portnum)
 	memset(&proxy, 0, sizeof(proxy));
 	if (!(hp = gethostbyname(host)))
 	{
-		bitchsay("Unable to resolve SOCKS proxy host address: %s", host);
+		fr3say("Unable to resolve SOCKS proxy host address: %s", host);
 		return -1;
 	}
 	bcopy(hp->h_addr, (char *)&proxy.sin_addr, hp->h_length);
@@ -320,7 +320,7 @@ int handle_socks(int fd, struct sockaddr_in addr, char *host, int portnum)
 	if (connect(fd, (struct sockaddr *)&proxy, sizeof(proxy)) < 0)
 	{
 		alarm(0);
-		bitchsay("Unable to connect to SOCKS5 proxy: %s", strerror(errno));
+		fr3say("Unable to connect to SOCKS5 proxy: %s", strerror(errno));
 		close(fd);
 		return -1;
 	}
@@ -330,14 +330,14 @@ int handle_socks(int fd, struct sockaddr_in addr, char *host, int portnum)
 		close(fd);
 		if ((fd = socket(AF_INET, SOCK_STREAM, 0)) == -1)
 		{
-			bitchsay("Unable to get socket: %s", strerror(errno));
+			fr3say("Unable to get socket: %s", strerror(errno));
 			return -1;
 		}
 		alarm(get_int_var(CONNECT_TIMEOUT_VAR));
 		if (connect(fd, (struct sockaddr *)&proxy, sizeof(proxy)) < 0)
 		{
 			alarm(0);
-			bitchsay("Unable to connect to SOCKS4 proxy: %s", strerror(errno));
+			fr3say("Unable to connect to SOCKS4 proxy: %s", strerror(errno));
 			return -1;
 		}
 		alarm(0);

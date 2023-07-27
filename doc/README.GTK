@@ -1,11 +1,11 @@
-GTKBitchX is no longer supported.  It is bloated and eats a lot of CPU.
+GTKfr3X is no longer supported.  It is bloated and eats a lot of CPU.
 
 If you have problems with the GTK client do not ask us for help.  The GTK
 client has not been updated or supported and we will no longer support it
-in BitchX2
+in fr3X2
 
 
-Minimum requirements for gtkBitchX:
+Minimum requirements for gtkfr3X:
 
 GTK and GLIB 1.2.0
 <http://www.gtk.org/>
@@ -39,7 +39,7 @@ When the menu is added during window creation it screws up the size of
 Changes:
 
 Closed stdin/stdout/stderr to prevent problems with the 
-	starting terminal on gtkBitchX exit.
+	starting terminal on gtkfr3X exit.
 Fixed background operation on Linux (and possibly others).
 	SIGTTOU would be called repeatedly on Linux, on
 	FreeBSD using nothing() would stop it's occurance.
@@ -56,7 +56,7 @@ Determined that the size bug is caused by creating the menu at
 Fixed a bug with ESD not finding the sound files.
 Code merged back into the main source.
 Added ESD sound support to allow $mciapi(playfile filename) to function
-	as it does in PMBitchX.
+	as it does in PMfr3X.
 Fixed a bug where the font sizes were not saved when gtkbx falls back
 	to the default fonts.  Pointed out by sideshow and MNC.
 Fixed the window #1 corruption problem.  It turned out to be in my
@@ -74,7 +74,7 @@ Added shared menu code from the PM version and then removed it because
 	can't be changed).
 Bits are now used to store menu types to facilitate having more than
 	one type for a menu item.
-Merged with the new BitchX 1.0 beta source.
+Merged with the new fr3X 1.0 beta source.
 Rewrote the tputs code so it's definition won't conflict on some systems.
 Fixed a bug which was coring on first window creation in very rare 
 	conditions.
@@ -90,7 +90,7 @@ Removed bxzvt.h and added a fix for the zvtterm.h header.  Zed (zvt
 Changes to configure to allow clean compiling on *BSD, and remove 
 	temporary files.
 Zed also has proportional fonts working, so proportional fonts will
-	be supported by gtkBitchX if using a version of zvt which 
+	be supported by gtkfr3X if using a version of zvt which 
 	supports proportional fonts. I'll note which versions do when
 	they are available.
 Implemented /exec -start for unix.
@@ -100,7 +100,7 @@ Tried to fix the window clear bug... mostly got it working... seems to
 	clear the first line of window #1.
 
 If you notice any other bugs, or have any questions email me at
-dbsoft@technologist.com or visit #BitchX on EFNet.
+dbsoft@technologist.com or visit #fr3X on EFNet.
 
 Thanks!
 

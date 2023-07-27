@@ -533,7 +533,7 @@ int	kick_on_flood = 1;
 	window_display = old_window_display;
 	sprintf(tmp, "%d ^IGNORE *!*%s NONE", ignoretime, uh);
 	timercmd("TIMER", tmp, NULL, NULL);
-	bitchsay("Auto-ignoring %s for %d minutes [\002%s\002 flood]", nick, ignoretime/60, type);
+	fr3say("Auto-ignoring %s for %d minutes [\002%s\002 flood]", nick, ignoretime/60, type);
 	return 1;
 }
 

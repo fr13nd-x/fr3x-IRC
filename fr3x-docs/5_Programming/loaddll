@@ -2,5 +2,5 @@
    loaddll <file>
 
 Description:
-   LOADDLL loads various plugins which have been written for BitchX. These
+   LOADDLL loads various plugins which have been written for fr3X. These
    plugins add various functionality to the client.

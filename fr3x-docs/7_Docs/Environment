@@ -1,4 +1,4 @@
-Environment Settings Relevant to BitchX                                   
+Environment Settings Relevant to fr3X                                   
 
 Numerous environment variables are recognized by .  Environment variables are
 various settings that describe your login process on a Unix system.  How they
@@ -19,8 +19,8 @@ are set mainly depends on the command shell you use.
 
 For all shells (except rc and es), either single quotes (') or double quotes
 (") may be used.  For all shells, the case of the variable is significant.
-Environment variables are, by convention, in all uppercase, and BitchX is no
-exception.  The following variables are used by BitchX:
+Environment variables are, by convention, in all uppercase, and fr3X is no
+exception.  The following variables are used by fr3X:
 
    IRCNICK     default nickname when connecting to a server
    IRCNAME     any lunacy you want instead of your real name
@@ -33,8 +33,8 @@ exception.  The following variables are used by BitchX:
    IRC_SERVERS_FILE  same as compile-time SERVERS_FILE, specifies a file
                      to get a list of servers from
 
-BitchX also uses the TERM and HOME variables, which are usually set when you
+fr3X also uses the TERM and HOME variables, which are usually set when you
 login to your Unix system.  All environment variables are available for
-use inside BitchX as normal variables, assuming another variable of the same
+use inside fr3X as normal variables, assuming another variable of the same
 name does not exist.
 

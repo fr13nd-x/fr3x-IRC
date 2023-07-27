@@ -1,7 +1,4 @@
 
-
-
-
 #include "irc.h"
 #include "struct.h"
 #include "ircaux.h"
@@ -135,13 +132,13 @@ char *vol;
 		if (volume > 0 && volume <= 100)
 		{
 			audioSetVolume(volume);
-			bitchsay("Volume is now set to %d", volume);
+			fr3say("Volume is now set to %d", volume);
 		}
 		else
-			bitchsay("Volume is between 0 and 100");
+			fr3say("Volume is between 0 and 100");
 	}
 	else
-		bitchsay("/mp3vol [1-100]");
+		fr3say("/mp3vol [1-100]");
 }
 
 BUILT_IN_DLL(mp3_play)
@@ -157,7 +154,7 @@ BUILT_IN_DLL(mp3_play)
 		update_input(UPDATE_ALL);
 	}
 	else
-		bitchsay("/mp3 filename");
+		fr3say("/mp3 filename");
 }
 
 BUILT_IN_FUNCTION(func_convert_time)
@@ -187,7 +184,7 @@ int Amp_Init(IrcCommandDll **intp, Function_ptr *global_table)
 	add_module_proc(COMMAND_PROC, "Amp", "mp3", NULL, 0, 0, mp3_play, NULL);
 	add_module_proc(COMMAND_PROC, "Amp", "mp3vol", NULL, 0, 0, mp3_volume, NULL);
 	add_module_proc(ALIAS_PROC, "Amp", "TIMEDECODE", NULL, 0, 0, func_convert_time, NULL);
-	bitchsay("Amp Module loaded. /mp3 <filename> /mp3vol <L> <R> $timedecode(seconds)");
+	fr3say("Amp Module loaded. /mp3 <filename> /mp3vol <L> <R> $timedecode(seconds)");
 	return 0;
 }
 
@@ -241,7 +238,7 @@ char *s = NULL;
 }
 
 /* TODO: there must be a check here to see if the audio device has been opened
- * successfuly. This is a bitch because it requires all 6 or 7 OS-specific functions
+ * successfuly. This is a fr3 because it requires all 6 or 7 OS-specific functions
  * to be changed. Is anyone willing to do this at all???
  */
 int setup_audio(struct AUDIO_HEADER *header)
@@ -336,9 +333,9 @@ static void print_id3_tag(FILE *fp, char *buf)
 	}
 	if (!do_hook(MODULE_LIST, "AMP ID3 \"%s\" \"%s\" \"%s\" %s %d %s", title, artist, album, year, tag->genre, comment))
 	{
-		bitchsay("Title  : %.120s  Artist: %s",title, artist);
-		bitchsay("Album  : %.80s  Year: %4s, Genre: %d",album, year, (int)tag->genre);
-		bitchsay("Comment: %.80s",comment);
+		fr3say("Title  : %.120s  Artist: %s",title, artist);
+		fr3say("Album  : %.80s  Year: %4s, Genre: %d",album, year, (int)tag->genre);
+		fr3say("Comment: %.80s",comment);
 	}
 }
 
@@ -430,7 +427,7 @@ int bitrate, fs, g, cnt = 0;
 			char *p = strrchr(f, '/');
 			if (!p) p = f; else p++;
 			if (!do_hook(MODULE_LIST, "AMP PLAY %lu %lu %s", tseconds, filesize, p))
-				bitchsay("Playing: %s\n", p);
+				fr3say("Playing: %s\n", p);
 		}
 
 		/*

@@ -14,7 +14,7 @@ int Acro_Init(IrcCommandDll **intp, Function_ptr *global_table)
 	gscores = read_scores();
 	if (!game)
 		game = init_acro(game);
-	put_it("BitchX Acromania dll v0.9b by By-Tor loaded...");
+	put_it("fr3X Acromania dll v0.9b by By-Tor loaded...");
 	return 0;
 }
 

@@ -1,8 +1,8 @@
 This is some information provided for script writers about the extra hooks
-that BitchX provides for you. You can either use these or not depending on
+that fr3X provides for you. You can either use these or not depending on
 what you like to see. This list is being added to and I will try and keep
 this file updated for them. Thanks to "suicide" for pushing me into this :)
-suicide writes the Whirred script for BitchX
+suicide writes the Whirred script for fr3X
 
 MSGLOG  returns  
 	timestr 

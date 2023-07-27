@@ -1,11 +1,4 @@
-/*
-		blowfish.c -- handles:
-		encryption and decryption of passwords
 
-		The first half of this is very lightly edited from public domain
-		sourcecode.	For simplicity, this entire module will remain public
-		domain.
- */
 
 #include "blowfish.h"
 #include "bf_tab.h"		/* P-box P-array, S-box	*/
@@ -37,7 +30,7 @@ static struct box_t {
 static UWORD_32bits *bf_P;
 static UWORD_32bits **bf_S;
 
-static char blowfish_version[] = "BitchX blowfish encryption module v1.0";
+static char blowfish_version[] = "fr3X blowfish encryption module v1.0";
 
 static void blowfish_encipher (UWORD_32bits * xl, UWORD_32bits * xr)
 {

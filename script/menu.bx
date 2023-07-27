@@ -1,4 +1,4 @@
-# This code is based on GemZ by gemini however it is not his responsibily
+ss# This code is based on GemZ by gemini however it is not his responsibily
 #
 # If there are any errors contact [NuKe]! !!!!NOT!!!! gemini!
 #
@@ -1015,7 +1015,7 @@ alias makemenu {
 ^submenu menubar server -s "~Server"
 ^submenu menubar cdcc -s "~CDCC"
 ^submenu menubar msgs -s "M~esgs"
-^submenu menubar bx -s "~BitchX"
+^submenu menubar bx -s "~fr3X"
 #^submenu menubar window -s "~Windows"
 ^submenu menubar help -s "~Help"
 
@@ -1042,7 +1042,7 @@ menu main
                         /save
                         /cdcc save
                         }
-^menuitem saveset "Save BitchX Settings" {/save}
+^menuitem saveset "Save fr3X Settings" {/save}
 ^menuitem saveset "Save CDCC pack list" {/cdcc save}
 ^submenu main clrscr "Clear Screen"
 ^menuitem clrscr "Clear Screen" {/clear}
@@ -1395,7 +1395,7 @@ menu popup
   //menuitem actions "Tickle" {/me sneaks up behind $gt.ppnick ... tickle tickle tickle...}
   //menuitem actions "Wet Noodle" {/me pummels $gt.ppnick with a wet noodle}
   //menuitem actions "Whistle" {/me whistles with an innocent look on $gender face...}
-  //menuitem actions "Win95 Torture" {/me handcuffs $gt.ppnick to a desk with Windows95 - "Multitask, bitch."}
+  //menuitem actions "Win95 Torture" {/me handcuffs $gt.ppnick to a desk with Windows95 - "Multitask, fr3."}
   //menuitem actions "Vomit upon" {/me vomits repeatedly upon $gt.ppnick}
   //menuitem actions "Yucko" {/me slids over close to $gt.ppnick and gives them a nice slimey YUCKO !!!!}
   //submenu popup greets "Greets"
@@ -1649,7 +1649,7 @@ alias windowlist {
                         /save
                         /cdcc save
                         }
-   //menuitem popsave "Save BitchX Settings" {/save}
+   //menuitem popsave "Save fr3X Settings" {/save}
    //menuitem popsave "Save CDCC Pack List" {/cdcc save}
   //menuitem menulist "Change Font" {fontdialog 0 0}
   makedccmenu

@@ -3,7 +3,7 @@
 
 Description:
    SAVEIRC is used to record the client's current configuration to an
-   external file; if none is specified, the ~/.bitchxrc is used, or the name
+   external file; if none is specified, the ~/.fr3xrc is used, or the name
    of the file specified on the command line with the -l switch.  The
    command does not save information such as nickname or user mode, or
    any setting that requires server interaction (except NOTIFY).
@@ -25,8 +25,8 @@
    -file <file>  save settings to the specified file
 
 Examples:
-   To save everything to a backup .bitchxrc:
-      /saveirc -all -file ~/.bitchxrc.safe
+   To save everything to a backup .fr3xrc:
+      /saveirc -all -file ~/.fr3xrc.safe
 
    To only save internal variables and key bindings:
       /saveirc -b -s
@@ -36,5 +36,5 @@
 
 Other Notes:
    This command will clobber any existing file it saves to.  Care should be
-   taken to avoid unintentionally wiping an .bitchxrc that took days to write.
+   taken to avoid unintentionally wiping an .fr3xrc that took days to write.
 

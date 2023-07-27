@@ -227,7 +227,7 @@ BUILT_IN_COMMAND(notify)
 
 							if (!shown)
 							{
-								bitchsay("%s!%s removed from notification list", nick, host);
+								fr3say("%s!%s removed from notification list", nick, host);
 								shown = 1;
 							}
 						}
@@ -235,7 +235,7 @@ BUILT_IN_COMMAND(notify)
 						{
 							if (!shown)
 							{
-								bitchsay("%s!%s is not on the notification list", nick, host);
+								fr3say("%s!%s is not on the notification list", nick, host);
 								shown = 1;
 							}
 						}
@@ -254,7 +254,7 @@ BUILT_IN_COMMAND(notify)
 							new_free((char **)&new_n);
 						}
 					}
-					bitchsay("Notify list cleared");
+					fr3say("Notify list cleared");
 				}
 			}
 			else
@@ -267,7 +267,7 @@ BUILT_IN_COMMAND(notify)
 				{
 					int added = 0;
 					if (strchr(nick, '*'))
-						bitchsay("Wildcards not allowed in NOTIFY nicknames!");
+						fr3say("Wildcards not allowed in NOTIFY nicknames!");
 					else
 					{
 						for (servnum = 0; servnum < server_list_size(); servnum++)
@@ -295,7 +295,7 @@ BUILT_IN_COMMAND(notify)
 							m_s3cat(&list, space, new_n->nick);
 							do_ison = 1;
 						}
-						bitchsay("%s!%s added to the notification list", nick, host);
+						fr3say("%s!%s added to the notification list", nick, host);
 					}
 				} else
 					show_notify_list(1);
@@ -372,7 +372,7 @@ UserList *tmp = NULL;
 			n = find_nicklist_in_channellist(nick, chan, 0);
 			if (!n && chan->have_op && get_cset_int_var(chan->csets, AINV_CSET) && (tmp->flags & ADD_INVITE) && get_cset_int_var(chan->csets, AINV_CSET))
 			{
-				bitchsay("Auto-inviting %s to %s", nick, chan->channel);
+				fr3say("Auto-inviting %s to %s", nick, chan->channel);
 				send_to_server("NOTICE %s :Auto-invite from %s", nick, get_server_nickname(from_server));
 				send_to_server("INVITE %s %s%s%s", nick, chan->channel, chan->key?space:empty_string, chan->key?chan->key:empty_string);
 			}
@@ -522,7 +522,7 @@ void save_notify(FILE *fp)
 		fprintf(fp, "\n");
 	}
 	if (NOTIFY_MAX(0) && do_hook(SAVEFILE_LIST, "Notify %d", NOTIFY_MAX(0)))
-		bitchsay("Saved %d Notify entries", NOTIFY_MAX(0));
+		fr3say("Saved %d Notify entries", NOTIFY_MAX(0));
 }
 
 /* I hate broken compilers -mrg */
@@ -779,7 +779,7 @@ int servnum = 0;
 					continue;
 				}
 				if (strchr(nick, '*'))
-					bitchsay("Wildcards not allowed in WATCH nicknames!");
+					fr3say("Wildcards not allowed in WATCH nicknames!");
 				else
 				{
 					for (servnum = 0; servnum < server_list_size(); servnum++)
@@ -792,7 +792,7 @@ int servnum = 0;
 						}
 						if (WATCH_MAX(servnum) >= (is_server_connected(servnum) ? get_server_watch(servnum) : 128))
 						{
-							bitchsay("Too many WATCH entries [%d]", get_server_watch(servnum));
+							fr3say("Too many WATCH entries [%d]", get_server_watch(servnum));
 							continue;
 						}
 						new_n = (NotifyItem *)new_malloc(sizeof(NotifyItem));
@@ -809,7 +809,7 @@ int servnum = 0;
 						else
 							m_s3cat(&list, space_plus, new_n->nick);
 					}
-					bitchsay("%s added to the watch list", nick);
+					fr3say("%s added to the watch list", nick);
 				}
 			}
 			else if (*nick == '-')
@@ -832,7 +832,7 @@ int servnum = 0;
 						new_free((char **)&new_n);
 						if (!shown)
 						{
-							bitchsay("%s removed from watch list", nick);
+							fr3say("%s removed from watch list", nick);
 							shown = 1;
 						}
 					}
@@ -840,7 +840,7 @@ int servnum = 0;
 					{
 						if (!shown)
 						{
-							bitchsay("%s is not on the watch list", nick);
+							fr3say("%s is not on the watch list", nick);
 							shown = 1;
 						}
 					}
@@ -869,7 +869,7 @@ int servnum = 0;
 					if (get_server_watch(servnum) && is_server_connected(servnum))
 						my_send_to_server(servnum, "%s S", command);
 				}
-				bitchsay("Watch list cleared");
+				fr3say("Watch list cleared");
 			}
 		}
 		if (list)
@@ -890,7 +890,7 @@ void save_watch(FILE *fp)
 		fprintf(fp, "\n");
 	}
 	if (WATCH_MAX(0) && do_hook(SAVEFILE_LIST, "Watch %d", WATCH_MAX(0)))
-		bitchsay("Saved %d Watch entries", WATCH_MAX(0));
+		fr3say("Saved %d Watch entries", WATCH_MAX(0));
 }
 
 void show_watch_notify(char *from, int online, char **args)

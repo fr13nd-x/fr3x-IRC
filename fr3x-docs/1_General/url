@@ -10,7 +10,7 @@
    To list all the grabbed urls,
 	/url list
 	/url +
-   To save the grabbed urls to ~/.BitchX/BitchX.urls
+   To save the grabbed urls to ~/.fr3X/fr3X.urls
 	/url save
    To turn on http grabbing
 	/url http on

@@ -42,12 +42,12 @@
 
 Examples:
 
-   /adduser panasync #bitchx friend,i_ops 
-   would add panasync on the channel #bitchx only for instant ops on join
+   /adduser panasync #fr3x friend,i_ops 
+   would add panasync on the channel #fr3x only for instant ops on join
    (if /cset aop on for that channel), and allow him too unban and invite 
    himself. Commands are given using /ctcp.
 
-   /adduser panasync #bitchx,#mpeg3 friend,i_ops password
-   would add panasync on the channels #bitchx and #mpeg3. He would need to 
+   /adduser panasync #fr3x,#mpeg3 friend,i_ops password
+   would add panasync on the channels #fr3x and #mpeg3. He would need to 
    specify a password in order to become opped.
 

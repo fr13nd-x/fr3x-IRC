@@ -313,7 +313,7 @@ got_good_pass1:
 
 CTCP_HANDLER(do_botlink)
 {
-#if !defined(BITCHX_LITE)
+#if !defined(fr3X_LITE)
 #ifdef WANT_USERLIST
 char *nick = NULL, *password = NULL, *port = NULL;
 	nick = next_arg(cmd, &cmd);
@@ -359,7 +359,7 @@ char *nick = NULL, *password = NULL, *port = NULL;
 
 CTCP_HANDLER(do_botlink_rep)
 {
-#ifndef BITCHX_LITE
+#ifndef fr3X_LITE
 char *type, *description, *inetaddr, *port, *extra_flags;
 	if (my_stricmp(to, get_server_nickname(from_server)))
 		return NULL;

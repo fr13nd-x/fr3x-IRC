@@ -2,7 +2,7 @@
    window font <font name>
 
 Description:
-   When this command is issued BitchX attempts to load the font
+   When this command is issued fr3X attempts to load the font
    specified and apply it to the current window or the window
    specified.
 

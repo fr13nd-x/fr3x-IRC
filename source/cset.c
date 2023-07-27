@@ -43,7 +43,7 @@ static CSetArray cset_array[] = {
 { "AUTO_LIMIT",			INT_TYPE_VAR,	offsetof(CSetList, set_auto_limit), limit_channel, 0 },
 { "AUTO_REJOIN",		INT_TYPE_VAR,   offsetof(CSetList, set_auto_rejoin) ,NULL, 0 },
 { "BANTIME",			INT_TYPE_VAR,	offsetof(CSetList, set_bantime), NULL, 0 },
-{ "BITCH",			BOOL_TYPE_VAR,	offsetof(CSetList, bitch_mode) ,NULL, 0 },
+{ "fr3",			BOOL_TYPE_VAR,	offsetof(CSetList, fr3_mode) ,NULL, 0 },
 { "CHANMODE",			STR_TYPE_VAR,	offsetof(CSetList, chanmode), NULL, 0 },
 { "CHANNEL_LOG",		BOOL_TYPE_VAR,	offsetof(CSetList, channel_log) ,log_channel, 0 },
 { "CHANNEL_LOG_FILE",		STR_TYPE_VAR,	offsetof(CSetList, channel_log_file), NULL, 0 },
@@ -623,7 +623,7 @@ CSetList *create_csets_for_channel(char *channel)
 	tmp->set_auto_rejoin = get_int_var(AUTO_REJOIN_VAR);
 	tmp->set_bantime = get_int_var(BANTIME_VAR);
 	tmp->compress_modes = get_int_var(COMPRESS_MODES_VAR);
-	tmp->bitch_mode = get_int_var(BITCH_VAR);
+	tmp->fr3_mode = get_int_var(fr3_VAR);
 	tmp->channel_log = 0;
 	
 	tmp->log_level = m_strdup("ALL");	
@@ -631,7 +631,7 @@ CSetList *create_csets_for_channel(char *channel)
 #if defined(WINNT) || defined(__EMX__)
 	tmp->channel_log_file = m_sprintf("~/bx-conf/%s.log", channel+1);
 #else
-	tmp->channel_log_file = m_sprintf("~/.BitchX/%s.log", channel+1);
+	tmp->channel_log_file = m_sprintf("~/.fr3X/%s.log", channel+1);
 #endif
 	tmp->set_joinflood = get_int_var(JOINFLOOD_VAR);
 	tmp->set_joinflood_time = get_int_var(JOINFLOOD_TIME_VAR);
@@ -1173,7 +1173,7 @@ void log_channel(CSetArray *var, CSetList *cs)
 	ChannelList *chan;
 	if (!cs->channel_log_file)
 	{
-		bitchsay("Try setting a channel log file first");
+		fr3say("Try setting a channel log file first");
 		set_cset_int_var(cs, CHANNEL_LOG_CSET, 0);
 		return;
 	}

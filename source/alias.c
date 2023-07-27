@@ -549,7 +549,7 @@ BUILT_IN_COMMAND(dumpcmd)
 		if (!my_strnicmp(blah,"FI",2))
 		{
 #ifdef PUBLIC_ACCESS
-			bitchsay("This command has been disabled on a public access system");
+			fr3say("This command has been disabled on a public access system");
 			return;
 #else
 			malloc_sprintf(&filename, "~/%s.dump", version);
@@ -565,7 +565,7 @@ BUILT_IN_COMMAND(dumpcmd)
 				save_servers(fp);
 				fclose(fp);
 			}
-			bitchsay("Saved to ~/%s.dump", version);
+			fr3say("Saved to ~/%s.dump", version);
 			new_free(&expand);
 #endif
 		}

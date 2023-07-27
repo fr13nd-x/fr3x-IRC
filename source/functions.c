@@ -91,7 +91,7 @@ static	char	*alias_uptime		(void);
 static	char	*alias_serverport	(void);
 static	char	*alias_tclsupport	(void);
 static	char	*alias_current_network	(void);
-static  char	*alias_bitchx		(void);
+static  char	*alias_fr3x		(void);
 static	char	*alias_hookname		(void);
 static	char	*alias_awaytime		(void);
 static	char	*alias_thisaliasname	(void);
@@ -140,7 +140,7 @@ static	BuiltIns built_in[] =
 	{ 'Y',		alias_show_realname	},
 	{ 'Z',		alias_time		},
 	{ 'a',		alias_version_str1	},
-	{ 'b',		alias_bitchx		},
+	{ 'b',		alias_fr3x		},
 	{ 'h',		alias_hookname		},
 	{ 'l',		alias_serverlag		},
 	{ 'n',		alias_current_network	},
@@ -460,7 +460,7 @@ static BuiltInFunctions built_in_functions[] =
 	{ "BCOPY",		function_bcopy		},
 	{ "BEFORE",             function_before 	},
 	{ "BEFOREW",            function_beforew 	},
-	{ "BITCHX",		function_epic		},
+	{ "fr3X",		function_epic		},
 	{ "BMATCH",		function_bmatch		},
 	{ "BUILTIN_EXPANDO",	function_builtin	},
 	{ "CENTER",		function_center 	},
@@ -479,7 +479,7 @@ static BuiltInFunctions built_in_functions[] =
 	{ "CHOPS",              function_chops 		},
 	{ "CHR",                function_chr 		},
 	{ "CLOSE",		function_close 		},
-#ifndef BITCHX_LITE
+#ifndef fr3X_LITE
 	{ "CLOSESOCKET",	function_closeserver	},
 #endif
 	{ "CLUSTER",		function_cluster	},
@@ -541,7 +541,7 @@ static BuiltInFunctions built_in_functions[] =
 	{ "GETVAR",		function_getvar		},
 	{ "GLOB",		function_glob		},
 #ifdef GTK
-	{ "GTKBITCHX",		function_epic		},
+	{ "GTKfr3X",		function_epic		},
 #endif
 	{ "HASH_32BIT",		function_hash_32bit	},
 	{ "HELP",		function_help		},
@@ -616,7 +616,7 @@ static BuiltInFunctions built_in_functions[] =
 #endif
 	{ "MID",		function_mid 		},
 	{ "MIDW",               function_midw 		},
-#ifndef BITCHX_LITE
+#ifndef fr3X_LITE
 	{ "MIRCANSI",		function_mircansi	},
 #endif
 	{ "MKDIR",		function_mkdir		},
@@ -638,7 +638,7 @@ static BuiltInFunctions built_in_functions[] =
 	{ "NUMWORDS",		function_numwords	},
 	{ "ONCHANNEL",          function_onchannel 	},
 	{ "OPEN",		function_open 		},
-#ifndef BITCHX_LITE
+#ifndef fr3X_LITE
 	{ "OPENSOCKET",		function_openserver	},
 #endif
 	{ "OVSERVER",		function_ovserver	},
@@ -650,7 +650,7 @@ static BuiltInFunctions built_in_functions[] =
 	{ "PATTERN",            function_pattern 	},
 	{ "PID",		function_pid 		},
 #ifdef __EMXPM__
-	{ "PMBITCHX",		function_epic		},
+	{ "PMfr3X",		function_epic		},
 #endif
 	{ "POP",		function_pop 		},
 	{ "PPID",		function_ppid 		},
@@ -666,7 +666,7 @@ static BuiltInFunctions built_in_functions[] =
 	{ "REGERROR",		function_regerror	},
 	{ "REGEXEC",		function_regexec	},
 	{ "REGFREE",		function_regfree	},
-#ifndef BITCHX_LITE
+#ifndef fr3X_LITE
 	{ "READCHAR",		function_readchar	},
 	{ "READSOCKET",		function_readserver	},
 #endif
@@ -723,7 +723,7 @@ static BuiltInFunctions built_in_functions[] =
 	{ "STRIPANSICODES",	function_stripansicodes	},
 	{ "STRIPC",		function_stripc		},
 	{ "STRIPCRAP",		function_stripcrap	},
-#ifndef BITCHX_LITE
+#ifndef fr3X_LITE
 	{ "STRIPMIRC",		function_stripc		},
 #endif
 	{ "STRLEN",		function_strlen		},
@@ -772,7 +772,7 @@ static BuiltInFunctions built_in_functions[] =
 	{ "WORD",		function_word 		},
 	{ "WRITE",		function_write 		},
 	{ "WRITEB",		function_writeb		},
-#ifndef BITCHX_LITE
+#ifndef fr3X_LITE
 	{ "WRITESOCKET",	function_writeserver	},
 #endif
 	{ NULL,			NULL 			}
@@ -1094,7 +1094,7 @@ static	char	*alias_current_numeric	(void) { return m_sprintf("%03d", -current_nu
 static	char	*alias_hookname		(void) { return m_sprintf("%s", *hook_name?hook_name:empty_string); }
 static	char	*alias_thingansi	(void) { return m_strdup(numeric_banner()); }
 static	char	*alias_uptime		(void) { return m_sprintf("%s", convert_time(now-start_time)); }
-static	char	*alias_bitchx		(void) { return m_strdup("[BX]"); }
+static	char	*alias_fr3x		(void) { return m_strdup("[BX]"); }
 extern char *return_this_alias (void);
 static	char	*alias_thisaliasname	(void) { return m_strdup(return_this_alias()); }
 static	char	*alias_serverlag	(void) { return m_sprintf("%ld", get_server_lag(from_server)); }
@@ -4942,7 +4942,7 @@ int len1 = 3, len2 = 9;
 }
 
 
-#ifndef BITCHX_LITE
+#ifndef fr3X_LITE
 BUILT_IN_FUNCTION(function_openserver, word)
 {
 #ifdef PUBLIC_ACCESS
@@ -5202,7 +5202,7 @@ BUILT_IN_FUNCTION(function_winvisible, word)
 	RETURN_INT(get_visible_by_refnum(word));
 }
 
-#ifndef BITCHX_LITE
+#ifndef fr3X_LITE
 BUILT_IN_FUNCTION(function_mircansi, word)
 {
 extern char *mircansi(char *);

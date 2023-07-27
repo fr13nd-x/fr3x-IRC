@@ -559,7 +559,7 @@ static	void ignore_list(char *nick)
 		}
 	}
 	else
-		bitchsay("There are no nicknames or channels being ignored");
+		fr3say("There are no nicknames or channels being ignored");
 }
 
 long ignore_type (char *type, int len)
@@ -658,7 +658,7 @@ int flag = 0;
 		malloc_strcpy(&new->nick, args);
 		add_to_list((List **)&old->except, (List *)new);
 		flag = DONT_IGNORE;
-		bitchsay(" EXCEPT %s", new->nick);
+		fr3say(" EXCEPT %s", new->nick);
 	}
 	return flag;
 }
@@ -738,7 +738,7 @@ NOTICES NOTES CTCPS CDCC KICKS MODES SMODES JOINS TOPICS QUITS PARTS NICKS PONGS
 				ignore_nickname(nick, ret, flag);
 			else
 			{
-				bitchsay("You must specify one of the following:");
+				fr3say("You must specify one of the following:");
 				say("\tALL MSGS PUBLIC WALLS WALLOPS INVITES \
 NOTICES NOTES CTCPS CDCC KICKS MODES SMODES JOINS TOPICS QUITS PARTS NICKS PONGS SQUITS CRAP NONE");
 			}
@@ -913,9 +913,9 @@ int except = 0;
 		}
 	}
 	if (count)
-		bitchsay("Removed %d ignores and %d exceptions", count, except);
+		fr3say("Removed %d ignores and %d exceptions", count, except);
 	else
-		bitchsay("No matching ignore");
+		fr3say("No matching ignore");
 	for (new = ignored_nicks, count = 1; new; new = new->next, count++)
 		new->num = count;
 }

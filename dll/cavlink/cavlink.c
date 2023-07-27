@@ -45,7 +45,7 @@ int check_cavlink(SocketList *Client, char *str, int active)
 {
 	if ((active && !Client) || (!active && Client))
 	{
-		bitchsay(str?str:"Connect to a cavhub first");
+		fr3say(str?str:"Connect to a cavhub first");
 		return 0;
 	}
 	return 1;
@@ -1219,7 +1219,7 @@ char buffer[BIG_BUFFER_SIZE+1];
 	expanded = expand_twiddle(buffer);
 	if (!expanded || !(outf = fopen(expanded, "w")))
 	{
-		bitchsay("error opening %s", expanded ? expanded : buffer);
+		fr3say("error opening %s", expanded ? expanded : buffer);
 		new_free(&expanded);
 		return;
 	}

@@ -249,7 +249,7 @@ extern Function_ptr *global;
 
 /* output.c */
 #define put_it (*(void (*)(const char *, ...))global[PUT_IT])
-#define bitchsay (*(void (*)(const char *, ...))global[BITCHSAY])
+#define fr3say (*(void (*)(const char *, ...))global[fr3SAY])
 #define yell (*(void (*)(const char *, ...))global[YELL])
 #define add_to_screen (*(void (*)(unsigned char *))global[ADD_TO_SCREEN])
 #define add_to_log (*(void (*)(FILE *, time_t, const char *, int ))global[ADD_TO_LOG])

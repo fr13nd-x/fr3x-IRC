@@ -9,7 +9,7 @@ RESPONSIBLE FOR ANY DAMAGES INCURRED THROUGH THE USE OF THIS PACKAGE.
 
 SUMMARY
 --------------------------------------------------------------------------
-Europa is a BitchX (popular irc client) plugin to provide easy access to
+Europa is a fr3X (popular irc client) plugin to provide easy access to
 an SQL knowledgebase. This is helpful for use in help channels where
 common questions repeatedly come up.
 
@@ -26,7 +26,7 @@ us a lot of typing time.
 
 I've always admired the Penguin bot a lot and wished I could run one
 myself. However, I don't have access to any IRC servers that allow bots. 
-This led to the developement of Europa, a BitchX plugin that listens to
+This led to the developement of Europa, a fr3X plugin that listens to
 channels you are chatting on and automatically responds when it sees
 someone giving it a command. This lets you chat on IRC as a normal user
 like you've always done, but also have a nice SQL knowledgebase available
@@ -38,21 +38,21 @@ Europa currently only support MySQL (http://www.mysql.com/) for the
 database backend. You will need to have MySQL already installed
 and working to use Europa.
 
-To use Europa, you need to be using BitchX (http://www.bitchx.org/). In
-addition, to compile Europa, you will need a copy of the BitchX source
-code extracted as ../BitchX (relative to Europa's directory).
+To use Europa, you need to be using fr3X (http://www.fr3x.org/). In
+addition, to compile Europa, you will need a copy of the fr3X source
+code extracted as ../fr3X (relative to Europa's directory).
 
 INSTALLATION
 --------------------------------------------------------------------------
-1. Extract the Europa source code and the BitchX source code:
+1. Extract the Europa source code and the fr3X source code:
    gzip -cd europa-xxx.tar.gz | tar xvf -
-   gzip -cd BitchX-1.0c13.tar.gz | tar xvf -
+   gzip -cd fr3X-1.0c13.tar.gz | tar xvf -
 
    These should be extracted this way so that the Europa makefile can
-   access the BitchX include files (see Makefile to see what I mean).
+   access the fr3X include files (see Makefile to see what I mean).
 
-2. Compile and install BitchX
-   cd BitchX/
+2. Compile and install fr3X
+   cd fr3X/
    less INSTALL
 
 3. Create a database for Europa to use on your mysql server:
@@ -70,16 +70,16 @@ INSTALLATION
 5. Compile the Europa source code:
    make
 
-6. Copy the resulting europa.so file to your ~/.BitchX/plugins/ directory,
-   or alternatively you could put it in your system wide BitchX plugins
+6. Copy the resulting europa.so file to your ~/.fr3X/plugins/ directory,
+   or alternatively you could put it in your system wide fr3X plugins
    directory (/usr/local/lib/bx/plugins/ on my system).   
 
-7. Start up BitchX. Do a "/loaddll europa.so" and you should see
+7. Start up fr3X. Do a "/loaddll europa.so" and you should see
    Europa load and connect to your SQL knowledgebase.
 
    You may want to add the command "LOADDLL europa.so" to your
-   ~/.BitchX/BitchX.sav file so that Europa loads automatically everytime
-   you start BitchX.
+   ~/.fr3X/fr3X.sav file so that Europa loads automatically everytime
+   you start fr3X.
 
 USING EUROPA
 --------------------------------------------------------------------------

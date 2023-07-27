@@ -1,17 +1,17 @@
-The OS/2 portion of the BitchX client is no longer supported and will not
-be maintained in BitchX2.  If you have troubles with this software you can
+The OS/2 portion of the fr3X client is no longer supported and will not
+be maintained in fr3X2.  If you have troubles with this software you can
 attempt to contact the former maintainer but be aware that he may no longer
 have any interest in updating or fixing problems with the OS/2 portion of
 the client.
 
-sin@bitchx.org/EFnet@#BitchX
+sin@fr3x.org/EFnet@#fr3X
 
 ------
 
 
-This is a port of the latest BitchX to OS/2 Presentation Manager. (3-25-02)
+This is a port of the latest fr3X to OS/2 Presentation Manager. (3-25-02)
 
-Several environment variables should be set before running PMBitchX.
+Several environment variables should be set before running PMfr3X.
 
 As of this version you can let the installation program set these, 
 or you can do it yourself.
@@ -26,7 +26,7 @@ IRCNICK = PMBXUser
 
 HOSTNAME = mycomputer
 
-Scripts are located at scripts.bitchx.com. To install untar them into the
+Scripts are located at scripts.fr3x.com. To install untar them into the
 HOME directory and /load them.  Also try /load menu.bx for pull down 
 menus. If it is a clean installation and you don't have the HOME environment
 variable set... it should load automatically.
@@ -46,11 +46,11 @@ and this code has been developing for over a year.
 
 What's new in 1.0c17:
 
-Lots of bug fixes to the main BitchX source.
+Lots of bug fixes to the main fr3X source.
 
 Fixed another multiserver bug.  from_server was pointing
 to the wrong server when the EVKEY message made it back to
-the main thread.  This affected any GUI BitchX's.
+the main thread.  This affected any GUI fr3X's.
 
 What's new in 1.0c16 release 4:
 
@@ -89,7 +89,7 @@ MDI fixes, resizing flips the y component.
 
 Enhanced codepage support with tips from mikh.
 
-Fixed a bug where BitchX was attempting to operate on dead screens.
+Fixed a bug where fr3X was attempting to operate on dead screens.
 
 What's new in 1.0c16 release 2:
 
@@ -136,7 +136,7 @@ Preliminary MDI code ... it's buggy in spots.
 New JOIN_NEW_WINDOW_TYPE, QUERY_NEW_WINDOW and QUERY_NEW_WINDOW_TYPE.
 Allows the JOIN_NEW_WINDOW variable to be used in console clients.
 
-Since DavidW2 and pana reautoconfed BitchX PMBitchX can now be configured
+Since DavidW2 and pana reautoconfed fr3X PMfr3X can now be configured
 via the configure script with the following options:
 ./configure --with-pm --enable-sound
 
@@ -231,7 +231,7 @@ Using new keybinding code.
 
 Fix for Aurora/Trident/GRADD/Cirrus Logic drivers. (IBM misdocumentation)
 
-Based on BitchX 75p2 (public) code, merged with main distribution.
+Based on fr3X 75p2 (public) code, merged with main distribution.
 
 I have created an XP-like interface in the source code to ease
 porting to other OSes.  A preliminary gtk port is available.

@@ -1,6 +1,6 @@
-Compile-Time Options Available for BitchX                                
+Compile-Time Options Available for fr3X                                
 
-BitchX supports numerous configuration options that may be selectively 
+fr3X supports numerous configuration options that may be selectively 
 included or excluded from the client at compile time.  Since many of these 
 enable or disable certain special features, it is useful to script writers 
 to be able to find out what options are present while the client is running.

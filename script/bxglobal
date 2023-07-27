@@ -1,6 +1,6 @@
-# global bitchx script
+# global fr3x script
 
-if (gtkbitchx())
+if (gtkfr3x())
 {
 	^load menu.bx
 	^set nicklist on

@@ -20,7 +20,7 @@ FILE	*irclog_fp = NULL;
 void do_log(int flag, char *logfile, FILE **fp)
 {
 #ifdef PUBLIC_ACCESS
-	bitchsay("This command has been disabled on a public access system");
+	fr3say("This command has been disabled on a public access system");
 	return;
 #else
 	time_t	t = now;

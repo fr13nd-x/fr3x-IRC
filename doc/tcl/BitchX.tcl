@@ -1,11 +1,11 @@
-BitchX tcl now includes a special mode similar to what eggdrop bots have. ie
-we can setup a BitchX client as both a client and/or a bot. 
+fr3X tcl now includes a special mode similar to what eggdrop bots have. ie
+we can setup a fr3X client as both a client and/or a bot. 
 
      Client A -----\					/----- Client C
 		     ----- Bot A ----------- Bot B -----
      Client B -----/				        \----- Client D
 
-Bot A and Bot B are both BitchX clients. In Bot A attempts to link in a Bot
+Bot A and Bot B are both fr3X clients. In Bot A attempts to link in a Bot
 link to Bot B then Bot B needs to have Bot A in it's /botlist with a
 password. ie /addbot BotA #channel 0 0 password  where channel, auto-op and
 prot levels don't matter. /clink BotB BotA password is then used to link the
@@ -60,7 +60,7 @@ things to you or causing you todo things you wouldnt want them todo.
 	.whom 			- all users on network
 
 Commands for tcl scripting
-*note: Most of these follow the eggdrop syntax. Some are unique to BitchX
+*note: Most of these follow the eggdrop syntax. Some are unique to fr3X
 however. On differance is that instead of a letter for the userlevel, a
 numeric userlevel is applied instead.
 
@@ -95,7 +95,7 @@ numeric userlevel is applied instead.
 		c->set_joinflood_time, c->set_pubflood, c->set_pubflood_time,
 		c->set_pubflood_ignore, c->set_userlist, c->set_shitlist, c->set_lamelist,
 		c->set_kick_if_banned, c->totalnicks, c->maxnicks, c->maxnickstime,
-		c->totalbans, c->maxbans, c->maxbanstime, c->set_aop, c->bitch_mode);
+		c->totalbans, c->maxbans, c->maxbanstime, c->set_aop, c->fr3_mode);
 
 	channel
 	channels
@@ -151,7 +151,7 @@ numeric userlevel is applied instead.
 			  may be specified.
 	getchanmode
 
-Tcl variables BitchX sets.
+Tcl variables fr3X sets.
 	botnick
 	nick
 	realname
@@ -169,5 +169,5 @@ routines. returning 0 or nothing will have the tcl and the ircII internal
 routine execute.
 
 
-BitchX's bot mode acts very similar to eggdrop's and in fact thanks to Robey
+fr3X's bot mode acts very similar to eggdrop's and in fact thanks to Robey
 for defining the protocol necessary to achieve this.

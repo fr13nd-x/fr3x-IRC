@@ -1,8 +1,8 @@
-BitchX function doc.  
+fr3X function doc.  
 Last updated: 9/10/98 by power <power@power.zepa.net>
 
 This is not a complete function manual.  For all functions
-please look in ../bitchx-docs/6_Functions/
+please look in ../fr3x-docs/6_Functions/
 
 
 
@@ -14,7 +14,7 @@ Example:  $left(5 the quick brown frog) returns "the q"
 Function: $getkey()
 Usage:    $getkey(channel)
 Returns:  the channel key if there is one.
-Example:  $getkey(#BitchX) should return nothing ;)
+Example:  $getkey(#fr3X) should return nothing ;)
 
 Function: $right()
 Usage:    $right(number text)
@@ -333,8 +333,8 @@ Function: $tow()
 Usage:    $tow(pattern string of words)
 Returns:  the portion of "string of words" that occurs up to and including
           the first word that is matched by "pattern"
-Example:  $tow(panasync BitchX by panasync is cool)
-          returns "BitchX by panasync"
+Example:  $tow(panasync fr3X by panasync is cool)
+          returns "fr3X by panasync"
 
 Function: $afterw()
 Usage:    $afterw(number words)
@@ -489,7 +489,7 @@ Usage:    $center(width string)
 Returns:  Returns the string centered in "width" chars
 Notes:    The string is truncated from the right, so the returned length
           is NOT "width".
-Example:  $center(30 BitchX) returns "            BitchX"
+Example:  $center(30 fr3X) returns "            fr3X"
 
 Function: $split()
 Usage:    $split(splitstring stringtosplit)
@@ -509,9 +509,9 @@ Example:  $ascii(xyz) returns "120 121 122"
 
 Function: $which()
 Usage:    $which(filename)
-Returns:  the absolute path of any file in ~/.BitchX
-Example:  $which(BitchX.help) returns (on my box)
-          "/home/by-tor/.BitchX/BitchX.help"
+Returns:  the absolute path of any file in ~/.fr3X
+Example:  $which(fr3X.help) returns (on my box)
+          "/home/by-tor/.fr3X/fr3X.help"
 
 Function: $isalpha()
 Usage:    $isalpha(char)
@@ -532,7 +532,7 @@ Function: $open()
 Usage:    $open(filename mode)
 Returns:  File handler # for the opened file, if successful. Nothing if
           unsuccessful.
-Example:  $open($ctoolz_dir/BitchX.quits R) returns a # (should, if it
+Example:  $open($ctoolz_dir/fr3X.quits R) returns a # (should, if it
           exists.
 Notes:    Possible flags are R and W from what I know...
 
@@ -588,7 +588,7 @@ Example:  $rename(/etc/passwd /etc/mypasswd) returns 0 if you are root ;)
 Function: $rmdir()
 Usage:    $rmdir(dir)
 Returns:  1 if unsuccessful, 0 if successful (dont ask me why ;)
-Example:  $rmdir(.BitchX) returns 1
+Example:  $rmdir(.fr3X) returns 1
 
 Function: $utime()
 Usage:    $utime()
@@ -647,17 +647,17 @@ Example:  $strlen(this is a string) returns 16
 Function: $fexist()
 Usage:    $fexist(file)
 Returns:  returns 1 if file exists, -1 otherwise
-Example:  $fexist(/usr/local/bin/BitchX) returns 1
+Example:  $fexist(/usr/local/bin/fr3X) returns 1
 
 Function: $fsize()
 Usage:    $fsize(file)
 Returns:  the size of "file" or -1 if it doesnt exist
-Example:  $fsize(/usr/local/bin/BitchX-72) returns 786628
+Example:  $fsize(/usr/local/bin/fr3X-72) returns 786628
 
 Function: $info()
 Usage:    $info()
-Returns:  some crap about BitchX i have no idea what it means
-Example:  $info() returns BitchX+adegikltz in bX72+tcl1.0 (tcl 8.0b2)
+Returns:  some crap about fr3X i have no idea what it means
+Example:  $info() returns fr3X+adegikltz in bX72+tcl1.0 (tcl 8.0b2)
 
 Function: $geom()
 Usage:    $geom()
@@ -706,8 +706,8 @@ Function: $checkuser()
 Usage:    $checkuser(userhost channel)
 Returns:  if given a hostmask matching one on your userlist, returns the 
           level, aop protect level, etc
-Example:  $checkuser(novalogic!nova@ra1.randomc.com #bitchx) returns
-          51 1 1 *nova@*.randomc.com #bitchx
+Example:  $checkuser(novalogic!nova@ra1.randomc.com #fr3x) returns
+          51 1 1 *nova@*.randomc.com #fr3x
 
 Function: $checkbot()
 Usage:    $checkbot(userhost channel)
@@ -719,13 +719,13 @@ Example:  $checkbot(PimpBot!rush@nic.cerf.net #yyz) returns
 Function: $getinfo()
 Usage:    $getinfo(nick)
 Returns:  the info set by $setinfo() for a valid nick on your userlist
-Example:  $getinfo(panasync) returns "the coder for bitchx!"
+Example:  $getinfo(panasync) returns "the coder for fr3x!"
 
 Function: $setinfo()
 Usage:    $setinfo(nick info)
 Returns:  0 or 1 depending on the success of the command
 Notes:    "nick" must be on your userlist
-Example:  $setinfo(panasync the coder for bitchx!) returns 1
+Example:  $setinfo(panasync the coder for fr3x!) returns 1
 
 Function: $rot13()
 Usage:    $rot13(text)
@@ -803,35 +803,35 @@ Example:  $help(help) returns:
           "[ì] Help on Topic: help"
           "   Usage: /BHelp <Topic|Index>"
           "     Topic - This gives help on <Topic>"
-          "     Index - This shows the list of commands supplied in BitchX"
+          "     Index - This shows the list of commands supplied in fr3X"
 
 Function: $isuser(nick userhost)
 Usage:    $isuser(nick userhost)
 Returns:  given a nick (or *) and a user@host (any wildcard form), the
           corresponding userlist information if a match is found.
 Example:  $isuser(* edwards@*.sympatico.ca) returns
-          "USER 100 1 1 *edwards@*.sympatico.ca #bitchx" on my machine
+          "USER 100 1 1 *edwards@*.sympatico.ca #fr3x" on my machine
 
 Function: $isban()
 Usage:    $isban(channel ban)
 Returns:  1 if the ban matches a shitlist ban entry (3 or 4), 0 if not
-Example:  $isban(#bitchx *!*@*mirc*) returns 1 ;)
+Example:  $isban(#fr3x *!*@*mirc*) returns 1 ;)
 
 Function: $banonchannel()
 Usage:    $banonchannel(channel ban)
 Returns:  0 if the ban does not exist on the channel, 1 if it does
-Example:  $banonchannel(#bitchx *!*@*mirc*) returns 1 ;)
+Example:  $banonchannel(#fr3x *!*@*mirc*) returns 1 ;)
 
 Function: $isop()
 Usage:    $isop(channel nick)
 Returns:  1 if the nick is an op in both your userlist for the channel AND an
           op on the channel, 0 otherwise.
-Example:  $isop(#bitchx panasync) returns 1
+Example:  $isop(#fr3x panasync) returns 1
 
 Function: $isvoice()
 Usage:    $isvoice(channel nick)
 Returns:  1 if the nick is +v, 0 if not.
-Example:  $isvoice(#bitchx panasync) returns 0
+Example:  $isvoice(#fr3x panasync) returns 0
 
 Function: $randomnick()
 Usage:    $randomnick()
@@ -845,7 +845,7 @@ Example:  /do echo $cparse("%Rthis is bright red")
 
 Function: $getreason()
 Usage:    $getreason(text)
-Returns:  a random reason from BitchX.reasons
+Returns:  a random reason from fr3X.reasons
 Notes:    you MUST use some argument for this, or it returns nothing.
 Example:  $getreason(asdf) returned
           "When faith is lost, when honor dies, The man is dead!"
@@ -853,7 +853,7 @@ Example:  $getreason(asdf) returned
 Function: $chmod()
 Usage:    $chmod(file numeric-mode)
 Returns:  0 if a successful, -1 if not
-Example:  $chmod(.BitchX/BitchX.quits 666) returns 0 and sets the permissions
+Example:  $chmod(.fr3X/fr3X.quits 666) returns 0 and sets the permissions
           of the file to "666" or "-rw-rw-rw-"
 
 Function: $twiddle()
@@ -1083,24 +1083,24 @@ Usage:    $winitem(num) for info on window 'num'.
 		$19 reserved
 		$20+ window level
 Example:  /eval echo $winitem(1) returns:
-	    1 <none> 0 #BitchX <none> <none> <none> 1 79 25 <none> <none>
+	    1 <none> 0 #fr3X <none> <none> <none> 1 79 25 <none> <none>
             <none> <none> <none> <none> "" "" <none> <none> NONE
 
 Function: $chanmode(#chan num)
 Usage:    $chanmode(#chan num) - 'num' can be one of 0=normal, 1=bans,
           2=ban whoset time, 3=exemptions for TS4.
-Example:  /do echo $chanmode(#BitchX 1) returns "*!*@*.aol.com"
-          /do echo $chanmode(#BitchX 2) returns "*!*@*.aol.com power 7812"
+Example:  /do echo $chanmode(#fr3X 1) returns "*!*@*.aol.com"
+          /do echo $chanmode(#fr3X 2) returns "*!*@*.aol.com power 7812"
 
 Function: $channicks(#chan sort_type)
 Usage:    $channicks(#chan sort_type) - 'sort_type' can me one of:
           0=normal, 1=none, 2=nick, 3=host, 4=time, 5=ip (if available)
-Example:  /eval echo $channicks(#BitchX) returns nicks on #BitchX
-          /eval echo $channicks(#BitchX 3) returns nick on #BitchX
+Example:  /eval echo $channicks(#fr3X) returns nicks on #fr3X
+          /eval echo $channicks(#fr3X 3) returns nick on #fr3X
             sorted by host.
 
 Function: $topic(#channel)
 Usage:    $topic() or $topic(#channel)
 Example:  /eval echo $topic() returns topic on current channel.
-          /eval echo $topic(#BitchX) returns topic on #BitchX.
+          /eval echo $topic(#fr3X) returns topic on #fr3X.
 

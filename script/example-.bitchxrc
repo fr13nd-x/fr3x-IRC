@@ -1,11 +1,11 @@
-# ~/.bitchxrc file
+# ~/.fr3xrc file
 #
-# This file is automatically loaded by BitchX before you connect
+# This file is automatically loaded by fr3X before you connect
 # to a server.  You can use any commands you want.  Most often,
 # this file is used to automatically load scripts. -power
 ##############################################################################
 
-# loads the script 'venoma.irc' located in your ~/.BitchX/ directory.
+# loads the script 'venoma.irc' located in your ~/.fr3X/ directory.
 ^load venoma.irc
 
 # loads cypress script located in /your_home_dir/cyp/

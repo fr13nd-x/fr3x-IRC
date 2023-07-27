@@ -92,7 +92,7 @@
       on ^join "*" {
          echo B*>*B $0 \($2\) has joined $1 [$Z]
       }
-      on ^channel_synch "#bitchx *" { 
+      on ^channel_synch "#fr3x *" { 
 	 echo this and next hook will exec, but the default will not. $*
          return next
       }
